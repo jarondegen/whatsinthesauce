@@ -1,4 +1,6 @@
-# Groceries
+# Whatsinthesauce
+
+ - Grocery List and Fridge Tracker
 
 # User Stories
 ----------------
