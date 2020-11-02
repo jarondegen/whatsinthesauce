@@ -1,4 +1,4 @@
-# Groceries
+# Whatsinthesauce
 
 # User Stories
 ----------------
@@ -15,17 +15,20 @@
     - Link to whatsforlunch
 
 
+
 # MVP
 ------
 - [ ] shopping lists (add/delete/move items)
-- [ ] fridge inventory with prices and pictures and expiration dates
-- [ ] recipe recommendations
+- [ ] fridge inventory 
+- [ ] dashboard with prices and pictures and expiration dates
 - [ ] login/signup/auth
 
 # Stretch Goals
 ---------------
+- [ ] recipe recommendations
 - [ ] mobile view support
 - [ ] share what’s in your fridge with other users
+- [ ] nutritional info
 
 # Data Base
 -------------
@@ -49,16 +52,22 @@
     - expires_in
     - food_group_id
 
+- ingredient_shopping_list (join)
+-----------------------------------
+    - list_id
+    - ingredient_id
+
 - shopping_lists
 ----------------------
+    - id
     - indgredient_id
     - user_id
     - name (user_id + string)
 
-- fridges
-------------------
-    - user_id
+- ingredient_fridge (join)
+---------------------------
     - ingredient_id
+    - user_id
     - price (nullable)
 
 - recommendations
