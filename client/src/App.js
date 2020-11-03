@@ -3,7 +3,8 @@ import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
 import UserList from './components/UsersList';
 import LoginForm from './components/LoginForm';
 import UserForm from './components/UserForm';
-import AuthContext from './auth'
+import AuthContext from './auth';
+import ShoppingLists from './components/ShoppingList/ShoppingList';
 
 import { ProtectedRoute, AuthRoute } from './Routes';
 
@@ -73,6 +74,7 @@ function App() {
             </nav>
             <Switch>
                 <ProtectedRoute path="/users" exact={true} component={UserList} currentUserId={currentUserId} />
+                <ProtectedRoute path="/home" exact={true} component={ShoppingLists} currentUserId={currentUserId} />
                 <ProtectedRoute path="/users/:id/edit" component={UserForm} currentUserId={currentUserId} />
                 <AuthRoute path="/login" component={LoginForm} />
                 <Route path="/">

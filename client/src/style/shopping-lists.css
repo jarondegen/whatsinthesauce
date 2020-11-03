@@ -1,0 +1,16 @@
+.hidden {
+    display: none;
+}
+
+#NLFLabel:hover {
+    cursor: pointer;
+}
+
+.lists-div {
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    justify-content: space-around;
+    align-items: center;
+    height: 30px;
+}
