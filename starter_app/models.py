@@ -1,10 +1,12 @@
-from flask_sqlalchemy import SQLAlchemy
+from flask_jwt_extended import create_access_token, get_jwt_identity
 from flask_login import UserMixin
+from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
+
 
 db = SQLAlchemy()
 
-class User(db.Model):
+class User(db.Model, UserMixin):
   __tablename__ = 'users'
 
   id = db.Column(db.Integer, primary_key = True)
@@ -24,7 +26,7 @@ class User(db.Model):
   
   @property
   def password(self):
-        return self.hashed_password
+    raise AttributeError('Password not readable.')
   
   @password.setter
   def password(self, password):
@@ -36,8 +38,7 @@ class User(db.Model):
   @classmethod
   def authenticate(cls, username, password):
       user = cls.query.filter(User.username == username).scalar()
-      return check_password_hash(user.password, password), user
-
+      return check_password_hash(user.hashed_password, password), user
 
 class Food_Group(db.Model):
   __tablename__ = 'food_groups'
