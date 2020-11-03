@@ -14,6 +14,8 @@ from flask_login import (
 from starter_app.models import db, User
 from starter_app.api.user_routes import user_routes
 from starter_app.api.list_routes import list_routes
+from starter_app.api.ingredient_routes import ingredient_routes
+from starter_app.api.fridge_routes import fridge_routes
 
 from starter_app.config import Config
 
@@ -22,6 +24,9 @@ app = Flask(__name__)
 app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(list_routes, url_prefix='/api/lists')
+app.register_blueprint(ingredient_routes, url_prefix='/api/ingredients')
+app.register_blueprint(fridge_routes, url_prefix='/api/fridges')
+
 db.init_app(app)
 migrate = Migrate(app, db)
 login_manager = LoginManager(app)

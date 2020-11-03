@@ -1,0 +1,8 @@
+.fridge-item-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 400px;
+    height: 20px;
+    align-items: center;
+}

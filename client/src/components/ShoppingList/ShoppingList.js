@@ -29,11 +29,10 @@ const ShoppingLists = () => {
 
     return (
         <div className="lists-container">
-            <h1>YOOOOO</h1>
             <NewShoppingList getLists={getLists}/>
             {lists.map(list => 
                 <div className="lists-div" key={list.name}>
-                    <h3>{list.name}</h3>
+                    <a href={`/lists/${list.id}`}><h3>{list.name}</h3></a>
                     <h5>{list.date.split(" ").slice(0,3).join(" ")}</h5>
                     <button id={list.id} onClick={handleDelete}>(-)</button>
                 </div>

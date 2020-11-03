@@ -4,7 +4,8 @@ import UserList from './components/UsersList';
 import LoginForm from './components/LoginForm';
 import UserForm from './components/UserForm';
 import AuthContext from './auth';
-import ShoppingLists from './components/ShoppingList/ShoppingList';
+import Dashboard from './components/Dashboard';
+import ListPage from './components/ShoppingList/ListPage'
 
 import { ProtectedRoute, AuthRoute } from './Routes';
 
@@ -50,7 +51,6 @@ function App() {
                     }
                 });
                 if(authData.current_user_id){
-                    console.log(authData)
                     setCurrentUserId(authData.current_user_id)
                 }
             }
@@ -66,15 +66,17 @@ function App() {
         <BrowserRouter>
             <nav>
                 <ul>
-                    <li><NavLink to="/" activeclass="active">Home</NavLink></li>
-                    <li><NavLink to="/login" activeclass="active">Login</NavLink></li>
-                    <li><a onClick={logoutUser} href="#" activeclass="active">Logout</a></li>
+                    <li><NavLink to="/home" activeclass="active">Home</NavLink></li>
                     <li><NavLink to="/users" activeclass="active">Users</NavLink></li>
+                    {currentUserId ? 
+                    <li><a onClick={logoutUser} href="#" activeclass="active">Logout</a></li>
+                    : <li><NavLink to="/login" activeclass="active">Login</NavLink></li>}
                 </ul>
             </nav>
             <Switch>
                 <ProtectedRoute path="/users" exact={true} component={UserList} currentUserId={currentUserId} />
-                <ProtectedRoute path="/home" exact={true} component={ShoppingLists} currentUserId={currentUserId} />
+                <ProtectedRoute path="/lists/:id" exact={true} component={ListPage} currentUserId={currentUserId} />
+                <ProtectedRoute path="/home" exact={true} component={Dashboard} currentUserId={currentUserId} />
                 <ProtectedRoute path="/users/:id/edit" component={UserForm} currentUserId={currentUserId} />
                 <AuthRoute path="/login" component={LoginForm} />
                 <Route path="/">
