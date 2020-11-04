@@ -3,7 +3,9 @@ import ShoppingLists from './ShoppingList/ShoppingList';
 import { getFridgeItems } from '../store/fridge';
 import { useDispatch, useSelector } from 'react-redux';
 import AuthContext from '../auth';
+import Recipes from './Recipes/Recipes';
 import '../style/dashboard.css';
+
 
 
 const Dashboard = () => {
@@ -30,20 +32,23 @@ const Dashboard = () => {
     }
 
     return (
-        <div className="dashboard-page-container">
-            <div className="fridge-container">
-                <h1>My Fridge</h1>
-                {Fridge && Fridge.map(item => 
-                    <div className="fridge-item-container" key={item.id}>
-                        <p>{item.name}</p>
-                        <p>{item.expires_in}</p>
-                        <p>{item.date.split(" ").slice(0,3).join(" ")}</p>
-                        <button onClick={handleRemoveItemFromFridge} id={item.id}>(-)</button>
-                    </div>
-                )}
+        <>
+            <div className="dashboard-page-container">
+                <div className="fridge-container">
+                    <h1>My Fridge</h1>
+                    {Fridge && Fridge.map(item => 
+                        <div className="fridge-item-container" key={item.id}>
+                            <p>{item.name}</p>
+                            <p>{item.expires_in}</p>
+                            <p>{item.date.split(" ").slice(0,3).join(" ")}</p>
+                            <button onClick={handleRemoveItemFromFridge} id={item.id}>(-)</button>
+                        </div>
+                    )}
+                </div>
+                <ShoppingLists />
             </div>
-            <ShoppingLists />
-        </div>
+            <Recipes />
+        </>
     );
 }
 

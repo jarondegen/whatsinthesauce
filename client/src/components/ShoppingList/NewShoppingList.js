@@ -41,6 +41,12 @@ const NewShoppingList = ({ getLists }) => {
         setListName('');
     }
 
+    const handleEnter = (e) => {
+        if (e.key === 'Enter') {
+            handleSubmit(e)
+          }
+    }
+
     return (
         <div className="new-list-form-container">
             <h3 id="NLFLabel" onClick={toggleForm}>+ New List</h3>
@@ -52,7 +58,7 @@ const NewShoppingList = ({ getLists }) => {
                     <input onChange={(e) => setListName(e.target.value)} value={listName} type="text" placeholder="ex. Whole Foods.."/>
                 </div>
                 <div>
-                    <button onClick={handleSubmit} >Create List</button>
+                    <button onClick={handleSubmit} onKeyDown={handleEnter}>Create List</button>
                 </div>
             </form>
         </div>

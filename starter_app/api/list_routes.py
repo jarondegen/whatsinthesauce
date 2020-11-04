@@ -24,6 +24,9 @@ def new_list():
 
 @list_routes.route('/delete/<list_id>', methods=["DELETE"])
 def delete_list(list_id):
+    list_items = Ing_Shop.query.filter(Ing_Shop.list_id == list_id).all()
+    for item in list_items:
+        db.session.delete(item)
     list_to_delete = Shopping_List.query.filter(Shopping_List.id == list_id).one()
     db.session.delete(list_to_delete)
     db.session.commit()
