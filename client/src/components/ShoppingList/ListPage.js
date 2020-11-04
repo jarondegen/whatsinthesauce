@@ -2,18 +2,18 @@ import React, { useState, useEffect, useContext } from 'react';
 import { getIngredients } from '../../store/ingredients';
 import { useSelector, useDispatch } from 'react-redux';
 import AuthContext from '../../auth';
+import ListItem from './ListItem';
 
 const ListPage = (props) => {
     const dispatch = useDispatch()
     const listId = props.match.params.id;
-    const { fetchWithCSRF, currentUserId } = useContext(AuthContext);
+    const { fetchWithCSRF } = useContext(AuthContext);
     const [listName, setListName] = useState('');
     const [listItems, setListItems] = useState([]);
     const [itemToAdd, setItemToAdd] = useState(null)
-    const { ingredients, groups } = useSelector(store => store.Ingredients)
+    const { groups } = useSelector(store => store.Ingredients)
     const [itemsByGroup, setItemsByGroup] = useState([])
     
-
     useEffect(() => {
         getItems(listId)
         dispatch(getIngredients())
@@ -29,7 +29,6 @@ const ListPage = (props) => {
     }
 
     const handleGroupSelect = async (e) => {
-        console.log(e.target.value)
         const data = await fetch(`/api/ingredients/groups/${e.target.value}`)
         if (data.ok) {
             const items = await data.json()
@@ -50,48 +49,7 @@ const ListPage = (props) => {
             })
         })
         if (data.ok) {
-             const response = await data.json()
              getItems(listId)
-        }
-    }
-
-    const handleRemoveItem = async (e) => {
-        const data = await fetchWithCSRF('/api/lists/remove-item', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-            },
-            credentials: 'include',
-            body: JSON.stringify({
-                listId,
-                ingredient_id: e.target.id
-            })
-        });
-        if (data.ok) {
-            const response = data.json()
-            console.log(response)
-            getItems(listId)
-        }
-    }
-
-    const handleAddToFridge = async (e) => {
-        const data = await fetchWithCSRF('/api/fridges/add', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-            },
-            credentials: 'include',
-            body: JSON.stringify({
-                user_id: currentUserId,
-                ingredient_id: parseInt(e.target.id.split('-').slice(0,1)),
-                list_id: parseInt(listId),
-                id: parseInt(e.target.id.split('-').slice(1))
-            })
-        });
-        if (data.ok) {
-            const response = await data.json();
-            console.log(response)
-            getItems(listId)
         }
     }
 
@@ -102,11 +60,7 @@ const ListPage = (props) => {
             <div className="list-items-container">
                 <ul>
                     {listItems && listItems.length>0 && listItems.map(item =>
-                        <div key={item.id}> 
-                            <li>{item.name}</li>
-                            <button id={item.ingredient_id} onClick={handleRemoveItem}>(-)</button>
-                            <button id={`${item.ingredient_id}-${item.id}`} onClick={handleAddToFridge}>add to fridge</button>
-                        </div>
+                        <ListItem key={item.id} listId={listId} getItems={getItems} item={item}/>
                     )}
                 </ul>
                 <select onChange={handleGroupSelect}>

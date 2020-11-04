@@ -1,8 +1,16 @@
+.dashboard-page-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+
 .fridge-item-container {
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-evenly;
     width: 400px;
     height: 20px;
-    align-items: center;
 }

@@ -32,6 +32,7 @@ const Dashboard = () => {
     return (
         <div className="dashboard-page-container">
             <div className="fridge-container">
+                <h1>My Fridge</h1>
                 {Fridge && Fridge.map(item => 
                     <div className="fridge-item-container" key={item.id}>
                         <p>{item.name}</p>
