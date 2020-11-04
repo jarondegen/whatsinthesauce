@@ -2,37 +2,46 @@
     display: flex;
     flex-direction: row;
     width: 100%;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-around;
     background-color: rgb(197, 218, 240);
     font-family: "Neue Plak", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Helvetica, Tahoma, Arial, sans-serif;
 }
 
 .fridge-container {
-    background-image: url('./images/fridge-open.png');
+    background-image: url('./images/real-fridge-open.png');
     background-position: center;
     height: 800px;
     width: 700px;
     background-size: 100% 100%;
     display: grid;
-    grid-template-columns: 30% 70%;
-    grid-template-rows: 30% 70%;
+    grid-template-columns: 48% 52%;
+    grid-template-rows: 33% 67%;
 }
 
 .freezer-door-container {
     grid-row: 1/2;
     grid-column: 2/3;
+    justify-self: flex-start;
+    align-self: center;
+    margin-top: 10%;
+    width: 90%;
+    height: 70%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
+    background-color: rgb(255, 255, 255, .9);
+    border-radius: 5px;
 }
 
 .inside-fridge-container {
     grid-row: 2/3;
     grid-column: 2/3;
-    width: 95%;
-    justify-self: center;
+    width: 90%;
+    height: 72%;
+    justify-self: flex-start;
+    align-self: flex-start;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -40,6 +49,9 @@
     display: grid;
     grid-template-columns: 30% 40% 15% 15%;
     grid-template-rows: 10% 80%;
+    background-color: rgb(255, 255, 255, .9);
+    border-radius: 5px;
+    margin-top: 3%;
 }
 
 .fridge-item-name {
