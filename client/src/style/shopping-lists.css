@@ -32,6 +32,7 @@
 
 .lists-container {
     background-image: url('./images/torn-paper.png');
+    background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     height: 390px;
@@ -41,7 +42,12 @@
     align-items: center;
     justify-content: flex-start;
     margin-top: 5%;
+    transition: all .2s ease-in-out;
+    margin-right: 2%;
 }
+
+.lists-container:hover { transform: scale(1.25); }
+.lists-container:focus { transform: scale(1.25); }
 
 .lists-div {
     display: flex;

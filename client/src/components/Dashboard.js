@@ -5,6 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import AuthContext from '../auth';
 import Recipes from '../components/Recipes/Recipes';
 import '../style/dashboard.css';
+import x from '../style/images/x.png';
+import closedFridge from '../style/images/real-fridge-closed.png'
+import openFridge from '../style/images/real-fridge-open.png'
 
 
 
@@ -38,13 +41,31 @@ const Dashboard = () => {
         }
     }
 
+    const closeDoor = (e) => {
+        document.querySelector('.fridge-container').style.backgroundImage  = `url(${closedFridge})`
+        document.querySelector('.freezer-door-container').style.display = 'none';
+        document.querySelector('.inside-fridge-container').style.display = 'none';
+        document.getElementById('open-button-1').setAttribute('class', 'top-right-holder')
+        document.getElementById('open-button-2').setAttribute('class', 'bottom-right-holder')
+    }
+
+    const openDoor = (e) => {
+        document.querySelector('.fridge-container').style.backgroundImage  = `url(${openFridge})`
+        document.querySelector('.freezer-door-container').style.display = 'flex';
+        document.querySelector('.inside-fridge-container').style.display = 'grid';
+    }
+
     return (
         <>
             <div className="dashboard-page-container">
                 <div className="fridge-container">
+                    <div onClick={closeDoor} className="top-left-holder" />
+                    <div onClick={closeDoor} className="bottom-left-holder" />
+                    <div id="open-button-1" onClick={openDoor} className="top-right-holder hidden" />
+                    <div id="open-button-2" onClick={openDoor} className="bottom-right-holder hidden" />
                     <div className="freezer-door-container">
                         <h1>My Fridge</h1>
-                        <h3>{`You have $${dollars} worth of food expiring soon`}</h3>
+                        <h4>{`You have $${dollars} worth of food expiring soon`}</h4>
                     </div>
                     <div className="inside-fridge-container">
                         <div className="fridge-item-name" >
@@ -64,7 +85,7 @@ const Dashboard = () => {
                         </div>
                         <div className="fridge-item-delete">
                             {Fridge && Fridge.map(item => 
-                                <p><button onClick={handleRemoveItemFromFridge} id={item.id}>(-)</button></p>
+                                <p><img className="delete-fridge-item-x" src={x} onClick={handleRemoveItemFromFridge} id={item.id}/></p>
                             )}
                         </div>
                         
@@ -73,7 +94,7 @@ const Dashboard = () => {
                 <ShoppingLists />
             </div>
             <div className="recipes-component-container">
-                <Recipes />
+                {/*<Recipes />*/}
             </div>
         </>
     );

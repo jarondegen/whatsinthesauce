@@ -4,7 +4,7 @@
     width: 100%;
     align-items: flex-start;
     justify-content: space-around;
-    background-color: rgb(197, 218, 240);
+    /* background-color: rgb(197, 218, 240); */
     font-family: "Neue Plak", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Helvetica, Tahoma, Arial, sans-serif;
 }
 
@@ -17,6 +17,7 @@
     display: grid;
     grid-template-columns: 48% 52%;
     grid-template-rows: 33% 67%;
+    transition: all .2s ease-in-out;
 }
 
 .freezer-door-container {
@@ -29,10 +30,11 @@
     height: 70%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     background-color: rgb(255, 255, 255, .9);
     border-radius: 5px;
+    transition: all .2s ease-in-out;
 }
 
 .inside-fridge-container {
@@ -52,6 +54,7 @@
     background-color: rgb(255, 255, 255, .9);
     border-radius: 5px;
     margin-top: 3%;
+    transition: all .2s ease-in-out;
 }
 
 .fridge-item-name {
@@ -96,6 +99,15 @@
     margin: 5%;
 }
 
+.delete-fridge-item-x {
+    height: 20px;
+    width: 20px;
+}
+
+.delete-fridge-item-x:hover {
+    cursor: pointer;
+}
+
 .recipes-component-container {
     width: 100%;
     display: flex;
@@ -107,3 +119,35 @@
 .expiring_soon {
     color: red;
 }
+
+.top-left-holder {
+    height: 100%;
+    width: 100%;
+}
+.top-left-holder:hover { cursor: pointer }
+
+.bottom-left-holder {
+    height: 100%;
+    width: 100%;
+}
+.bottom-left-holder:hover { cursor: pointer }
+
+.hidden {
+    display: none
+}
+
+.top-right-holder {
+    grid-row: 1/2;
+    grid-column: 2/3;
+    height: 100%;
+    width: 100%;
+}
+.top-right-holder:hover { cursor: pointer }
+
+.bottom-right-holder {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    height: 100%;
+    width: 100%;
+}
+.bottom-right-holder:hover { cursor: pointer }
