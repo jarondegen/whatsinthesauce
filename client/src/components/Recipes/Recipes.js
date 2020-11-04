@@ -14,7 +14,7 @@ const Recipes = () => {
 
     return (
         <>
-            {Recipes.length > 0? <h4>Recipes</h4> : null}
+            {Recipes.length > 0? <h4>Suggested Recipes</h4> : null}
             <div className="recipes-container">
                 {Recipes.map(recipe => 
                         recipe.thumbnail ? (

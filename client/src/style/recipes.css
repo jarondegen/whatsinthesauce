@@ -9,15 +9,23 @@
 .recipe-card {
     width: 100px;
     margin: 1%;
+    border: 2px solid gray;
+    padding: 2%;
+
 }
 
 .recipe-card > a {
     text-decoration: none;
     color: rgb(31, 30, 30);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .recipe-card-image {
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     border: 2px solid gray
 }

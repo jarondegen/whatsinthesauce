@@ -3,7 +3,7 @@ import ShoppingLists from './ShoppingList/ShoppingList';
 import { getFridgeItems } from '../store/fridge';
 import { useDispatch, useSelector } from 'react-redux';
 import AuthContext from '../auth';
-import Recipes from './Recipes/Recipes';
+import Recipes from '../components/Recipes/Recipes';
 import '../style/dashboard.css';
 
 
@@ -39,15 +39,16 @@ const Dashboard = () => {
                     {Fridge && Fridge.map(item => 
                         <div className="fridge-item-container" key={item.id}>
                             <p>{item.name}</p>
-                            <p>{item.expires_in}</p>
-                            <p>{item.date.split(" ").slice(0,3).join(" ")}</p>
+                            <p>{item.expires_on.split(" ").slice(0,3).join(" ")}</p>
                             <button onClick={handleRemoveItemFromFridge} id={item.id}>(-)</button>
                         </div>
                     )}
                 </div>
                 <ShoppingLists />
             </div>
-            <Recipes />
+            <div className="recipes-component-container">
+                <Recipes />
+            </div>
         </>
     );
 }

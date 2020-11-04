@@ -28,8 +28,12 @@ app.register_blueprint(ingredient_routes, url_prefix='/api/ingredients')
 app.register_blueprint(fridge_routes, url_prefix='/api/fridges')
 
 db.init_app(app)
+
 migrate = Migrate(app, db)
 login_manager = LoginManager(app)
+
+with app.app_context():
+    db.create_all()
 
 CSRFProtect(app)
 

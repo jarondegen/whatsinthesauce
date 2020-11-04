@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from sqlalchemy.orm import joinedload
-from datetime import datetime
+from datetime import timedelta, datetime
 from starter_app.models import (
     User, 
     Shopping_List, 
@@ -24,6 +24,7 @@ def get_fridge_items(user_id):
     items_list = [{"id":item.id, "ingredient_id":item.ingredient_id,
                    "price":item.price, "date":item.date,
                    "name":name, "expires_in":expires_in,
+                   "expires_on":item.date + timedelta(days=expires_in)
                     } for (item, name, expires_in) in items]
     return jsonify(items_list)
 
