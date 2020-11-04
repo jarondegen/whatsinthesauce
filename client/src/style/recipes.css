@@ -1,5 +1,9 @@
+body {
+    background-color: rgb(197, 218, 240);
+    font-family: "Neue Plak", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Helvetica, Tahoma, Arial, sans-serif;
+}
 .recipes-container {
-    width: 70%;
+    width: 80%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -11,6 +15,8 @@
     margin: 1%;
     border: 2px solid gray;
     padding: 2%;
+    background-color: rgb(153,205,253);
+    border-radius: 5px;
 
 }
 

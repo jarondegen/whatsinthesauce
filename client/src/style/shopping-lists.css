@@ -2,8 +2,44 @@
     display: none;
 }
 
+#NLFLabel {
+    margin-top: 35%;
+}
+
 #NLFLabel:hover {
     cursor: pointer;
+}
+
+.new-list-form-container {
+    margin: 7%;
+    font-family: 'Patrick Hand', cursive;
+}
+
+.new-list-input {
+    background: none;
+    border: none;
+    padding: 10px;
+}
+
+.new-list-check {
+    height: 20px;
+    padding: 5px;
+}
+
+.new-list-check:hover {
+    cursor: pointer;
+}
+
+.lists-container {
+    background-image: url('./images/torn-paper.png');
+    background-position: center;
+    background-size: contain;
+    height: 390px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .lists-div {
@@ -13,4 +49,19 @@
     justify-content: space-around;
     align-items: center;
     height: 30px;
+    font-family: 'Patrick Hand', cursive;
+}
+
+.list-name-link {
+    text-decoration: none;
+    color: black;
+}
+
+.remove-list-button {
+    width: 20px;
+    height: 20px;
+}
+
+.remove-list-button:hover {
+    cursor: pointer;
 }

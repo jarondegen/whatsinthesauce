@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from sqlalchemy.orm import joinedload
-from datetime import timedelta, datetime
+from datetime import timedelta, datetime, date
 from starter_app.models import (
     User, 
     Shopping_List, 
@@ -24,7 +24,8 @@ def get_fridge_items(user_id):
     items_list = [{"id":item.id, "ingredient_id":item.ingredient_id,
                    "price":item.price, "date":item.date,
                    "name":name, "expires_in":expires_in,
-                   "expires_on":item.date + timedelta(days=expires_in)
+                   "expires_on":item.date + timedelta(days=expires_in) if not ((item.date + timedelta(days=expires_in)) - date.today()).days < 0 else 'expired',
+                   "expiring_soon": ((item.date + timedelta(days=expires_in)) - date.today()).days <= 2
                     } for (item, name, expires_in) in items]
     return jsonify(items_list)
 
@@ -32,10 +33,10 @@ def get_fridge_items(user_id):
 @fridge_routes.route('/add', methods=["POST"])
 def add_fridge_item():
     data = request.get_json()
-    print('================', data)
     new_item = Fridge_Ingredient(ingredient_id=data["ingredient_id"],
                                  user_id=data["user_id"],
-                                 date=datetime.now())
+                                 price=data["price"],
+                                 date=datetime.today())
     removed_list_item = Ing_Shop.query.filter(Ing_Shop.id == data["id"]).one()
     db.session.add(new_item)
     db.session.delete(removed_list_item)

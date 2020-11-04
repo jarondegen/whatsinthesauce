@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import AuthContext from '../../auth';
 import { getLists } from '../../store/lists';
 import NewShoppingList from './NewShoppingList';
+import redX from '../../style/images/x.png';
 
 const ShoppingLists = () => {
     const dispatch = useDispatch();
@@ -32,9 +33,9 @@ const ShoppingLists = () => {
             <NewShoppingList getLists={getLists}/>
             {lists.map(list => 
                 <div className="lists-div" key={list.name}>
-                    <a href={`/lists/${list.id}`}><h3>{list.name}</h3></a>
+                    <a className="list-name-link" href={`/lists/${list.id}`}><h3>{list.name}</h3></a>
                     <h5>{list.date.split(" ").slice(0,3).join(" ")}</h5>
-                    <button id={list.id} onClick={handleDelete}>(-)</button>
+                    <img className="remove-list-button" src={redX} id={list.id} onClick={handleDelete} />
                 </div>
             )}
         </div>

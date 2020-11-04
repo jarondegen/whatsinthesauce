@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { useDispatch } from 'react-redux';
 import '../../style/shopping-lists.css';
 import AuthContext from '../../auth';
+import check from '../../style/images/check.png'
 
 const NewShoppingList = ({ getLists }) => {
     const dispatch = useDispatch();
@@ -51,14 +52,14 @@ const NewShoppingList = ({ getLists }) => {
         <div className="new-list-form-container">
             <h3 id="NLFLabel" onClick={toggleForm}>+ New List</h3>
             <form id="NLF" className="new-list-form hidden">
-                <div>
-                    <label>List Name</label>
+                <div >
+                    <label >List Name</label>
                 </div>
                 <div>
-                    <input onChange={(e) => setListName(e.target.value)} value={listName} type="text" placeholder="ex. Whole Foods.."/>
+                    <input className="new-list-input" onChange={(e) => setListName(e.target.value)} value={listName} type="text" placeholder="ex. Whole Foods.."/>
+                    <img className="new-list-check" src={check} onClick={handleSubmit} onKeyDown={handleEnter}/>
                 </div>
                 <div>
-                    <button onClick={handleSubmit} onKeyDown={handleEnter}>Create List</button>
                 </div>
             </form>
         </div>
