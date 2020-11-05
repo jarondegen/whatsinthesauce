@@ -54,63 +54,35 @@ body {
     grid-column: 2/3;
     width: 90%;
     height: 72%;
-    justify-self: flex-start;
-    align-self: flex-start;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: flex-start;
-    display: grid;
-    grid-template-columns: 30% 40% 15% 15%;
-    grid-template-rows: 10% 80%;
     background-color: rgb(255, 255, 255, .9);
     border-radius: 5px;
     margin-top: 3%;
     transition: all .4s ease-in-out;
     display:none;
     font-family: 'Gochi Hand', cursive;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
-.fridge-item-name {
-    grid-column: 1/2;
-    grid-row: 2/3;
-    height: 90%;
+.fridge-item-container {
     width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-left: 5%;
+    margin-top: none;
+    margin-bottom: none;
+    padding-top: none;
+    padding-bottom: none;
 }
 
-.fridge-item-expire {
-    grid-column: 2/3;
-    grid-row: 2/3;
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.fridge-item-price {
-    grid-column: 3/4;
-    grid-row: 2/3;
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.fridge-item-delete {
-    grid-column: 4/5;
-    grid-row: 2/3;
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    margin: 5%;
+.fridge-item-name, .fridge-item-expire, .fridge-item-price, .fridge-item-delete {
+    margin-top: none;
+    margin-bottom: 5px;
+    padding-top: none;
+    padding-bottom: none;
 }
 
 .delete-fridge-item-x {
