@@ -1,5 +1,5 @@
 
-const SET_LISTS = "feed/SET_FEED";
+const SET_LISTS = "feed/SET_LISTS";
 
 export const setLists = (value) => {
   return {

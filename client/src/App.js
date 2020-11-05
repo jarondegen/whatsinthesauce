@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import UserList from './components/UsersList';
-import LoginForm from './components/LoginForm';
 import UserForm from './components/UserForm';
 import AuthContext from './auth';
-import Dashboard from './components/Dashboard';
+import Dashboard from './components/Dashboard/Dashboard';
 import ListPage from './components/ShoppingList/ListPage'
-
+import NavBar from './components/NavBar'
 import { ProtectedRoute, AuthRoute } from './Routes';
 
 function App() {
@@ -65,22 +64,17 @@ function App() {
         {!loading &&
         <BrowserRouter>
             <nav>
-                <ul>
-                    <li><NavLink to="/home" activeclass="active">Home</NavLink></li>
-                    <li><NavLink to="/users" activeclass="active">Users</NavLink></li>
-                    {currentUserId ? 
-                    <li><a onClick={logoutUser} href="#" activeclass="active">Logout</a></li>
-                    : <li><NavLink to="/login" activeclass="active">Login</NavLink></li>}
-                </ul>
+                <NavBar logoutUser={logoutUser}/>
             </nav>
             <Switch>
                 <ProtectedRoute path="/users" exact={true} component={UserList} currentUserId={currentUserId} />
                 <ProtectedRoute path="/lists/:id" exact={true} component={ListPage} currentUserId={currentUserId} />
                 <ProtectedRoute path="/home" exact={true} component={Dashboard} currentUserId={currentUserId} />
-                <ProtectedRoute path="/users/:id/edit" component={UserForm} currentUserId={currentUserId} />
-                <AuthRoute path="/login" component={LoginForm} />
+                <ProtectedRoute path="/users/:id/edit"  component={UserForm} currentUserId={currentUserId} />
+                {/*<ProtectedRoute path="/home/:id" component={Dashboard} currentUserId={currentUserId} />*/}
+                <AuthRoute path="/login" component={Dashboard} />
                 <Route path="/">
-                    <h1>My Home Page</h1>
+                    <Redirect to="/home"/>
                 </Route>
             </Switch>
         </BrowserRouter>}

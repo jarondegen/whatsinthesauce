@@ -12,7 +12,7 @@
 
 .new-list-form-container {
     margin: 7%;
-    font-family: 'Patrick Hand', cursive;
+    font-family: 'Gochi Hand', cursive;
 }
 
 .new-list-input {
@@ -31,6 +31,7 @@
 }
 
 .lists-container {
+    grid-column: 3/4;
     background-image: url('./images/torn-paper.png');
     background-repeat: no-repeat;
     background-position: center;
@@ -55,13 +56,19 @@
     width: 200px;
     justify-content: space-around;
     align-items: center;
-    height: 30px;
-    font-family: 'Patrick Hand', cursive;
+    height: 10px;
+    font-family: 'Gochi Hand', cursive;
+    padding: 10px;
 }
 
 .list-name-link {
     text-decoration: none;
     color: black;
+    font-weight: bold;
+}
+
+.list-name-link:hover {
+    cursor: pointer;
 }
 
 .remove-list-button {
@@ -71,4 +78,16 @@
 
 .remove-list-button:hover {
     cursor: pointer;
+}
+
+.not-logged-in-lists {
+    margin-top: 45%;
+    transform: rotateY(0deg) rotate(-30deg);
+    font-family: 'Gochi Hand', cursive;
+    font-size: 1.5rem;
+}
+
+.smiley {
+    width: 70px;
+    margin-left: 15%;
 }

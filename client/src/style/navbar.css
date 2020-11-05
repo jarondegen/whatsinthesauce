@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    width: 100%;
+    padding:0;
+}
+
+.navbar-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    /* background-color:rgb(222,222,196); */
+    background-color: white;
+    height: 50px;
+    border-bottom: 2px solid black;
+}
+
+.narbar-left {
+    grid-column: 1/2;
+}
+
+.narbar-left > p {
+    margin-left: 10%;
+}
+
+.narbar-middle {
+    grid-column: 2/3;
+}
+
+.narbar-right {
+    grid-column: 3/4;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.navbar-link {
+    text-decoration: none;
+    color: black;
+}

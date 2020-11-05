@@ -1,15 +1,22 @@
+body {
+    /* background-color: burlywood; */
+    background: linear-gradient(90deg, rgb(53, 147, 181) 0%, rgb(185, 199, 247) 100%);
+    font-family: "Neue Plak", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Helvetica, Tahoma, Arial, sans-serif;
+}
+
 .dashboard-page-container {
-    display: flex;
-    flex-direction: row;
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 1fr;
     width: 100%;
-    align-items: flex-start;
-    justify-content: space-around;
-    /* background-color: rgb(197, 218, 240); */
     font-family: "Neue Plak", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Helvetica, Tahoma, Arial, sans-serif;
 }
 
 .fridge-container {
-    background-image: url('./images/real-fridge-open.png');
+    grid-column: 1/3;
+    grid-row: 1/2;
+    background-image: url('./images/real-fridge-closed.png');
     background-position: center;
     height: 800px;
     width: 700px;
@@ -17,8 +24,11 @@
     display: grid;
     grid-template-columns: 48% 52%;
     grid-template-rows: 33% 67%;
-    transition: all .2s ease-in-out;
+    transition: all .4s ease-in-out;
+    margin-left: 18%;
 }
+
+/* .fridge-container:hover { transform: scale(1.1); } */
 
 .freezer-door-container {
     grid-row: 1/2;
@@ -34,7 +44,9 @@
     align-items: center;
     background-color: rgb(255, 255, 255, .9);
     border-radius: 5px;
-    transition: all .2s ease-in-out;
+    transition: all .4s ease-in-out;
+    display:none;
+    font-family: 'Gochi Hand', cursive;
 }
 
 .inside-fridge-container {
@@ -47,14 +59,16 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     display: grid;
     grid-template-columns: 30% 40% 15% 15%;
     grid-template-rows: 10% 80%;
     background-color: rgb(255, 255, 255, .9);
     border-radius: 5px;
     margin-top: 3%;
-    transition: all .2s ease-in-out;
+    transition: all .4s ease-in-out;
+    display:none;
+    font-family: 'Gochi Hand', cursive;
 }
 
 .fridge-item-name {
@@ -64,7 +78,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -74,7 +88,7 @@
     height: 90%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -84,7 +98,7 @@
     height: 90%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -94,7 +108,7 @@
     height: 90%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     margin: 5%;
 }
@@ -151,3 +165,35 @@
     width: 100%;
 }
 .bottom-right-holder:hover { cursor: pointer }
+
+.list-page-container {
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.no-list-container {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 20%;
+    margin-right: 5%;
+}
+
+.no-lists-loaded-div {
+    justify-self: flex-end;
+    font-size:2.5rem;
+    transform: rotateY(0deg) rotate(-15deg);
+    font-family: 'Gochi Hand', cursive;
+    z-index: -1
+}
+
+#homepage-arrow {
+    width: 200px;
+    height: 200px;
+    z-index: -1;
+    transform: rotateX(130deg);
+    margin-left: 50%;
+}

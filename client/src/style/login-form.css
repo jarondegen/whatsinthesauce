@@ -1,0 +1,10 @@
+.login-form-container {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    z-index: 20;
+}

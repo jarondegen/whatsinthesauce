@@ -4,9 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import AuthContext from '../../auth';
 import ListItem from './ListItem';
 
-const ListPage = (props) => {
+const ListPage = ({listId}) => {
     const dispatch = useDispatch()
-    const listId = props.match.params.id;
     const { fetchWithCSRF } = useContext(AuthContext);
     const [listName, setListName] = useState('');
     const [listItems, setListItems] = useState([]);
@@ -17,7 +16,7 @@ const ListPage = (props) => {
     useEffect(() => {
         getItems(listId)
         dispatch(getIngredients())
-    }, [])
+    }, [listId])
     
     const getItems = async (listId) => {
         const data = await fetch(`/api/lists/items/${listId}`);
@@ -54,9 +53,8 @@ const ListPage = (props) => {
     }
 
     return (
-        <>
-            <h1>List Page</h1>
-            <h3>{listName}</h3>
+        <div className="list-page-container">
+            <h1>{listName}</h1>
             <div className="list-items-container">
                 <ul>
                     {listItems && listItems.length>0 && listItems.map(item =>
@@ -77,7 +75,7 @@ const ListPage = (props) => {
                 </select>
                 <button onClick={handleAddToList} >Add to list</button>
             </div>
-        </>
+        </div>
     );
 }
 

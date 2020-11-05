@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
-import { useHistory } from 'react-router-dom'
-import AuthContext from '../auth'
+import { useHistory } from 'react-router-dom';
+import AuthContext from '../auth';
+import '../style/login-form.css';
 
 function UserForm(props) {
     const [username, setUsername] = useState("Ian");
@@ -36,20 +37,22 @@ function UserForm(props) {
         loginUser();
     }
     return (
-        <form onSubmit={submitForm}>
-            {errors.length ? errors.map((err) => <li key={err} >{err}</li>) : ''}
-            <div className="field">
-                <label>Username: </label>
-                <div className="control">
-                    <input className="input" type="text" value={username} onChange={(e) => setUsername(e.target.value)} name="username" />
+        <div className="login-form-container">
+            <form onSubmit={submitForm}>
+                {errors.length ? errors.map((err) => <li key={err} >{err}</li>) : ''}
+                <div className="field">
+                    <label>Username: </label>
+                    <div className="control">
+                        <input className="input" type="text" value={username} onChange={(e) => setUsername(e.target.value)} name="username" />
+                    </div>
+                    <label>Password: </label>
+                    <div className="control">
+                        <input className="input" type="password" value={password} onChange={(e) => setPassword(e.target.value)} name="password" />
+                    </div>
                 </div>
-                <label>Password: </label>
-                <div className="control">
-                    <input className="input" type="password" value={password} onChange={(e) => setPassword(e.target.value)} name="password" />
-                </div>
-            </div>
-            <button>Login</button>
-        </form>
+                <button>Login</button>
+            </form>
+        </div>
     );
 }
 export default UserForm; 

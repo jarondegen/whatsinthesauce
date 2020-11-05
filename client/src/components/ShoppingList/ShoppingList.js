@@ -4,14 +4,16 @@ import AuthContext from '../../auth';
 import { getLists } from '../../store/lists';
 import NewShoppingList from './NewShoppingList';
 import redX from '../../style/images/x.png';
+import smiley from '../../style/images/smiley.png';
 
-const ShoppingLists = () => {
+const ShoppingLists = ({ setHomeListId }) => {
     const dispatch = useDispatch();
     const { currentUserId, fetchWithCSRF } = useContext(AuthContext);
     const { lists } = useSelector(store => store.Lists);
 
     useEffect(() => {
         dispatch(getLists(currentUserId))
+        console.log(lists[lists.length -1])
     }, [])
 
     const handleDelete = async (e) => {
@@ -28,12 +30,22 @@ const ShoppingLists = () => {
         }
     }
 
+    const handleListClick = (e) => {
+        setHomeListId(e.target.id)
+    }
+
     return (
         <div className="lists-container">
-            <NewShoppingList getLists={getLists}/>
-            {lists.map(list => 
+            {!currentUserId && (
+                <>
+                    <div className="not-logged-in-lists" >log in to see your stuff!</div>
+                    <img className="smiley" src={smiley}/>    
+                </>
+            )}
+            {currentUserId && <NewShoppingList getLists={getLists}/>}
+            {currentUserId && lists.map(list => 
                 <div className="lists-div" key={list.name}>
-                    <a className="list-name-link" href={`/lists/${list.id}`}><h3>{list.name}</h3></a>
+                    <a id={list.id} onClick={handleListClick} className="list-name-link" >{list.name}</a>
                     <h5>{list.date.split(" ").slice(0,3).join(" ")}</h5>
                     <img className="remove-list-button" src={redX} id={list.id} onClick={handleDelete} />
                 </div>
