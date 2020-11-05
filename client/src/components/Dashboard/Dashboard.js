@@ -3,6 +3,7 @@ import ShoppingLists from '../ShoppingList/ShoppingList';
 import { getFridgeItems } from '../../store/fridge';
 import { useDispatch, useSelector } from 'react-redux';
 import AuthContext from '../../auth';
+import Recipes from '../Recipes/Recipes'
 import '../../style/dashboard.css';
 import DashFridge from './DashFridge';
 import LoginForm from '../LoginForm';
@@ -48,7 +49,7 @@ const Dashboard = () => {
                         <ShoppingLists homeListId={homeListId} setHomeListId={setHomeListId}/>
                     </div>
                     <div className="recipes-component-container">
-                        {/*{currentUserId && <Recipes />}*/}
+                        {currentUserId && <Recipes />}
                     </div>
                 </>
             )}
