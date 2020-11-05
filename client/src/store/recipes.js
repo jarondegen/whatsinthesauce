@@ -18,7 +18,7 @@ export const getRecipeItems = (Fridge, Recipes) => async dispatch => {
             const data = await fetch(proxyurl + `http://www.recipepuppy.com/api/?i=${str}&p=1`)
             if (data.ok) {
             const recipes = await data.json()
-            itemsArr.push(...new Set(recipes.results.slice(0,3)))
+            itemsArr.push(...new Set(recipes.results.slice(0,6)))
             }else continue
         }
     }
