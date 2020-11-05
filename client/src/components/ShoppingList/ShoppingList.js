@@ -6,7 +6,7 @@ import NewShoppingList from './NewShoppingList';
 import redX from '../../style/images/x.png';
 import smiley from '../../style/images/smiley.png';
 
-const ShoppingLists = ({ setHomeListId }) => {
+const ShoppingLists = ({ setHomeListId, closeDoor }) => {
     const dispatch = useDispatch();
     const { currentUserId, fetchWithCSRF } = useContext(AuthContext);
     const { lists } = useSelector(store => store.Lists);
@@ -32,6 +32,7 @@ const ShoppingLists = ({ setHomeListId }) => {
 
     const handleListClick = (e) => {
         setHomeListId(e.target.id)
+        closeDoor(e)
     }
 
     return (

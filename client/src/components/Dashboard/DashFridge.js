@@ -6,7 +6,7 @@ import AuthContext from '../../auth';
 import x from '../../style/images/x.png';
 import { getFridgeItems } from '../../store/fridge';
 
-const DashFridge = ({ dollars }) => {
+const DashFridge = ({ dollars, closeDoor }) => {
     const { Fridge } = useSelector(store => store);
     const dispatch = useDispatch();
     const { currentUserId, fetchWithCSRF } = useContext(AuthContext);
@@ -24,18 +24,6 @@ const DashFridge = ({ dollars }) => {
             console.log(response)
         }
     }
-    
-    const closeDoor = (e) => {
-        document.querySelector('.fridge-container').style.backgroundImage  = `url(${closedFridge})`
-        setTimeout(() => {
-            document.querySelector('.freezer-door-container').style.display = 'none';
-            document.querySelector('.inside-fridge-container').style.display = 'none';
-        }, 100)
-        document.getElementById('open-button-1').setAttribute('class', 'top-right-holder')
-        document.getElementById('open-button-2').setAttribute('class', 'bottom-right-holder')
-        document.getElementById('open-button-3').style.display = 'none';
-        document.getElementById('open-button-4').style.display = 'none';
-    }
 
     const openDoor = (e) => {
         if (!currentUserId) {
@@ -46,6 +34,7 @@ const DashFridge = ({ dollars }) => {
             document.querySelector('.freezer-door-container').style.display = 'flex';
             document.querySelector('.inside-fridge-container').style.display = 'grid';
         }, 100)
+        document.getElementById('homepage-arrow').style.zIndex = -10;
         document.getElementById('open-button-4').style.display = '';
         document.getElementById('open-button-3').style.display = '';
     }
@@ -61,6 +50,12 @@ const DashFridge = ({ dollars }) => {
                 <h4>{`$${dollars} worth of food expiring soon`}</h4>
             </div>
             <div className="inside-fridge-container">
+                        <div className="fridge-item-container" >
+                            <span className="fridge-item-name underline">Ingredient</span>
+                            <span className="fridge-item-expire underline">Expiring</span>
+                            <span className="fridge-item-price underline">Price</span>
+                            <span className="fridge-item-delete underline">Remove</span>
+                        </div>
                     {Fridge && Fridge.map(item => 
                         <div className="fridge-item-container" >
                             <span className="fridge-item-name">{item.name}</span>

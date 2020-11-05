@@ -1,10 +1,82 @@
 .login-form-container {
     grid-column: 1/2;
     grid-row: 1/2;
-    width: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 90%;
+    z-index: 20;
+    margin-top: 10%;
+}
+
+.welcome-div {
+    height: 30%;
+    display: flex;
+    align-items: center;
+    font-family: 'Gochi Hand', cursive;
+    font-size: 1.9rem;
+    margin-left: 20%;
+    transform: rotate(-10deg);
+    text-align: center;
+}
+
+.div-wrapping-form {
+    background-image: url('./images/cutting-board.png');
+    background-position: center;
+    background-size: 100% 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 600px;
-    z-index: 20;
+    height: 45%;
+    width: 80%;
+    margin-left: 33%;
+}
+
+.login-form-form {
+    height: 60%;
+    width: 70%;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20%;
+    margin-bottom: 10%;
+}
+
+.inside-login-form-div {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.login-form-username-label {
+    font-family: 'Gochi Hand', cursive;
+    font-size: 1.5rem;
+    margin: 2%;
+}
+
+.login-form-input-div > input {
+    font-family: 'Gochi Hand', cursive;
+    font-size: 1.1rem;
+    padding: 2%;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.login-form-passwordlabel {
+    font-family: 'Gochi Hand', cursive;
+    font-size: 1.5rem;
+    margin: 2%;
+}
+
+.login-form-button-div > button {
+    font-family: 'Gochi Hand', cursive;
+    font-size: 1.5rem;
+    border: 2px solid black;
+    border-radius: 5px;
 }

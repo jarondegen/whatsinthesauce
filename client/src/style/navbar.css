@@ -4,18 +4,28 @@ body {
     padding:0;
 }
 
+html {
+    overflow: hidden;
+    height: 100%;
+}
+
 .navbar-container {
     width: 100%;
     display: grid;
     grid-template-columns: 33% 33% 33%;
-    /* background-color:rgb(222,222,196); */
     background-color: white;
     height: 50px;
-    border-bottom: 2px solid black;
+    /* border-bottom: 2px solid black; */
+    font-family: 'Gochi Hand', cursive;
+    font-size: 1.5rem;
+    margin-top: 1%;
 }
 
 .narbar-left {
     grid-column: 1/2;
+    height: 50px;
+    display: flex;
+    align-items: center;
 }
 
 .narbar-left > p {

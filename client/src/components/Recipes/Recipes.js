@@ -4,17 +4,19 @@ import { getRecipeItems } from '../../store/recipes';
 import Card from './Card';
 import '../../style/recipes.css'
 
-const Recipes = () => {
+const Recipes = ({setRecipesLoading}) => {
     const dispatch = useDispatch()
     const { Fridge, Recipes } = useSelector(store => store);
 
     useEffect(() => {
+        setRecipesLoading(true)
         dispatch(getRecipeItems(Fridge, Recipes))
+        setRecipesLoading(false)
     },[Fridge])
 
     return (
         <>
-            {Recipes.length > 0? <h4>Suggested Recipes</h4> : null}
+            {Recipes.length > 0? <h4 className="suggest-recipes-title">Suggested Recipes</h4> : null}
             <div className="recipes-container">
                 {Recipes.map(recipe => 
                         recipe.thumbnail ? (

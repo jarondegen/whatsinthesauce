@@ -1,7 +1,12 @@
 import React, { useContext, useState } from 'react';
 import AuthContext from '../../auth';
+import check from '../../style/images/check.png';
+import x from '../../style/images/x.png';
+import { getFridgeItems } from '../../store/fridge';
+import { useDispatch } from 'react-redux'
 
 const ListItem = ({item, getItems, listId}) => {
+    const dispatch = useDispatch()
     const { fetchWithCSRF, currentUserId } = useContext(AuthContext);
     const [price, setPrice] = useState(null)
 
@@ -44,19 +49,18 @@ const ListItem = ({item, getItems, listId}) => {
             })
         });
         if (data.ok) {
-            const response = await data.json();
-            console.log(response)
+            dispatch(getFridgeItems(currentUserId))
             getItems(listId)
             setPrice(null)
         }
     }
 
     return (
-        <div key={item.id}> 
-            <li>{item.name}</li>
-            <input value={price} onChange={(e) => setPrice(e.target.value)} type="number" placeholder="Enter a price.."/>
-            <button id={`${item.ingredient_id}-${item.id}`} onClick={handleAddToFridge}>add to fridge</button>
-            <button id={item.ingredient_id} onClick={handleRemoveItem}>(-)</button>
+        <div className="ingredient-list-item-container"key={item.id}> 
+            <li className="ingredient-list-item-name">{item.name}</li>
+            <input className="ingredient-list-item-price-input" value={price} onChange={(e) => setPrice(e.target.value)} type="number" placeholder="price"/>
+            <img src={check} className="ingredient-list-item-check-button"id={`${item.ingredient_id}-${item.id}`} onClick={handleAddToFridge} />
+            <img src={x} className="ingredient-list-item-delete-x" id={item.ingredient_id} onClick={handleRemoveItem} />
         </div>
     );
 };

@@ -38,20 +38,27 @@ function UserForm(props) {
     }
     return (
         <div className="login-form-container">
-            <form onSubmit={submitForm}>
-                {errors.length ? errors.map((err) => <li key={err} >{err}</li>) : ''}
-                <div className="field">
-                    <label>Username: </label>
-                    <div className="control">
-                        <input className="input" type="text" value={username} onChange={(e) => setUsername(e.target.value)} name="username" />
+            <div className="welcome-div">
+                Welcome Back! Login to see your stuff
+            </div>
+            <div className="div-wrapping-form">
+                <form className="login-form-form" onSubmit={submitForm}>
+                    {errors.length ? errors.map((err) => <li key={err} >{err}</li>) : ''}
+                    <div className="inside-login-form-div">
+                        <label className="login-form-username-label">Username: </label>
+                        <div className="login-form-input-div">
+                            <input className="input" type="text" value={username} onChange={(e) => setUsername(e.target.value)} name="username" />
+                        </div>
+                        <label className="login-form-passwordlabel">Password: </label>
+                        <div className="login-form-input-div">
+                            <input className="input" type="password" value={password} onChange={(e) => setPassword(e.target.value)} name="password" />
+                        </div>
                     </div>
-                    <label>Password: </label>
-                    <div className="control">
-                        <input className="input" type="password" value={password} onChange={(e) => setPassword(e.target.value)} name="password" />
+                    <div className="login-form-button-div">
+                        <button>Login</button>
                     </div>
-                </div>
-                <button>Login</button>
-            </form>
+                </form>
+            </div>
         </div>
     );
 }

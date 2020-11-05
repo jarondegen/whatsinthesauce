@@ -3,6 +3,7 @@ import { getIngredients } from '../../store/ingredients';
 import { useSelector, useDispatch } from 'react-redux';
 import AuthContext from '../../auth';
 import ListItem from './ListItem';
+import '../../style/lists-page.css';
 
 const ListPage = ({listId}) => {
     const dispatch = useDispatch()
@@ -54,26 +55,34 @@ const ListPage = ({listId}) => {
 
     return (
         <div className="list-page-container">
-            <h1>{listName}</h1>
             <div className="list-items-container">
+                <h1 className="list-items-title">{listName}</h1>
                 <ul>
+                    <div className="ingredient-list-item-container"> 
+                        <p className="ingredient-list-item-name-label">Ingredient</p>
+                        <p className="ingredient-list-item-price-label">Price</p>
+                        <p className="ingredient-list-item-add-button-label">add to fridge</p>
+                        <p className="ingredient-list-item-delete-button-label" >remove</p>
+                    </div>
                     {listItems && listItems.length>0 && listItems.map(item =>
                         <ListItem key={item.id} listId={listId} getItems={getItems} item={item}/>
                     )}
                 </ul>
-                <select onChange={handleGroupSelect}>
+            </div>
+            <div className="list-items-select-form">
+                <select className="list-items-select-input" onChange={handleGroupSelect}>
                     <option>Group</option>
                     {groups && groups.map(item =>
                         <option key={item.id} value={item.id}>{item.name}</option>
                     )}
                 </select>
-                <select onChange={(e) => setItemToAdd(e.target.value)}>
+                <select className="list-items-select-input" onChange={(e) => setItemToAdd(e.target.value)}>
                     <option>Ingredient</option>
                     {itemsByGroup && itemsByGroup.map(item =>
                         <option key={item.id} value={item.id}>{item.name}</option>
                     )}
                 </select>
-                <button onClick={handleAddToList} >Add to list</button>
+                <button className="list-item-select-button" onClick={handleAddToList} >Add to list</button>
             </div>
         </div>
     );
