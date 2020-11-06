@@ -12,6 +12,7 @@ import arrow from '../../style/images/arrow.png'
 import happyFace from '../../style/images/happy-face.gif';
 import downArrow from '../../style/images/down-arrow.png';
 import closedFridge from '../../style/images/real-fridge-closed.png';
+import SignUpForm from '../SignupForm';
 
 const Dashboard = () => {
     const dispatch = useDispatch();
@@ -22,6 +23,7 @@ const Dashboard = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [homeListId, setHomeListId] = useState()
     const [recipesLoading, setRecipesLoading] = useState(true)
+    const [showSignUp, setShowSignUp] = useState(false)
 
     const closeDoor = (e) => {
         const pickArrow = document.getElementById('homepage-arrow');
@@ -62,7 +64,8 @@ const Dashboard = () => {
                 <>
                     <div className="dashboard-page-container">
                         <div className="background-color-splash"></div>
-                        {!currentUserId ? <LoginForm /> : null}
+                        {!currentUserId  && !showSignUp && <LoginForm setShowSignUp={setShowSignUp}/>}
+                        {showSignUp && <SignUpForm setShowSignUp={setShowSignUp}/>}
                         {currentUserId && !homeListId && (
                             <div onClick={handleArrowClick} className="no-list-container">
                                 <div class="no-lists-loaded-div">Pick one of your lists...</div> 

@@ -46,8 +46,8 @@ const ShoppingLists = ({ setHomeListId, closeDoor }) => {
             {currentUserId && <NewShoppingList getLists={getLists}/>}
             {currentUserId && lists.map(list => 
                 <div className="lists-div" key={list.name}>
-                    <a id={list.id} onClick={handleListClick} className="list-name-link" >{list.name}</a>
-                    <h5>{list.date.split(" ").slice(0,3).join(" ")}</h5>
+                    <span id={list.id} onClick={handleListClick} className="list-list-name-link" >{list.name}</span>
+                    <span className="lists-list-date">{list.date.split(" ").slice(0,3).join(" ")}</span>
                     <img className="remove-list-button" src={redX} id={list.id} onClick={handleDelete} />
                 </div>
             )}

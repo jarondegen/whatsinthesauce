@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import AuthContext from '../auth';
 import '../style/login-form.css';
 
-function UserForm(props) {
+function UserForm({setShowSignUp}) {
     const [username, setUsername] = useState("Ian");
     const [password, setPassword] = useState("password");
     let history = useHistory();
@@ -36,6 +36,11 @@ function UserForm(props) {
         }
         loginUser();
     }
+
+    const handleSignupClick = () => {
+        setShowSignUp(true)
+    }
+
     return (
         <div className="login-form-container">
             <div className="welcome-div">
@@ -58,6 +63,9 @@ function UserForm(props) {
                         <button>Login</button>
                     </div>
                 </form>
+            </div>
+            <div onClick={handleSignupClick} className="sign-up-link">
+                don't have an account yet?  <br /> signup here!
             </div>
         </div>
     );
