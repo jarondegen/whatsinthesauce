@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react';
-import ShoppingLists from '../ShoppingList/ShoppingList';
 import { getFridgeItems } from '../../store/fridge';
 import { useDispatch, useSelector } from 'react-redux';
 import AuthContext from '../../auth';
@@ -13,7 +12,6 @@ import happyFace from '../../style/images/happy-face.gif';
 import downArrow from '../../style/images/down-arrow.png';
 import closedFridge from '../../style/images/real-fridge-closed.png';
 import SignUpForm from '../SignupForm';
-import wtl from '../../style/images/wfl.png';
 
 const Dashboard = () => {
     const dispatch = useDispatch();
@@ -25,6 +23,12 @@ const Dashboard = () => {
     const [recipesLoading, setRecipesLoading] = useState(true)
     const [showSignUp, setShowSignUp] = useState(false)
     const { loading } = useSelector(store => store.Recipes)
+
+    useEffect(() => {
+        if (currentUserId) {
+            dispatch(getFridgeItems(currentUserId));
+        }
+    }, [currentUserId])
 
     useEffect(() => {
         if (!loading) {

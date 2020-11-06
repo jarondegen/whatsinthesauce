@@ -3,11 +3,10 @@ import { useHistory } from 'react-router-dom';
 import AuthContext from '../auth';
 import '../style/login-form.css';
 
-function UserForm({setShowSignUp}) {
+function LoginForm({setShowSignUp}) {
     const [username, setUsername] = useState("Ian");
     const [password, setPassword] = useState("password");
     let history = useHistory();
-
     const [errors, setErrors] = useState([]);
     const { fetchWithCSRF, setCurrentUserId } = useContext(AuthContext);
     const submitForm = (e) => {
@@ -70,4 +69,4 @@ function UserForm({setShowSignUp}) {
         </div>
     );
 }
-export default UserForm; 
+export default LoginForm; 

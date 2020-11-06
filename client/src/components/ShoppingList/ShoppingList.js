@@ -12,6 +12,12 @@ const ShoppingLists = ({ setHomeListId, closeDoor }) => {
     const { lists } = useSelector(store => store.Lists);
 
     useEffect(() => {
+        if (currentUserId) {
+            dispatch(getLists(currentUserId));
+        }
+    }, [currentUserId])
+
+    useEffect(() => {
         dispatch(getLists(currentUserId))
         console.log(lists[lists.length -1])
     }, [])
