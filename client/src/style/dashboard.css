@@ -53,7 +53,7 @@ body {
     height: 71%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     background-color: rgb(114,170,208, 1);
     border-radius: 5px;
@@ -263,4 +263,17 @@ body {
     height: 40%;
     transform: rotate(-75deg);
     margin-right: 60%;
+}
+
+.click-to-open-sauce {
+    width: 40%;
+    margin-bottom: 10%;
+    transform: rotate(15deg);
+}
+
+.click-to-open-whisk {
+    width: 40%;
+    margin-bottom: 10%;
+    transform: rotate(15deg);
+    margin-right: 5%;
 }

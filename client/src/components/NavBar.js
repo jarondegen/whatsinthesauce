@@ -16,7 +16,7 @@ const NavBar = ({logoutUser}) => {
             </div>
             <div className="narbar-right">
                 <NavLink className="navbar-link" to="/home" activeclass="active">Home</NavLink>
-                <NavLink className="navbar-link" to="/users" activeclass="active">Users</NavLink>
+                <NavLink className="navbar-link" to="/about" activeclass="active">About</NavLink>
                 {currentUserId ? (
                     <a className="navbar-link" onClick={logoutUser} href="#" activeclass="active">Logout</a> 
                 ): <NavLink className="navbar-link" to="/home" activeclass="active">Login</NavLink>

@@ -9,6 +9,8 @@ import LoginForm from '../LoginForm';
 import ListPage from '../ShoppingList/ListPage';
 import arrow from '../../style/images/arrow.png';
 import crazyArrow from '../../style/images/crazy-arrow.png'
+import whisk from '../../style/images/whisk.png';
+import sauceCooking from '../../style/images/sauce-cooking.png';
 import happyFace from '../../style/images/happy-face.gif';
 import downArrow from '../../style/images/down-arrow.png';
 import closedFridge from '../../style/images/real-fridge-closed.png';
@@ -85,7 +87,7 @@ const Dashboard = () => {
 
     return (
         <>
-            {isLoading ? <p>Loading...</p> : (
+            {isLoading ? <p></p> : (
                 <>
                     <div className="dashboard-page-container">
                         <div className="background-color-splash"></div>
@@ -113,10 +115,12 @@ const Dashboard = () => {
                         
                         )}
                         <div className="click-to-open-container">
+                            <img className="click-to-open-sauce" src={sauceCooking} />
                             <div className="click-to-open-text">
                                 click the door to open
                             </div>
                             <img onClick={handleCrazyArrowClick} className="click-to-open-arrow" src={crazyArrow}/>
+                            <img className="click-to-open-whisk" src={whisk} />
                         </div>
                     </div>
                     <div className="recipes-component-container">

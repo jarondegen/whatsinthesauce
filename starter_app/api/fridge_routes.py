@@ -20,7 +20,8 @@ def get_fridge_items(user_id):
         Fridge_Ingredient.user_id == user_id).join(
         Ingredient, Fridge_Ingredient.ingredient_id == Ingredient.id).add_columns(
         Ingredient.name).add_columns(
-        Ingredient.expires_in)
+        Ingredient.expires_in).order_by(
+        Ingredient.food_group_id)
     items_list = [{"id":item.id, "ingredient_id":item.ingredient_id,
                    "price":item.price, "date":item.date,
                    "name":name, "expires_in":expires_in,

@@ -67,6 +67,7 @@ function App() {
                 <NavBar logoutUser={logoutUser}/>
             </nav>
             <Switch>
+                <Route path="/about" exact={true}/>
                 <ProtectedRoute path="/users" exact={true} component={UserList} currentUserId={currentUserId} />
                 {/* <ProtectedRoute path="/lists/:id" exact={true} component={ListPage} currentUserId={currentUserId} /> */}
                 <Route path="/home" exact={true} component={Dashboard} currentUserId={currentUserId} />
