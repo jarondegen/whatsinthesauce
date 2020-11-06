@@ -17,7 +17,7 @@ import wtl from '../../style/images/wfl.png';
 
 const Dashboard = () => {
     const dispatch = useDispatch();
-    const { lists } = useSelector(store => store.Lists);
+    // const { lists } = useSelector(store => store.Lists);
     const { currentUserId } = useContext(AuthContext);
     const { Fridge } = useSelector(store => store);
     const [dollars, setDollars] = useState(0)
@@ -25,6 +25,29 @@ const Dashboard = () => {
     const [homeListId, setHomeListId] = useState()
     const [recipesLoading, setRecipesLoading] = useState(true)
     const [showSignUp, setShowSignUp] = useState(false)
+
+    useEffect(() => {
+        dispatch(getFridgeItems(currentUserId));
+    }, []);
+    
+    useEffect(() => {
+        let y = 0
+        Fridge.map(item => {
+            if (item.expiring_soon && item.price) {
+                y = y + item.price
+            };
+        });
+        setDollars(y);
+        setIsLoading(false);
+    }, [Fridge]);
+
+    const handleArrowClick = () => {
+        const listPaper = document.querySelector('.lists-container')
+        listPaper.style.transform = 'scale(1.25)';
+        setTimeout(() => {
+            listPaper.style.transform = 'scale(1)'
+        },250)
+    }
 
     const closeDoor = (e) => {
         const pickArrow = document.getElementById('homepage-arrow');
@@ -40,25 +63,6 @@ const Dashboard = () => {
         document.getElementById('open-button-4').style.display = 'none';
     }
 
-    useEffect(() => {
-        dispatch(getFridgeItems(currentUserId));
-    }, []);
-    
-    useEffect(() => {
-        Fridge.map(item => {
-            return item.expiring_soon ? setDollars(dollars + item.price) : null
-        })
-        setIsLoading(false)
-    }, [Fridge]);
-
-    const handleArrowClick = () => {
-        const listPaper = document.querySelector('.lists-container')
-        listPaper.style.transform = 'scale(1.25)';
-        setTimeout(() => {
-            listPaper.style.transform = 'scale(1)'
-        },250)
-    }
-
     return (
         <>
             {isLoading ? <p>Loading...</p> : (
@@ -69,7 +73,7 @@ const Dashboard = () => {
                         {showSignUp && <SignUpForm setShowSignUp={setShowSignUp}/>}
                         {currentUserId && !homeListId && (
                             <div onClick={handleArrowClick} className="no-list-container">
-                                <div class="no-lists-loaded-div">Pick one of your lists...</div> 
+                                <div className="no-lists-loaded-div">Pick one of your lists...</div> 
                                 <img  id="homepage-arrow" src={arrow}/>
                                 <div className="dashboard-right-bottom-div">
                                     <div className="need-inspiration">need some inspiration? <br/> checkout this out >> </div>
@@ -95,7 +99,7 @@ const Dashboard = () => {
                         )}
                     </div>
                     <div className="recipes-component-container">
-                        {currentUserId && <Recipes setRecipesLoading={setRecipesLoading}/>}
+                        {/*currentUserId && <Recipes setRecipesLoading={setRecipesLoading}/>*/}
                     </div>
                 </>
             )}

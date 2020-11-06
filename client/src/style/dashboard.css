@@ -162,8 +162,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* margin-top: 20%; */
-    margin-right: 5%;
+    margin-left: 20%;
+    /* margin-right: 5%; */
 }
 
 .no-lists-loaded-div {
