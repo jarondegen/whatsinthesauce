@@ -7,7 +7,8 @@ import '../../style/dashboard.css';
 import DashFridge from './DashFridge';
 import LoginForm from '../LoginForm';
 import ListPage from '../ShoppingList/ListPage';
-import arrow from '../../style/images/arrow.png'
+import arrow from '../../style/images/arrow.png';
+import crazyArrow from '../../style/images/crazy-arrow.png'
 import happyFace from '../../style/images/happy-face.gif';
 import downArrow from '../../style/images/down-arrow.png';
 import closedFridge from '../../style/images/real-fridge-closed.png';
@@ -59,14 +60,22 @@ const Dashboard = () => {
         },250)
     }
 
+    const handleCrazyArrowClick = () => {
+        const zoomFridge = document.querySelector('.fridge-container')
+        zoomFridge.style.transform = 'scale(1.1)';
+        setTimeout(() => {
+            zoomFridge.style.transform = 'scale(1)'
+        },250)
+    }
+
     const closeDoor = (e) => {
         const pickArrow = document.getElementById('homepage-arrow');
         document.querySelector('.fridge-container').style.backgroundImage  = `url(${closedFridge})`
         setTimeout(() => {
             document.querySelector('.freezer-door-container').style.display = 'none';
             document.querySelector('.inside-fridge-container').style.display = 'none';
-            if (pickArrow) pickArrow.style.zIndex = 10 
             document.querySelector('.lists-container').style.zIndex = 10
+            if (pickArrow) pickArrow.style.zIndex = 10 
         }, 100)
         document.getElementById('open-button-1').setAttribute('class', 'top-right-holder')
         document.getElementById('open-button-2').setAttribute('class', 'bottom-right-holder')
@@ -86,10 +95,6 @@ const Dashboard = () => {
                             <div onClick={handleArrowClick} className="no-list-container">
                                 <div className="no-lists-loaded-div">Pick one of your lists...</div> 
                                 <img  id="homepage-arrow" src={arrow}/>
-                                {/*<div className="dashboard-right-bottom-div">
-                                    <div className="need-inspiration">need some inspiration? <br/> checkout this out >> </div>
-                                    <img className="wfl" src={wtl}/>
-                                </div>*/}
                             </div>
                         )}
                         {currentUserId && homeListId && <ListPage setHomeListId={setHomeListId} listId={homeListId} />}
@@ -107,6 +112,12 @@ const Dashboard = () => {
                             </div>
                         
                         )}
+                        <div className="click-to-open-container">
+                            <div className="click-to-open-text">
+                                click the door to open
+                            </div>
+                            <img onClick={handleCrazyArrowClick} className="click-to-open-arrow" src={crazyArrow}/>
+                        </div>
                     </div>
                     <div className="recipes-component-container">
                         {/*currentUserId && <Recipes />*/}

@@ -4,10 +4,10 @@ body {
     padding:0;
 }
 
-/* html {
-    overflow: hidden;
-    height: 100%;
-} */
+html {
+    /* overflow: hidden;
+    height: 100%; */
+}
 
 .navbar-container {
     width: 100%;
@@ -15,7 +15,6 @@ body {
     grid-template-columns: 33% 33% 33%;
     background-color: white;
     height: 50px;
-    /* border-bottom: 2px solid black; */
     font-family: 'Gochi Hand', cursive;
     font-size: 1.5rem;
     margin-top: 1%;

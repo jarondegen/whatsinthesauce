@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getRecipeItems } from '../../store/recipes';
+import wfl from '../../style/images/wfl.png'
 import Card from './Card';
 import '../../style/recipes.css'
 
@@ -23,6 +24,12 @@ const Recipes = () => {
                         ) : null
                     )}
             </div>
+            <a target="_blank" href="https://aawhatsforlunch.herokuapp.com/">
+                <div className="recipes-bottom-div">
+                    <div className="need-inspiration">need some inspiration? <br/> checkout this out >> </div>
+                    <img className="wfl" src={wfl}/>
+                </div>
+            </a>
         </>
     );
 };

@@ -38,9 +38,9 @@ const DashFridge = ({ dollars, closeDoor, homeListId, setHomeListId }) => {
         if (homeArrow){
             homeArrow.style.zIndex = -10;
         }
+        document.querySelector('.lists-container').style.zIndex = -120
         document.getElementById('open-button-4').style.display = '';
         document.getElementById('open-button-3').style.display = '';
-        document.querySelector('.lists-container').style.zIndex = -10
     }
 
     return (

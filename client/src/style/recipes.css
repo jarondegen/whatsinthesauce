@@ -6,10 +6,11 @@
 .recipes-container {
     width: 80%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: row;
     flex-wrap: wrap;
     font-family: 'Gochi Hand', cursive;
+    margin-left: 5%;
     margin-bottom: 50px;
 
 }
@@ -74,4 +75,23 @@
     background-image: url('./images/sticky-purple.png');
     background-position: center;
     background-size: 100% 100%;
+}
+
+.wfl {
+    width: 15%;
+}
+
+.recipes-bottom-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gochi Hand', cursive;
+    font-size: 1.5rem;
+    
+}
+
+a {
+    text-decoration: none;  
+    color: black
 }
