@@ -1,4 +1,12 @@
-const SET_RECIPES = "feed/SET_RECIPES";
+const SET_RECIPES = 'recipes/SET_RECIPES'
+const SET_LOADING = 'recipes/SET_LOADING'
+
+export const setLoading = (value) => {
+  return {
+    type: SET_LOADING,
+    loading: value
+  }
+}
 
 export const setRecipes = (value) => {
   return {
@@ -21,18 +29,31 @@ export const getRecipeItems = (Fridge, Recipes) => async dispatch => {
             itemsArr.push(...new Set(recipes.results.slice(0,6)))
             }else continue
         }
+        dispatch(setLoading(false))
     }
     dispatch(setRecipes(itemsArr))
+    
 }
 
 
-const intialState = [];
+const intialState = {
+    recipes: [],
+    loading: true,
+};
 
 export default function reducer(state=intialState, action) {
     const newState = {...state};
     switch (action.type) {
         case SET_RECIPES: 
-        return action.recipes
+        return {
+          ...newState,
+          recipes: action.recipes
+        }
+        case SET_LOADING:
+          return {
+            ...newState,
+            loading: action.loading
+          }
         default: 
         return state;
     

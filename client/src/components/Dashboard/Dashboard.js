@@ -17,7 +17,6 @@ import wtl from '../../style/images/wfl.png';
 
 const Dashboard = () => {
     const dispatch = useDispatch();
-    // const { lists } = useSelector(store => store.Lists);
     const { currentUserId } = useContext(AuthContext);
     const { Fridge } = useSelector(store => store);
     const [dollars, setDollars] = useState(0)
@@ -25,6 +24,13 @@ const Dashboard = () => {
     const [homeListId, setHomeListId] = useState()
     const [recipesLoading, setRecipesLoading] = useState(true)
     const [showSignUp, setShowSignUp] = useState(false)
+    const { loading } = useSelector(store => store.Recipes)
+
+    useEffect(() => {
+        if (!loading) {
+            setRecipesLoading(false)
+        }
+    }, [loading])
 
     useEffect(() => {
         dispatch(getFridgeItems(currentUserId));
@@ -84,7 +90,6 @@ const Dashboard = () => {
                         )}
                         {homeListId && <ListPage setHomeListId={setHomeListId} listId={homeListId} />}
                         <DashFridge closeDoor={closeDoor} homeListId={homeListId} setHomeListId={setHomeListId} dollars={dollars} />
-                        {/* <ShoppingLists closeDoor={closeDoor} homeListId={homeListId} setHomeListId={setHomeListId}/> */}
                         {currentUserId && recipesLoading && (
                             <div className="recipes-loading-container">
                                 <div className="recipes-loading-text">looking for recipes based on whats in your fridge...</div>
@@ -100,7 +105,7 @@ const Dashboard = () => {
                         )}
                     </div>
                     <div className="recipes-component-container">
-                        {currentUserId && <Recipes setRecipesLoading={setRecipesLoading}/>}
+                        {/*currentUserId && <Recipes />*/}
                     </div>
                 </>
             )}

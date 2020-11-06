@@ -4,21 +4,20 @@ import { getRecipeItems } from '../../store/recipes';
 import Card from './Card';
 import '../../style/recipes.css'
 
-const Recipes = ({setRecipesLoading}) => {
+const Recipes = () => {
     const dispatch = useDispatch()
-    const { Fridge, Recipes } = useSelector(store => store);
-
+    const { Fridge } = useSelector(store => store);
+    const { recipes } = useSelector(store => store.Recipes)
+    
     useEffect(() => {
-        setRecipesLoading(true)
-        dispatch(getRecipeItems(Fridge, Recipes))
-        setRecipesLoading(false)
+        dispatch(getRecipeItems(Fridge, recipes))  
     },[Fridge])
 
     return (
         <>
-            {Recipes.length > 0? <h4 className="suggest-recipes-title">Suggested Recipes</h4> : null}
+            {recipes.length > 0? <h4 className="suggest-recipes-title">Suggested Recipes</h4> : null}
             <div className="recipes-container">
-                {Recipes.map(recipe => 
+                {recipes.map(recipe => 
                         recipe.thumbnail ? (
                             <Card key={recipe.href} recipe={recipe}/>
                         ) : null
