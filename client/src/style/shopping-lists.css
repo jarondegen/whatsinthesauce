@@ -25,14 +25,29 @@
     background-color: transparent;
 }
 
+.new-list-add-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.new-list-add-div > span {
+    margin-top: 5%;
+    margin-right: 5%;
+}
+
 .new-list-check {
     height: 20px;
     padding-left: 8px;
     margin-top: 5px;
+    transition: all .2s ease-in-out;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 2px;
 }
 
 .new-list-check:hover {
     cursor: pointer;
+    transform: scale(1.1);
 }
 
 .lists-container {
@@ -92,10 +107,12 @@
     grid-column: 3/4;
     width: 20px;
     height: 20px;
+    transition: all .2s ease-in-out;
 }
 
 .remove-list-button:hover {
     cursor: pointer;
+    transform: scale(1.1);
 }
 
 .not-logged-in-lists {

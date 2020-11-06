@@ -1,14 +1,15 @@
 import React, { useContext } from 'react';
 import AuthContext from '../auth';
 import { NavLink } from 'react-router-dom';
-import '../style/navbar.css'
+import logo from '../style/images/logo.png';
+import '../style/navbar.css';
 
 const NavBar = ({logoutUser}) => {
     const { currentUserId } = useContext(AuthContext);
     return (
         <div className="navbar-container">
             <div className="narbar-left">
-                <p>WhatsInTheSauce?</p>
+                <img className="navbar-logo"src={logo}/>
             </div>
             <div className="narbar-middle">
 

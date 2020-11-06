@@ -25,7 +25,13 @@ body {
     grid-column: 1/2;
     height: 50px;
     display: flex;
+    justify-content: center;
     align-items: center;
+}
+
+.navbar-logo {
+    width: 100%;
+    margin-left: 20%;
 }
 
 .narbar-left > p {
