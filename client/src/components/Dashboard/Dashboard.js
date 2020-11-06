@@ -56,6 +56,7 @@ const Dashboard = () => {
             document.querySelector('.freezer-door-container').style.display = 'none';
             document.querySelector('.inside-fridge-container').style.display = 'none';
             if (pickArrow) pickArrow.style.zIndex = 10 
+            document.querySelector('.lists-container').style.zIndex = 10
         }, 100)
         document.getElementById('open-button-1').setAttribute('class', 'top-right-holder')
         document.getElementById('open-button-2').setAttribute('class', 'bottom-right-holder')
@@ -75,22 +76,22 @@ const Dashboard = () => {
                             <div onClick={handleArrowClick} className="no-list-container">
                                 <div className="no-lists-loaded-div">Pick one of your lists...</div> 
                                 <img  id="homepage-arrow" src={arrow}/>
-                                <div className="dashboard-right-bottom-div">
+                                {/*<div className="dashboard-right-bottom-div">
                                     <div className="need-inspiration">need some inspiration? <br/> checkout this out >> </div>
                                     <img className="wfl" src={wtl}/>
-                                </div>
+                                </div>*/}
                             </div>
                         )}
                         {homeListId && <ListPage setHomeListId={setHomeListId} listId={homeListId} />}
-                        <DashFridge closeDoor={closeDoor} dollars={dollars} />
-                        <ShoppingLists closeDoor={closeDoor} homeListId={homeListId} setHomeListId={setHomeListId}/>
+                        <DashFridge closeDoor={closeDoor} homeListId={homeListId} setHomeListId={setHomeListId} dollars={dollars} />
+                        {/* <ShoppingLists closeDoor={closeDoor} homeListId={homeListId} setHomeListId={setHomeListId}/> */}
                         {currentUserId && recipesLoading && (
                             <div className="recipes-loading-container">
                                 <div className="recipes-loading-text">looking for recipes based on whats in your fridge...</div>
                                 <img className="recipes-loading-gif"src={happyFace} />
                             </div>
                         )}
-                        {!recipesLoading && (
+                        {currentUserId && !recipesLoading && (
                             <div className="recipes-loading-container">
                                 <div className="recipes-loading-text">check out the recipes we found for you..</div>
                                 <img className="recipes-loading-arrow"src={downArrow} />
@@ -99,7 +100,7 @@ const Dashboard = () => {
                         )}
                     </div>
                     <div className="recipes-component-container">
-                        {/*currentUserId && <Recipes setRecipesLoading={setRecipesLoading}/>*/}
+                        {currentUserId && <Recipes setRecipesLoading={setRecipesLoading}/>}
                     </div>
                 </>
             )}
