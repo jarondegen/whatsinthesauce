@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
-import closedFridge from '../../style/images/real-fridge-closed.png'
 import openFridge from '../../style/images/real-fridge-open.png'
 import { useDispatch, useSelector } from 'react-redux';
 import AuthContext from '../../auth';
 import x from '../../style/images/x.png';
 import { getFridgeItems } from '../../store/fridge';
+import ShoppingLists from '../ShoppingList/ShoppingList';
 
-const DashFridge = ({ dollars, closeDoor }) => {
+const DashFridge = ({ dollars, closeDoor, homeListId, setHomeListId }) => {
     const { Fridge } = useSelector(store => store);
     const dispatch = useDispatch();
     const { currentUserId, fetchWithCSRF } = useContext(AuthContext);
@@ -40,10 +40,12 @@ const DashFridge = ({ dollars, closeDoor }) => {
         }
         document.getElementById('open-button-4').style.display = '';
         document.getElementById('open-button-3').style.display = '';
+        document.querySelector('.lists-container').style.zIndex = -10
     }
 
     return (
         <div className="fridge-container">
+            <ShoppingLists closeDoor={closeDoor} homeListId={homeListId} setHomeListId={setHomeListId}/>
             <div id="open-button-3"onClick={closeDoor} className="top-left-holder" />
             <div id="open-button-4"onClick={closeDoor} className="bottom-left-holder" />
             <div id="open-button-1" onClick={openDoor} className="top-right-holder" />

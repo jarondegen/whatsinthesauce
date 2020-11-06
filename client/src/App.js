@@ -68,11 +68,11 @@ function App() {
             </nav>
             <Switch>
                 <ProtectedRoute path="/users" exact={true} component={UserList} currentUserId={currentUserId} />
-                <ProtectedRoute path="/lists/:id" exact={true} component={ListPage} currentUserId={currentUserId} />
-                <ProtectedRoute path="/home" exact={true} component={Dashboard} currentUserId={currentUserId} />
+                {/* <ProtectedRoute path="/lists/:id" exact={true} component={ListPage} currentUserId={currentUserId} /> */}
+                <Route path="/home" exact={true} component={Dashboard} currentUserId={currentUserId} />
                 <ProtectedRoute path="/users/:id/edit"  component={UserForm} currentUserId={currentUserId} />
                 {/*<ProtectedRoute path="/home/:id" component={Dashboard} currentUserId={currentUserId} />*/}
-                <AuthRoute path="/login" component={Dashboard} />
+                {/* <AuthRoute path="/login" component={Dashboard} /> */}
                 <Route path="/">
                     <Redirect to="/home"/>
                 </Route>
