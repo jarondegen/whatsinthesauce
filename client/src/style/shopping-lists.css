@@ -30,6 +30,11 @@
     justify-content: center;
     align-items: center;
 }
+
+.new-list-add-div:hover {
+    cursor: pointer;
+}
+
 .new-list-add-div > span {
     margin-top: 5%;
     margin-right: 5%;

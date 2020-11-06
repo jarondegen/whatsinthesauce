@@ -58,7 +58,7 @@ const NewShoppingList = ({ getLists }) => {
                 <div>
                     <input className="new-list-input" onChange={(e) => setListName(e.target.value)} value={listName} type="text" placeholder="ex. Whole Foods.."/>
                     <br />
-                    <div onClick={handleSubmit} className="new-list-add-div"><span>add list</span><img className="new-list-check" src={check} onClick={handleSubmit} onKeyDown={handleEnter}/></div>
+                    <div onClick={handleSubmit} className="new-list-add-div"><span>add list</span><img className="new-list-check" src={check} onKeyDown={handleEnter}/></div>
                 </div>
                 <div>
                 </div>

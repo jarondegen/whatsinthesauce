@@ -81,7 +81,7 @@ const Dashboard = () => {
                     <div className="dashboard-page-container">
                         <div className="background-color-splash"></div>
                         {!currentUserId  && !showSignUp && <LoginForm setShowSignUp={setShowSignUp}/>}
-                        {showSignUp && <SignUpForm setShowSignUp={setShowSignUp}/>}
+                        {!currentUserId && showSignUp && <SignUpForm setShowSignUp={setShowSignUp}/>}
                         {currentUserId && !homeListId && (
                             <div onClick={handleArrowClick} className="no-list-container">
                                 <div className="no-lists-loaded-div">Pick one of your lists...</div> 
@@ -92,7 +92,7 @@ const Dashboard = () => {
                                 </div>*/}
                             </div>
                         )}
-                        {homeListId && <ListPage setHomeListId={setHomeListId} listId={homeListId} />}
+                        {currentUserId && homeListId && <ListPage setHomeListId={setHomeListId} listId={homeListId} />}
                         <DashFridge closeDoor={closeDoor} homeListId={homeListId} setHomeListId={setHomeListId} dollars={dollars} />
                         {currentUserId && recipesLoading && (
                             <div className="recipes-loading-container">

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import AuthContext from '../auth';
 import { Redirect } from 'react-router-dom';
 import '../style/signup-form.css';
@@ -29,20 +29,29 @@ const SignUpForm = ({setShowSignUp}) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        if (password != confirmPassword) {
-            setErrors([...errors, 'Passwords must match'])
+        if (password != confirmPassword && !errors.includes('passwords must match')) {
+            setErrors([...errors, 'passwords must match'])
+            return
+        }
+        if (password != confirmPassword && errors.includes('passwords must match')) {
             return
         }
         const data = await fetchWithCSRF('/api/users/new', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ password: password, confirm: confirmPassword, username: userName, email: email }),
+            body: JSON.stringify({ password: password, username: userName, email: email }),
         })
         if (data.ok) {
             console.log("data ok")
             const response = await data.json();
             console.log(response)
-            return <Redirect to="/home" />
+            if (response.errors.length === 0) {
+                // setCurrentUserId(response.user.id)
+                // loginUser()
+                setTimeout(loginUser, 500)
+            }else {
+                setErrors(response.errors)
+            }
         }
         else {
             const response = await data.json();
@@ -54,6 +63,31 @@ const SignUpForm = ({setShowSignUp}) => {
     const handleLoginClick = () => {
         setShowSignUp(false)
     }
+
+
+    async function loginUser() {
+        const response = await fetchWithCSRF(`/login`, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            credentials: 'include',
+            body: JSON.stringify({
+                username: userName,
+                password
+            })
+        });
+
+        const responseData = await response.json();
+        if (!response.ok) {
+            setErrors(responseData.errors);
+        } else {
+            setCurrentUserId(responseData.current_user_id)
+        }
+    }
+
+
+
 
     return (
         <div className="signup-form-page">
@@ -67,11 +101,6 @@ const SignUpForm = ({setShowSignUp}) => {
                         <div>
                             <input className="signup-form-input" onChange={handleUserName} value={userName} type="text" />
                         </div>
-                        <div className="errors-div">
-                            {errors && errors.username && errors.username.map(error =>
-                                <p>{error}</p>
-                            )}
-                        </div>
                     </div>
                     <div className="signup-username-email-container">
                         <div>
@@ -79,11 +108,6 @@ const SignUpForm = ({setShowSignUp}) => {
                         </div>
                         <div>
                             <input className="signup-form-input" onChange={handleEmail} value={email} type="text" />
-                        </div>
-                        <div className="errors-div">
-                            {errors && errors.email && errors.email.map(error =>
-                                <p>{error}</p>
-                            )}
                         </div>
                     </div>
                     <div className="signup-username-password-container">
@@ -93,11 +117,6 @@ const SignUpForm = ({setShowSignUp}) => {
                         <div>
                             <input className="signup-form-input" onChange={handlePassword} value={password} type="password" />
                         </div>
-                        <div className="errors-div">
-                            {errors && errors.password && errors.password.map(error =>
-                                <p>{error}</p>
-                            )}
-                        </div>
                     </div>
                     <div className="signup-username-confirm-container">
                         <div>
@@ -106,16 +125,18 @@ const SignUpForm = ({setShowSignUp}) => {
                         <div>
                             <input className="signup-form-input" onChange={handleConfirmPassword} value={confirmPassword} type="password" />
                         </div>
-                        <div className="errors-div">
-                            {errors && errors.confirm && errors.confirm.map(error =>
-                                <p>{error}</p>
-                            )}
-                        </div>
                     </div>
                     <div className="signup-username-submit-container">
                         <button className="signup-form-button" variant="contained" color="primary" type="submit" >Signup</button>
                     </div>
                 </form>
+            </div>
+            <div className="signup-errors-div">
+                <ul>
+                    {errors && errors.length > 0 && errors.map(error => 
+                        <li>{error}</li>
+                    )}
+                </ul>
             </div>
             <div onClick={handleLoginClick} className="have-an-account-link">
                 Already have an account? <br/> sign in here...
