@@ -41,8 +41,6 @@ body {
     margin-left: 25%;
 }
 
-/* .fridge-container:hover { transform: scale(1.1); } */
-
 .freezer-door-container {
     grid-row: 1/2;
     grid-column: 2/3;
@@ -84,14 +82,12 @@ body {
     width: 100%;
     display: grid;
     grid-template-columns: 35% 20% 20% 15%;
-    /* display: flex;
-    flex-direction: row;
-    justify-content: space-evenly; */
     margin-left: 5%;
     margin-top: none;
     margin-bottom: none;
     padding-top: none;
     padding-bottom: none;
+    z-index: 100;
 }
 
 .fridge-item-name, .fridge-item-expire, .fridge-item-price, .fridge-item-delete {
@@ -164,9 +160,9 @@ body {
     grid-row: 1/2;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    margin-top: 20%;
+    /* margin-top: 20%; */
     margin-right: 5%;
 }
 
@@ -213,4 +209,28 @@ body {
     transform: rotate(-65deg);
     margin-top: 20%;
     margin-left: 10%;
+}
+
+.dashboard-right-bottom-div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 40%;
+}
+
+.need-inspiration {
+    font-family: 'Gochi Hand', cursive;
+    font-size: 1.7rem;
+    margin-left: 40%;
+}
+
+.wfl {
+    height: 130px;
+    width: 130px;
+    transition: all .4s ease-in-out;
+}
+
+.wfl:hover { 
+    transform: scale(1.1);
+    cursor: pointer;
 }

@@ -13,6 +13,7 @@ import happyFace from '../../style/images/happy-face.gif';
 import downArrow from '../../style/images/down-arrow.png';
 import closedFridge from '../../style/images/real-fridge-closed.png';
 import SignUpForm from '../SignupForm';
+import wtl from '../../style/images/wfl.png';
 
 const Dashboard = () => {
     const dispatch = useDispatch();
@@ -70,9 +71,13 @@ const Dashboard = () => {
                             <div onClick={handleArrowClick} className="no-list-container">
                                 <div class="no-lists-loaded-div">Pick one of your lists...</div> 
                                 <img  id="homepage-arrow" src={arrow}/>
+                                <div className="dashboard-right-bottom-div">
+                                    <div className="need-inspiration">need some inspiration? <br/> checkout this out >> </div>
+                                    <img className="wfl" src={wtl}/>
+                                </div>
                             </div>
                         )}
-                        {homeListId && <ListPage listId={homeListId} />}
+                        {homeListId && <ListPage setHomeListId={setHomeListId} listId={homeListId} />}
                         <DashFridge closeDoor={closeDoor} dollars={dollars} />
                         <ShoppingLists closeDoor={closeDoor} homeListId={homeListId} setHomeListId={setHomeListId}/>
                         {currentUserId && recipesLoading && (
@@ -90,7 +95,7 @@ const Dashboard = () => {
                         )}
                     </div>
                     <div className="recipes-component-container">
-                        {/*currentUserId && <Recipes setRecipesLoading={setRecipesLoading}/>*/}
+                        {currentUserId && <Recipes setRecipesLoading={setRecipesLoading}/>}
                     </div>
                 </>
             )}

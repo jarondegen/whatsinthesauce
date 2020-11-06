@@ -4,10 +4,10 @@ body {
     padding:0;
 }
 
-html {
+/* html {
     overflow: hidden;
     height: 100%;
-}
+} */
 
 .navbar-container {
     width: 100%;

@@ -22,11 +22,13 @@
     padding: 2%;
     border: 2px solid black;
     border-radius: 5px;
+    background-color: transparent;
 }
 
 .new-list-check {
     height: 20px;
-    padding: 5px;
+    padding-left: 8px;
+    margin-top: 5px;
 }
 
 .new-list-check:hover {
@@ -57,8 +59,8 @@
     display: none;
 }
 
-.lists-container:hover { transform: scale(1.25); }
-.lists-container:focus { transform: scale(1.25); }
+.lists-container:hover { transform: scale(1.1); }
+.lists-container:focus { transform: scale(1.1); }
 
 .lists-div {
     display: grid;

@@ -29,12 +29,15 @@ const DashFridge = ({ dollars, closeDoor }) => {
         if (!currentUserId) {
             return
         }
+        const homeArrow = document.getElementById('homepage-arrow')
         document.querySelector('.fridge-container').style.backgroundImage  = `url(${openFridge})`
         setTimeout(() => {
             document.querySelector('.freezer-door-container').style.display = 'flex';
             document.querySelector('.inside-fridge-container').style.display = 'grid';
         }, 100)
-        document.getElementById('homepage-arrow').style.zIndex = -10;
+        if (homeArrow){
+            homeArrow.style.zIndex = -10;
+        }
         document.getElementById('open-button-4').style.display = '';
         document.getElementById('open-button-3').style.display = '';
     }

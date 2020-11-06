@@ -5,7 +5,7 @@ import AuthContext from '../../auth';
 import ListItem from './ListItem';
 import '../../style/lists-page.css';
 
-const ListPage = ({listId}) => {
+const ListPage = ({listId, setHomeListId}) => {
     const dispatch = useDispatch()
     const { fetchWithCSRF } = useContext(AuthContext);
     const [listName, setListName] = useState('');
@@ -53,6 +53,10 @@ const ListPage = ({listId}) => {
         }
     }
 
+    const handleCloseList = () => {
+        setHomeListId(null)
+    }
+
     return (
         <div className="list-page-container">
             <div className="list-items-container">
@@ -70,19 +74,21 @@ const ListPage = ({listId}) => {
                 </ul>
             </div>
             <div className="list-items-select-form">
-                <select className="list-items-select-input" onChange={handleGroupSelect}>
+                <select className="list-items-select-input food-group-select" onChange={handleGroupSelect}>
                     <option>Group</option>
                     {groups && groups.map(item =>
                         <option key={item.id} value={item.id}>{item.name}</option>
                     )}
                 </select>
-                <select className="list-items-select-input" onChange={(e) => setItemToAdd(e.target.value)}>
+                <select className="list-items-select-input ingredient-select" onChange={(e) => setItemToAdd(e.target.value)}>
                     <option>Ingredient</option>
                     {itemsByGroup && itemsByGroup.map(item =>
                         <option key={item.id} value={item.id}>{item.name}</option>
                     )}
                 </select>
-                <button className="list-item-select-button" onClick={handleAddToList} >Add to list</button>
+                <br/>
+                <button className="list-item-select-button add-to-list-button" onClick={handleAddToList} >Add to list</button>
+                <button className="list-item-select-button close-list-button" onClick={handleCloseList} >Close List</button>
             </div>
         </div>
     );
