@@ -48,14 +48,14 @@ body {
     grid-column: 2/3;
     justify-self: flex-start;
     align-self: center;
-    margin-top: 10%;
+    margin-top: 7%;
     width: 90%;
-    height: 70%;
+    height: 71%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    background-color: rgb(255, 255, 255, .9);
+    background-color: rgb(114,170,208, 1);
     border-radius: 5px;
     transition: all .4s ease-in-out;
     display:none;
@@ -66,13 +66,15 @@ body {
 .inside-fridge-container {
     grid-row: 2/3;
     grid-column: 2/3;
-    width: 90%;
-    height: 72%;
+    width: 88%;
+    height: 74%;
     display: flex;
     align-items: flex-start;
-    background-color: rgb(255, 255, 255, .9);
+    /* background-color: rgb(255, 255, 255, .9); */
+    background-color: rgb(114,170,208, 1);
     border-radius: 5px;
-    margin-top: 3%;
+    margin-top: 2%;
+    margin-left: 3%;
     transition: all .4s ease-in-out;
     display:none;
     font-family: 'Gochi Hand', cursive;
@@ -117,7 +119,7 @@ body {
 }
 
 .expiring_soon {
-    color: red;
+    color: rgb(150,48,69)
 }
 
 .top-left-holder {
