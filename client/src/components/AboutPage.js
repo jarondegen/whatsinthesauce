@@ -10,7 +10,7 @@ const AboutPage = () => {
                 <h2>What else?</h2>
                 <p>Thats not enough? We got you...You will get customized recipe suggestions based on what is in your fridge at any given time!</p>
                 <h2>How do I use it?</h2>
-                <p>Its easy. Here are some steps to get you started</p>
+                <p>Its easy. Here are some steps to get started</p>
                 <ul>
                     <li>make an account</li>
                     <li>make a grocery list</li>
