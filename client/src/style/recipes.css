@@ -22,11 +22,9 @@
     padding: 2%;
     transition: all .2s ease-in-out;
     font-family: 'Gochi Hand', cursive;
-    /* box-shadow: 0px 5px 4px 0px rgba(85, 84, 84, 0.75); */
     font-size: 1.3rem;
     border: 3px solid black;
     border-radius: 5px;
-    /* background: linear-gradient(90deg, rgb(53, 147, 181) 0%, rgb(198, 164, 236) 100%); */
 }
 
 .recipe-card:hover {
@@ -55,29 +53,11 @@
     margin-bottom: 5%;
 }
 
-/* .sticky-yellow {
-    background-image: url('./images/sticky-yellow.png');
-    background-position: center;
-    background-size: 100% 100%;
-} */
 
 .sticky-blue {
-    /* background-image: url('./images/sticky-blue.png');
-    background-position: center;
-    background-size: 100% 100%; */
     background-color: rgb(65,148,183)
-
 }
 
-/* .sticky-pink {
-    background-image: url('./images/sticky-pink.png');
-    background-position: center;
-    background-size: 100% 100%;
-} */
-
 .sticky-purple {
-    /* background-image: url('./images/sticky-purple.png');
-    background-position: center;
-    background-size: 100% 100%; */
     background-color: rgb(193,163,234);
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../style/images/logo.png';
 import wfl from '../style/images/wfl.png'
 import '../style/footer.css';
 
@@ -11,7 +10,6 @@ const Footer = () => {
         <div className="footer-container">
             <div className="footer-logo-div">
                 <div className="footer-2020">2020 WhatsInTheSauce</div>
-                {/* <img src={logo} /> */}
             </div>
             <div className="footer-created-by">
             created by Jaron Degen

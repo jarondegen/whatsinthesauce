@@ -4,11 +4,6 @@ body {
     padding:0;
 }
 
-html {
-    /* overflow: hidden;
-    height: 100%; */
-}
-
 .navbar-container {
     width: 100%;
     display: grid;

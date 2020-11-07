@@ -71,7 +71,6 @@ body {
     height: 74%;
     display: flex;
     align-items: flex-start;
-    /* background-color: rgb(255, 255, 255, .9); */
     background-color: rgb(114,170,208, 1);
     border-radius: 5px;
     margin-top: 2%;

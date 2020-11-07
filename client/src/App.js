@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import UserList from './components/UsersList';
 import UserForm from './components/UserForm';
 import AuthContext from './auth';
 import Dashboard from './components/Dashboard/Dashboard';
-import ListPage from './components/ShoppingList/ListPage';
 import NavBar from './components/NavBar';
-import { ProtectedRoute, AuthRoute } from './Routes';
+import { ProtectedRoute } from './Routes';
 import AboutPage from './components/AboutPage';
 
 function App() {
@@ -69,12 +67,8 @@ function App() {
             </nav>
             <Switch>
                 <Route path="/about" exact={true} component={AboutPage}/>
-                <ProtectedRoute path="/users" exact={true} component={UserList} currentUserId={currentUserId} />
-                {/* <ProtectedRoute path="/lists/:id" exact={true} component={ListPage} currentUserId={currentUserId} /> */}
                 <Route path="/home" exact={true} component={Dashboard} currentUserId={currentUserId} />
                 <ProtectedRoute path="/users/:id/edit"  component={UserForm} currentUserId={currentUserId} />
-                {/*<ProtectedRoute path="/home/:id" component={Dashboard} currentUserId={currentUserId} />*/}
-                {/* <AuthRoute path="/login" component={Dashboard} /> */}
                 <Route path="/">
                     <Redirect to="/home"/>
                 </Route>
