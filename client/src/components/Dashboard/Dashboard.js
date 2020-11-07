@@ -15,6 +15,7 @@ import happyFace from '../../style/images/happy-face.gif';
 import downArrow from '../../style/images/down-arrow.png';
 import closedFridge from '../../style/images/real-fridge-closed.png';
 import SignUpForm from '../SignupForm';
+import Footer from '../Footer';
 
 const Dashboard = () => {
     const dispatch = useDispatch();
@@ -124,8 +125,9 @@ const Dashboard = () => {
                         </div>
                     </div>
                     <div className="recipes-component-container">
-                        {/*currentUserId && <Recipes />*/}
+                        {currentUserId && <Recipes />}
                     </div>
+                    <Footer />
                 </>
             )}
         </>
