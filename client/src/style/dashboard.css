@@ -41,6 +41,7 @@ body {
     grid-template-rows: 33% 67%;
     transition: all .4s ease-in-out;
     margin-left: 20%;
+    margin-top: 5%;
 }
 
 .freezer-door-container {
@@ -174,6 +175,7 @@ body {
 
 .no-lists-loaded-div {
     justify-self: flex-end;
+    margin-top: 30%;
     font-size:2.5rem;
     transform: rotateY(0deg) rotate(-15deg);
     font-family: 'Gochi Hand', cursive;
@@ -182,12 +184,13 @@ body {
 }
 
 #homepage-arrow {
-    width: 200px;
-    height: 200px;
+    width: 175px;
+    height: 250px;
     z-index: -1;
     transform: rotateX(130deg);
     margin-left: 50%;
     z-index: 10;
+    transform: rotate(-90deg)
 }
 
 .underline {
@@ -218,11 +221,12 @@ body {
 }
 
 .recipes-loading-arrow {
-    width: 150px;
-    height: 50px;
-    transform: rotate(-115deg);
+    width: 200px;
+    height: 200px;
+    transform: rotate(-10deg);
     margin-top: 20%;
     margin-left: 30%;
+    margin-top: 5%;
 }
 
 

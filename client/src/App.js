@@ -4,9 +4,10 @@ import UserList from './components/UsersList';
 import UserForm from './components/UserForm';
 import AuthContext from './auth';
 import Dashboard from './components/Dashboard/Dashboard';
-import ListPage from './components/ShoppingList/ListPage'
-import NavBar from './components/NavBar'
+import ListPage from './components/ShoppingList/ListPage';
+import NavBar from './components/NavBar';
 import { ProtectedRoute, AuthRoute } from './Routes';
+import AboutPage from './components/AboutPage';
 
 function App() {
     const [fetchWithCSRF, setFetchWithCSRF] = useState(() => fetch);
@@ -67,7 +68,7 @@ function App() {
                 <NavBar logoutUser={logoutUser}/>
             </nav>
             <Switch>
-                <Route path="/about" exact={true}/>
+                <Route path="/about" exact={true} component={AboutPage}/>
                 <ProtectedRoute path="/users" exact={true} component={UserList} currentUserId={currentUserId} />
                 {/* <ProtectedRoute path="/lists/:id" exact={true} component={ListPage} currentUserId={currentUserId} /> */}
                 <Route path="/home" exact={true} component={Dashboard} currentUserId={currentUserId} />

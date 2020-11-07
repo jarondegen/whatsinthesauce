@@ -26,7 +26,7 @@ const Recipes = () => {
             </div>
             <a target="_blank" href="https://aawhatsforlunch.herokuapp.com/">
                 <div className="recipes-bottom-div">
-                    <div className="need-inspiration">need some inspiration? <br/> checkout this out >> </div>
+                    <div className="need-inspiration">need some more inspiration? <br/> check this out >> </div>
                     <img className="wfl" src={wfl}/>
                 </div>
             </a>

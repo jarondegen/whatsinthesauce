@@ -3,8 +3,8 @@ import React from 'react';
 const Card = ({recipe}) => {
 
     const randomSticky = () => {
-        const colors = ["yellow", "blue", "pink", "purple"]
-        return colors[Math.floor(Math.random() * 4)]
+        const colors = ["blue", "purple"]
+        return colors[Math.floor(Math.random() * 2)]
     }
 
     return (

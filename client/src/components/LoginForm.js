@@ -43,7 +43,7 @@ function LoginForm({setShowSignUp}) {
     return (
         <div className="login-form-container">
             <div className="welcome-div">
-                Welcome! Login to see your stuff
+                Welcome! Login and get started
             </div>
             <div className="div-wrapping-form">
                 <form className="login-form-form" onSubmit={submitForm}>

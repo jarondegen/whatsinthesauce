@@ -1,10 +1,4 @@
 .list-items-container {
-    /* background-image: url('./images/notebook.png');
-    background-repeat: no-repeat;
-    background-position: center; */
-    /* background-size: 100% 100%; */
-    /* background-color: rgb(170,193,239); */
-    /* background: linear-gradient(90deg, rgb(132, 81, 145) 0%, rgb(185, 199, 247) 100%); */
     height: 80%;
     width: 90%;
     margin-left: 20%;
@@ -17,12 +11,26 @@
     transition: all .2s ease-in-out;
     overflow-y: scroll;
     border-radius: 7px;
-    border: 2px solid black;
+    border: 4px solid black;
     z-index: -1000;
 }
 
-.list-items-container::-webkit-scrollbar {
+/* .list-items-container::-webkit-scrollbar {
     display: none;
+} */
+
+.list-items-container::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: transparent;
+}
+
+.list-items-container::-webkit-scrollbar {
+    width: 6px;
+    background-color: transparent;
+}
+
+.list-items-container::-webkit-scrollbar-thumb {
+    background-color: #000000;
 }
 
 .list-items-container > ul {
@@ -150,9 +158,21 @@
 }
 
 .add-to-list-button {
+    transition: all .2s ease-in-out;
     width: 20%
 }
 
+.add-to-list-button:hover {
+    transform: scale(1.1);
+    cursor: pointer
+}
+
 .close-list-button {
+    transition: all .2s ease-in-out;
     width: 20%
+}
+
+.close-list-button:hover {
+    transform: scale(1.1);
+    cursor: pointer
 }
