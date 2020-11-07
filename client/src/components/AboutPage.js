@@ -1,4 +1,5 @@
 import React from 'react';
+import github from '../style/images/github.png'
 import '../style/about-page.css';
 
 const AboutPage = () => {
@@ -19,6 +20,16 @@ const AboutPage = () => {
                     <li>we will keep track of it from there.  don't forget to remove it from your fridge after you eat it</li>
                     <li>profit... well maybe not, but definitely save money!</li>
                 </ul>
+            </div>
+            <div className="about-about-container">
+                <h3>Technologies Used...</h3>
+                <div>
+                    <span>React</span>
+                    <span>Redux</span>
+                    <span>Flask</span>
+                    <span>SQLAlchemy</span>  
+                </div>
+                <a target="_blank" href="https://github.com/jarondegen/whatsinthesauce"><img src={github} /></a>
             </div>
         </div>
     )
