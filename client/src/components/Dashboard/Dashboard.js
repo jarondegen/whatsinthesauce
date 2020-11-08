@@ -125,7 +125,7 @@ const Dashboard = () => {
                         </div>
                     </div>
                     <div className="recipes-component-container">
-                        {currentUserId && <Recipes />}
+                        {/*currentUserId && <Recipes />*/}
                     </div>
                     <Footer />
                 </>

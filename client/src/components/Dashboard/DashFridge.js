@@ -33,7 +33,7 @@ const DashFridge = ({ dollars, closeDoor, homeListId, setHomeListId }) => {
         document.querySelector('.fridge-container').style.backgroundImage  = `url(${openFridge})`
         setTimeout(() => {
             document.querySelector('.freezer-door-container').style.display = 'flex';
-            document.querySelector('.inside-fridge-container').style.display = 'grid';
+            document.querySelector('.inside-fridge-container').style.display = 'flex';
         }, 100)
         if (homeArrow){
             homeArrow.style.zIndex = -10;
@@ -50,25 +50,24 @@ const DashFridge = ({ dollars, closeDoor, homeListId, setHomeListId }) => {
             <div id="open-button-4"onClick={closeDoor} className="bottom-left-holder" />
             <div id="open-button-1" onClick={openDoor} className="top-right-holder" />
             <div id="open-button-2" onClick={openDoor} className="bottom-right-holder" />
-            <div className="freezer-door-container">
-                <h1>My Fridge</h1>
-                <h4>{`$${dollars} worth of food expiring soon`}</h4>
-            </div>
             <div className="inside-fridge-container">
-                        <div className="fridge-item-container" >
-                            <span className="fridge-item-name underline">Ingredient</span>
-                            <span className="fridge-item-expire underline">Expiring</span>
-                            <span className="fridge-item-price underline">Price</span>
-                            <span className="fridge-item-delete underline">Remove</span>
-                        </div>
-                    {Fridge && Fridge.map(item => 
-                        <div className="fridge-item-container" >
-                            <span className="fridge-item-name">{item.name}</span>
-                            <span className="fridge-item-expire" className={item.expiring_soon ? 'expiring_soon' : 'not_expiring_soon'} >{item.expires_on.split(" ").slice(0,3).join(" ")}</span>
-                            <span className="fridge-item-price">{item.price === null || item.price === 0 ? 'None' : `$${item.price}`}</span>
-                            <span className="fridge-item-delete"><img className="delete-fridge-item-x" src={x} onClick={handleRemoveItemFromFridge} id={item.id}/></span>
-                        </div>
-                    )}
+                <div className="freezer-door-container">
+                    <span>{`$${dollars} worth of food expiring soon`}</span>
+                </div>
+                <div className="fridge-item-container-labels" >
+                    <span className="fridge-item-name underline">Ingredient</span>
+                    <span className="fridge-item-expire underline">Expiring</span>
+                    <span className="fridge-item-price underline">Price</span>
+                    <span className="fridge-item-delete underline">Remove</span>
+                </div>
+                {Fridge && Fridge.map(item => 
+                    <div className="fridge-item-container" >
+                        <span className="fridge-item-name">{item.name}</span>
+                        <span className="fridge-item-expire" className={item.expiring_soon ? 'expiring_soon' : 'not_expiring_soon'} >{item.expires_on.split(" ").slice(0,3).join(" ")}</span>
+                        <span className="fridge-item-price">{item.price === null || item.price === 0 ? 'None' : `$${item.price}`}</span>
+                        <span className="fridge-item-delete"><img className="delete-fridge-item-x" src={x} onClick={handleRemoveItemFromFridge} id={item.id}/></span>
+                    </div>
+                )}
                 
             </div>
         </div>
