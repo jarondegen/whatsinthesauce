@@ -34,6 +34,7 @@ const DashFridge = ({ dollars, closeDoor, homeListId, setHomeListId }) => {
         setTimeout(() => {
             document.querySelector('.freezer-door-container').style.display = 'flex';
             document.querySelector('.inside-fridge-container').style.display = 'flex';
+            document.querySelector('.recipes-loading-container').style.zIndex = -10
         }, 100)
         if (homeArrow){
             homeArrow.style.zIndex = -10;

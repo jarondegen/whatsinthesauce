@@ -78,6 +78,7 @@ const Dashboard = () => {
             document.querySelector('.freezer-door-container').style.display = 'none';
             document.querySelector('.inside-fridge-container').style.display = 'none';
             document.querySelector('.lists-container').style.zIndex = 10
+            document.querySelector('.recipes-loading-container').style.zIndex = 10
             if (pickArrow) pickArrow.style.zIndex = 10 
         }, 100)
         document.getElementById('open-button-1').setAttribute('class', 'top-right-holder')
@@ -111,7 +112,7 @@ const Dashboard = () => {
                         {currentUserId && !recipesLoading && (
                             <div className="recipes-loading-container">
                                 <div className="recipes-loading-text">check out the recipes we found for you..</div>
-                                <img className="recipes-loading-arrow"src={downArrow} />
+                                <img onClick={() => document.querySelector('.recipes-component-container').scrollIntoView()} className="recipes-loading-arrow"src={downArrow} />
                             </div>
                         
                         )}
@@ -125,7 +126,7 @@ const Dashboard = () => {
                         </div>
                     </div>
                     <div className="recipes-component-container">
-                        {/*currentUserId && <Recipes />*/}
+                        {currentUserId && <Recipes />}
                     </div>
                     <Footer />
                 </>
