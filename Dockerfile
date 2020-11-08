@@ -24,7 +24,7 @@ RUN ["cp", "-r", "starter_app/static/static/media", "starter_app/static"]
 ENV FLASK_APP=starter_app
 ENV FLASK_ENV=production
 ENV SQLALCHEMY_ECHO=True
-ENV REACT_APP_BASE_URL="https://whatsinthesauce.herokuapp.com/"
+ENV REACT_APP_BASE_URL=https://whatsinthesauce.herokuapp.com/
 
 EXPOSE 8000
 
