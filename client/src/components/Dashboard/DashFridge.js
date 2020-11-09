@@ -61,8 +61,8 @@ const DashFridge = ({ dollars, closeDoor, homeListId, setHomeListId }) => {
                     <span className="fridge-item-price underline">Price</span>
                     <span className="fridge-item-delete underline">Remove</span>
                 </div>
-                {Fridge && Fridge.map(item => 
-                    <div className="fridge-item-container" >
+                {Fridge && Fridge.map((item, i) => 
+                    <div key={i} className="fridge-item-container" >
                         <span className="fridge-item-name">{item.name}</span>
                         <span className="fridge-item-expire" className={item.expiring_soon ? 'expiring_soon' : 'not_expiring_soon'} >{item.expires_on.split(" ").slice(0,3).join(" ")}</span>
                         <span className="fridge-item-price">{item.price === null || item.price === 0 ? 'None' : `$${item.price}`}</span>

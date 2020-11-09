@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
 import AuthContext from '../auth';
-import { Redirect } from 'react-router-dom';
 import '../style/signup-form.css';
 
 const SignUpForm = ({setShowSignUp}) => {
@@ -46,8 +45,6 @@ const SignUpForm = ({setShowSignUp}) => {
             const response = await data.json();
             console.log(response)
             if (response.errors.length === 0) {
-                // setCurrentUserId(response.user.id)
-                // loginUser()
                 setTimeout(loginUser, 500)
             }else {
                 setErrors(response.errors)

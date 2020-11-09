@@ -19,7 +19,6 @@ const ShoppingLists = ({ setHomeListId, closeDoor }) => {
 
     useEffect(() => {
         dispatch(getLists(currentUserId))
-        console.log(lists[lists.length -1])
     }, [])
 
     const handleDelete = async (e) => {
