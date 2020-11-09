@@ -1,23 +1,42 @@
+html {
+    width: 100vw;
+    height: 100%;
+    overflow:auto; 
+    position:relative;
+}
 body {
     scroll-behavior: smooth;
     background-color: white;
+    overflow:auto; 
+    position:relative;
+}
+
+html, body, #root, .App {
+    min-height: 100vh;
+    position:relative;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .dashboard-page-container {
     margin: auto;
-    width: 100vw;
+    width: 100%;
     margin-top: 2%;
     display: grid;
     grid-template-columns: 35% 45% 20%;
     grid-template-rows: 80% 20%;
-    width: 100%;
-    height: 1000px;
 }
 
 .background-color-splash {
+    grid-row: 1/3;
+    grid-column: 1/4;
     background: linear-gradient(90deg, rgb(53, 147, 181) 0%, rgb(198, 164, 236) 100%);
-    position: absolute;
-    height: 105%;
+    justify-self: center;
+    height: 100%;
     width: 95%;
     z-index: -100;
     margin-left: auto;
@@ -267,6 +286,7 @@ body {
 
 .click-to-open-container {
     grid-column: 3/4;
+    grid-row: 1/3;
     height: 100%;
     width: 100%;
     display: flex;
@@ -285,7 +305,7 @@ body {
 
 .click-to-open-arrow {
     width: 80%;
-    height: 40%;
+    height: 30%;
     transform: rotate(-75deg);
     margin-right: 60%;
 }

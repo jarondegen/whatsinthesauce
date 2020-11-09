@@ -6,6 +6,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import NavBar from './components/NavBar';
 import { ProtectedRoute } from './Routes';
 import AboutPage from './components/AboutPage';
+import Footer from './components/Footer';
 
 function App() {
     const [fetchWithCSRF, setFetchWithCSRF] = useState(() => fetch);
@@ -74,6 +75,7 @@ function App() {
                 </Route>
             </Switch>
         </BrowserRouter>}
+        <Footer />
     </AuthContext.Provider>
     );
 }
