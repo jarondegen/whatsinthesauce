@@ -37,7 +37,7 @@ const ShoppingLists = ({ setHomeListId, closeDoor }) => {
 
     const handleListClick = (e) => {
         setHomeListId(e.target.id)
-        closeDoor(e)
+        closeDoor()
     }
 
     return (

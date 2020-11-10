@@ -11,7 +11,7 @@
     position: absolute;
     background: linear-gradient(90deg, rgb(53, 147, 181) 0%, rgb(198, 164, 236) 100%);
     justify-self: center;
-    height: 70%;
+    height: calc(100% - 240px);
     width: 90%;
     z-index: -100;
     left: auto;
@@ -93,5 +93,59 @@
     .have-an-account-link {
         width: 100%;
         margin-right: 30%;
+    }
+
+    /* no list container */
+    .no-list-container {
+        width: 100%;
+        margin: auto;
+    }
+
+    .mobile-no-lists-loaded-div {
+        font-family: 'Gochi Hand', cursive;
+        font-size: 1.3rem;
+        margin-bottom: 5%;
+        margin-top: 10%;
+    }
+
+    #mobile-homepage-arrow {
+        width: 30%;
+        height: 30%;
+    }
+
+    /* shopping lists */
+    .lists-container {
+        width: 80%;
+        height: 400px;
+        margin: auto;
+        background-size:100% 100%;
+        padding-top: 5%;
+    }
+    .lists-container:hover { transform: scale(1); }
+    .lists-container:focus { transform: scale(1); }
+
+    .lists-div {
+        width: 85%;
+        margin-left: 7%;
+    }
+
+    /* list page */
+    .list-page-container {
+        width: 95%;
+        margin: auto;
+    }
+
+    .list-items-container {
+        width: 83%;
+        margin: auto;
+        margin-top: 15%;
+    }
+
+    .ingredient-list-item-delete-button-label {
+        font-size: 1rem;
+    }
+
+    .list-items-select-form {
+        margin: auto;
     }
 }

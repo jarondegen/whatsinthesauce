@@ -116,6 +116,7 @@ body {
         border: 1px solid lightgray;
         font-size: 2rem;
         transition: all .4s ease-in-out;
+        background-color: rgb(238, 238, 238);
     }
     
     .mobile-nav-container:hover {

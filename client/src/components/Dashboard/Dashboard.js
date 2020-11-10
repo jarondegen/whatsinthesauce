@@ -82,6 +82,7 @@ const Dashboard = () => {
     }
 
     const closeDoor = (e) => {
+        if (!isDesktop) return
         const pickArrow = document.getElementById('homepage-arrow');
         document.querySelector('.fridge-container').style.backgroundImage  = `url(${closedFridge})`
         setTimeout(() => {
@@ -141,7 +142,7 @@ const Dashboard = () => {
                         {/*currentUserId && <Recipes />*/}
                     </div> 
                     </>
-                    ) : <MobileDashboard setShowSignUp={setShowSignUp} showSignUp={showSignUp}/>}
+                    ) : <MobileDashboard closeDoor={closeDoor} setHomeListId={setHomeListId} handleArrowClick={handleArrowClick} homeListId={homeListId} setShowSignUp={setShowSignUp} showSignUp={showSignUp}/>}
                 </>
             )}
         </>

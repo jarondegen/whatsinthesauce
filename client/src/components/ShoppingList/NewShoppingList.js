@@ -50,7 +50,7 @@ const NewShoppingList = ({ getLists }) => {
 
     return (
         <div className="new-list-form-container">
-            <h3 id="NLFLabel" onClick={toggleForm}>+ New List</h3>
+            <span id="NLFLabel" onClick={toggleForm}>+ New List</span>
             <form id="NLF" className="new-list-form hidden">
                 <div >
                     <label >List Name</label>
