@@ -1,0 +1,97 @@
+.mobile-dashboard-container {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+}
+
+.mobile-background-color-splash {
+    position: absolute;
+    background: linear-gradient(90deg, rgb(53, 147, 181) 0%, rgb(198, 164, 236) 100%);
+    justify-self: center;
+    height: 70%;
+    width: 90%;
+    z-index: -100;
+    left: auto;
+    margin-right: auto;
+    top: 80px;
+    left: 5%;
+}
+
+@media screen and (max-width: 900px) {
+    /* login form */
+    .welcome-div {
+        margin-right: 20%;
+        margin-top: 12%;
+        margin-bottom: 5%;
+        /* width: 100%; */
+    }
+
+    .login-form-container {
+        width: 90vw;
+        margin: auto;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .div-wrapping-form {
+        margin: auto;
+        height: 300px;
+        width: 100%;
+        max-width: 415px;
+    }
+
+    .login-form-form {
+        height: 100%;
+    }
+    .inside-login-form-div {
+        height: 50%;
+    }
+
+    .login-form-input-div > input {
+        width: 80%;
+    }
+
+    .login-form-button-div {
+        margin-top: 4%;
+    }
+
+    .sign-up-link {
+        margin-right: 25%;
+        width: 100%;
+    }
+
+     /* signup form */
+    .signup-title {
+        margin-left: 55%;
+        width: 100%;
+        font-size: 2.3rem;
+        padding-top: 8%;
+    }
+
+    .signup-form-container {
+        margin: auto;
+        width: 87%;
+        height: 100%;
+    }
+    .signup-form-input {
+        font-size: .8rem;
+    }
+
+    .signup-form {
+        padding-bottom: 10%;
+        padding-top: 5%;
+    }
+
+    .signup-errors-div {
+        width: 100%;
+        margin-left: 40%;
+    }
+    
+    .have-an-account-link {
+        width: 100%;
+        margin-right: 30%;
+    }
+}

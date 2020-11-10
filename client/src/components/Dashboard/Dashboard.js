@@ -15,7 +15,7 @@ import happyFace from '../../style/images/happy-face.gif';
 import downArrow from '../../style/images/down-arrow.png';
 import closedFridge from '../../style/images/real-fridge-closed.png';
 import SignUpForm from '../SignupForm';
-import Footer from '../Footer';
+import MobileDashboard from './MobileDashboard';
 
 const Dashboard = () => {
     const dispatch = useDispatch();
@@ -26,7 +26,17 @@ const Dashboard = () => {
     const [homeListId, setHomeListId] = useState()
     const [recipesLoading, setRecipesLoading] = useState(true)
     const [showSignUp, setShowSignUp] = useState(false)
+    const [isDesktop, setDesktop] = useState(window.innerWidth > 900);
     const { loading } = useSelector(store => store.Recipes)
+
+    const updateMedia = () => {
+        setDesktop(window.innerWidth > 900);
+      };    
+
+    useEffect(() => {
+        window.addEventListener("resize", updateMedia);
+        return () => window.removeEventListener("resize", updateMedia);
+      });
 
     useEffect(() => {
         if (currentUserId) {
@@ -91,6 +101,8 @@ const Dashboard = () => {
         <>
             {isLoading ? <p></p> : (
                 <>
+                {isDesktop ? (
+                    <>
                     <div className="dashboard-page-container">
                         <div className="background-color-splash"></div>
                         {!currentUserId  && !showSignUp && <LoginForm setShowSignUp={setShowSignUp}/>}
@@ -127,8 +139,9 @@ const Dashboard = () => {
                     </div>
                     <div className="recipes-component-container">
                         {/*currentUserId && <Recipes />*/}
-                    {/* <Footer /> */}
-                    </div>
+                    </div> 
+                    </>
+                    ) : <MobileDashboard setShowSignUp={setShowSignUp} showSignUp={showSignUp}/>}
                 </>
             )}
         </>
