@@ -11,7 +11,6 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    min-height: 100%;
 }
 
 .how-to-container {
@@ -63,4 +62,22 @@
 
 .about-about-container > a > img {
     width: 15%;
+}
+
+@media screen and (max-width: 900px) {
+    .about-page-page-container {
+        background-size: 300% 50%;
+        margin-right: 15px;
+        margin-left: auto;
+    }
+
+    .about-about-container {
+        text-align: center;
+        width: 80%;
+    }
+
+    .about-about-container > div {
+        width: 50%;
+        margin-bottom: 5%;
+    }
 }

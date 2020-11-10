@@ -175,6 +175,7 @@
 
     .recipes-container {
         margin:auto;
+        margin-left: 13%;
     }
 
     .recipes-loading-container {

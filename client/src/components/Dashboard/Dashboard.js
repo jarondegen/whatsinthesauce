@@ -139,7 +139,7 @@ const Dashboard = () => {
                         </div>
                     </div>
                     <div className="recipes-component-container">
-                        {/*currentUserId && <Recipes />*/}
+                        {currentUserId && <Recipes />}
                     </div> 
                     </>
                     ) : <MobileDashboard recipesLoading={recipesLoading} dollars={dollars} setIsLoading={setIsLoading} setDollars={setDollars} closeDoor={closeDoor} setHomeListId={setHomeListId} handleArrowClick={handleArrowClick} homeListId={homeListId} setShowSignUp={setShowSignUp} showSignUp={showSignUp}/>}
