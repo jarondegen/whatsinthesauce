@@ -18,6 +18,11 @@ const NavBar = ({logoutUser}) => {
         }
     }
 
+    const handleLogout = () => {
+        handleBurgerClick()
+        logoutUser()
+    }
+
     return (
         <>
             <div className="navbar-container">
@@ -32,7 +37,7 @@ const NavBar = ({logoutUser}) => {
                     <NavLink className="navbar-link" to="/about" activeclass="active">About</NavLink>
                     {currentUserId ? (
                         <a className="navbar-link" onClick={logoutUser} href="#" activeclass="active">Logout</a> 
-                    ): <NavLink className="navbar-link" to="/home" activeclass="active">Login</NavLink>
+                    ): <NavLink onClick={handleBurgerClick} className="navbar-link" to="/home" activeclass="active">Login</NavLink>
                     }
                     <div onClick={handleBurgerClick} className="hamburger-div mobile">
                         <img id="burge" src={hamburger}/>
@@ -52,7 +57,7 @@ const NavBar = ({logoutUser}) => {
                         </div>
                     </NavLink>
                 {currentUserId ? (
-                    <a onClick={handleBurgerClick} className="navbar-link-m" onClick={logoutUser} href="#" activeclass="active">
+                    <a onClick={handleLogout} className="navbar-link-m" href="#" activeclass="active">
                         <div className="mobile-logout-link mobile-nav-container">
                             Logout
                         </div>
