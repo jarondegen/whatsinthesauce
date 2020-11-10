@@ -111,6 +111,7 @@
     #mobile-homepage-arrow {
         width: 30%;
         height: 30%;
+        transform: rotate(15deg)
     }
 
     /* shopping lists */
@@ -139,6 +140,7 @@
         width: 83%;
         margin: auto;
         margin-top: 15%;
+        margin-bottom: 5%;
     }
 
     .ingredient-list-item-delete-button-label {
@@ -150,8 +152,42 @@
     }
 
     /* fridge */
-    .inside-fridge-container {
-        width: 100%;
+    .mobile-inside-fridge-container {
+        font-family: 'Gochi Hand', cursive;
+        padding-top: 10%;
+        width: 80%;
         margin: auto;
+        height: 100%;
+    }
+
+    .mobile-dollars {
+        margin: auto;
+        text-align: center;
+        font-size: 1.4rem;
+        margin-bottom: 5%;
+    }
+
+    /* recipes */
+    .recipes-component-container {
+        margin: auto;
+        width: 80%;
+    }
+
+    .recipes-container {
+        margin:auto;
+    }
+
+    .recipes-loading-container {
+        width: 70%;
+        margin: auto;
+        text-align: center;
+        margin-top: 5%;
+    }
+
+    .recipes-loading-arrow {
+        margin: auto;
+        margin-top: 15%;
+        width: 50%;
+        height: 50%;
     }
 }

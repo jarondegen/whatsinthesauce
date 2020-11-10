@@ -41,9 +41,9 @@ const MobileDashFridge = ({dollars, setDollars, setIsLoading}) => {
     }, [Fridge]);
 
     return (
-        <div className="inside-fridge-container">
-            <div className="freezer-door-container">
-                <span>{`$${dollars} worth of food expiring soon`}</span>
+        <div className="mobile-inside-fridge-container">
+            <div className="mobile-dollars">    
+                <span >{`$${dollars} worth of food expiring soon`}</span>
             </div>
             <div className="fridge-item-container-labels" >
                 <span className="fridge-item-name underline">Ingredient</span>

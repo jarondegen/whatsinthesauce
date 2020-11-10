@@ -142,7 +142,7 @@ const Dashboard = () => {
                         {/*currentUserId && <Recipes />*/}
                     </div> 
                     </>
-                    ) : <MobileDashboard dollars={dollars} setIsLoading={setIsLoading} setDollars={setDollars} closeDoor={closeDoor} setHomeListId={setHomeListId} handleArrowClick={handleArrowClick} homeListId={homeListId} setShowSignUp={setShowSignUp} showSignUp={showSignUp}/>}
+                    ) : <MobileDashboard recipesLoading={recipesLoading} dollars={dollars} setIsLoading={setIsLoading} setDollars={setDollars} closeDoor={closeDoor} setHomeListId={setHomeListId} handleArrowClick={handleArrowClick} homeListId={homeListId} setShowSignUp={setShowSignUp} showSignUp={showSignUp}/>}
                 </>
             )}
         </>
