@@ -27,7 +27,8 @@ const AboutPage = () => {
                     <span>React</span>
                     <span>Redux</span>
                     <span>Flask</span>
-                    <span>SQLAlchemy</span>  
+                    <span>SQLAlchemy</span> 
+                    <span>Docker</span>  
                 </div>
                 <a target="_blank" href="https://github.com/jarondegen/whatsinthesauce"><img src={github} /></a>
             </div>

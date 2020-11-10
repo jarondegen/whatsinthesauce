@@ -90,6 +90,7 @@
     font-family: 'Gochi Hand', cursive;
     padding: 10px;
     margin-left: 18%;
+    margin-bottom: 1%;
 }
 
 .list-list-name-link {
@@ -97,7 +98,6 @@
     text-decoration: none;
     color: black;
     font-weight: bold;
-    font-size: 1.3rem;
 }
 
 .list-list-name-link:hover {
