@@ -7,10 +7,13 @@ import '../../style/mobile-dashboard.css';
 import arrow from '../../style/images/down-arrow.png';
 import ShoppingLists from '../ShoppingList/ShoppingList';
 import ListPage from '../ShoppingList/ListPage'
+import MobileDashFridge from './MobileDashFridge';
 
-const MobileDashboard = ({closeDoor, setHomeListId, handleArrowClick, homeListId, showSignUp, setShowSignUp}) => {
+const MobileDashboard = ({dollars, setIsLoading, 
+    setDollars, closeDoor, setHomeListId, handleArrowClick, 
+    homeListId, showSignUp, setShowSignUp}) => {
+
     const { currentUserId } = useContext(AuthContext);
-
 
     return (
         <div className="mobile-dashboard-container">
@@ -25,6 +28,7 @@ const MobileDashboard = ({closeDoor, setHomeListId, handleArrowClick, homeListId
                     </div>
                 )}
                 {currentUserId && <ShoppingLists closeDoor={closeDoor} homeListId={homeListId} setHomeListId={setHomeListId}/>}
+                {currentUserId && <MobileDashFridge dollars={dollars} setIsLoading={setIsLoading} setDollars={setDollars}/>}
         </div>
     );
 };

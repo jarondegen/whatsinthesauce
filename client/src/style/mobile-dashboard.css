@@ -126,7 +126,7 @@
 
     .lists-div {
         width: 85%;
-        margin-left: 7%;
+        margin-left: 22%;
     }
 
     /* list page */
@@ -146,6 +146,12 @@
     }
 
     .list-items-select-form {
+        margin: auto;
+    }
+
+    /* fridge */
+    .inside-fridge-container {
+        width: 100%;
         margin: auto;
     }
 }
