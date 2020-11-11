@@ -15,7 +15,9 @@ const Recipes = () => {
         dispatch(setLoading(true))
         getTheRecipes()
         dispatch(setRecipeItems(recipes))
-        dispatch(setLoading(false))
+        setTimeout(() => {
+            dispatch(setLoading(false))
+        }, 5000)
         
     },[Fridge])
 
