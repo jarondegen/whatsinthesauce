@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import UserForm from './components/UserForm';
+import { useDispatch } from 'react-redux';
+import { getIngredients } from './store/ingredients';
 import AuthContext from './auth';
 import Dashboard from './components/Dashboard/Dashboard';
 import NavBar from './components/NavBar';
@@ -9,6 +11,7 @@ import AboutPage from './components/AboutPage';
 import Footer from './components/Footer';
 
 function App() {
+    const dispatch = useDispatch()
     const [fetchWithCSRF, setFetchWithCSRF] = useState(() => fetch);
     const [currentUserId, setCurrentUserId] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -18,6 +21,10 @@ function App() {
         currentUserId,
         setCurrentUserId
     };
+
+    useEffect(() => {
+        dispatch(getIngredients())
+    }, [])
 
     const logoutUser = async ()=> {
             const response = await fetchWithCSRF('/logout', {

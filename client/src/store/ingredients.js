@@ -17,7 +17,7 @@ export const setGroups = (value) => {
 
 
 export const getIngredients = () => async dispatch => {
-    const data = await fetch(`/api/ingredients`);
+    const data = await fetch(`/api/lists/ingredients`);
     if (data.ok) {
         const { ingredients, food_groups } = await data.json();
         dispatch(setIngredients(ingredients));

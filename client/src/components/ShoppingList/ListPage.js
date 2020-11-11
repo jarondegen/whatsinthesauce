@@ -14,9 +14,13 @@ const ListPage = ({listId, setHomeListId}) => {
     const { groups } = useSelector(store => store.Ingredients)
     const [itemsByGroup, setItemsByGroup] = useState([])
     
-    useEffect(() => {
+    // useEffect(() => {
+    //     dispatch(getIngredients())
+    // }, [])
+
+     useEffect(() => {
         getItems(listId)
-        dispatch(getIngredients())
+        // dispatch(getIngredients())
     }, [listId])
     
     const getItems = async (listId) => {
@@ -29,7 +33,7 @@ const ListPage = ({listId, setHomeListId}) => {
     }
 
     const handleGroupSelect = async (e) => {
-        const data = await fetch(`/api/ingredients/groups/${e.target.value}`)
+        const data = await fetch(`/api/lists/groups/${e.target.value}`)
         if (data.ok) {
             const items = await data.json()
             setItemsByGroup(items)
