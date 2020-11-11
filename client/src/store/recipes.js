@@ -16,24 +16,10 @@ export const setRecipes = (value) => {
 }
 
 
-export const getRecipeItems = (Fridge, Recipes) => async dispatch => {
-    if (Recipes.length > 2) return
-    const proxyurl = "https://cors-anywhere.herokuapp.com/";
-    let itemsArr = []
-    if (Fridge.length > 0){
-        for (let item of Fridge) {
-            let str = item.name.replace(/\s+/g, '');
-            const data = await fetch(proxyurl + `http://www.recipepuppy.com/api/?i=${str}&p=1`)
-            if (data.ok) {
-            const recipes = await data.json()
-            itemsArr.push(...new Set(recipes.results.slice(0,6)))
-            }else continue
-        }
-        dispatch(setLoading(false))
-    }
-    dispatch(setRecipes(itemsArr))
-    
+export const setRecipeItems = (recipes) => dispatch => {
+    dispatch(setRecipes(recipes))
 }
+    
 
 
 const intialState = {

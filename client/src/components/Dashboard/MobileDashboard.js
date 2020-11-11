@@ -45,7 +45,7 @@ const MobileDashboard = ({dollars, setIsLoading,
                 
                 )}
                 <div className="recipes-component-container">
-                    {/* {currentUserId && <Recipes />} */}
+                    {currentUserId && <Recipes />}
                 </div>
         </div>
     );

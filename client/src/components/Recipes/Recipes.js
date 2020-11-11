@@ -1,17 +1,40 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getRecipeItems } from '../../store/recipes';
 import Card from './Card';
+import AuthContext from '../../auth';
+import { setRecipeItems, setLoading } from '../../store/recipes';
 import '../../style/recipes.css'
 
 const Recipes = () => {
     const dispatch = useDispatch()
     const { Fridge } = useSelector(store => store);
-    const { recipes } = useSelector(store => store.Recipes)
+    const [recipes, setRecipes] = useState([])
+    const { fetchWithCSRF } = useContext(AuthContext);
     
     useEffect(() => {
-        dispatch(getRecipeItems(Fridge, recipes))  
+        dispatch(setLoading(true))
+        getTheRecipes()
+        dispatch(setRecipeItems(recipes))
+        dispatch(setLoading(false))
+        
     },[Fridge])
+
+    const getTheRecipes = async () => {
+        const data = await fetchWithCSRF('api/fridges/recipes', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            credentials: 'include',
+            body: JSON.stringify({
+               items: Fridge
+            })
+          });
+          if (data.ok) {
+            const { recipes } = await data.json()
+            setRecipes(recipes)
+          }
+    }
 
     return (
         <>

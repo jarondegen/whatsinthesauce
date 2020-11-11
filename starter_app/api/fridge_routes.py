@@ -1,4 +1,5 @@
 from flask import Blueprint, jsonify, request
+import requests
 from sqlalchemy.orm import joinedload
 from datetime import timedelta, datetime, date
 from starter_app.models import (
@@ -53,14 +54,16 @@ def remove_fridge_item(id):
     return jsonify('removed from fridge')
     
     
-    # groups = Food_Group.query.all()
-    # group_list = [item.to_dict() for item in groups]
-    # items = Ingredient.query.all()
-    # items_list = [item.to_dict() for item in items]
-    # return jsonify({"ingredients":items_list, "food_groups": group_list})
 
-#   id = db.Column(db.Integer, nullable = False, primary_key = True)
-#   ingredient_id = db.Column(db.Integer, db.ForeignKey("ingredients.id"), nullable = False)
-#   user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable = False)
-#   price = db.Column(db.Integer, nullable = True)
-#   date = db.Column(db.Date, nullable= False)
+@fridge_routes.route('/recipes', methods=["POST"])
+def get_recipes():
+    data = request.get_json()
+    recipes = []
+    items = data["items"]
+    for item in items:
+        r =requests.get(f'http://www.recipepuppy.com/api/?i={item["name"]}&p=1')
+        if r.status_code == 200:
+            res = r.json()
+            for item in res["results"]:
+                recipes.append({"title":item["title"], "href":item["href"], "thumbnail":item["thumbnail"]})
+    return jsonify({"recipes": recipes})

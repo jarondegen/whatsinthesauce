@@ -80,4 +80,9 @@
         width: 50%;
         margin-bottom: 5%;
     }
+
+    .about-about-container > a > img {
+        width: 60px;
+        height: 60px;
+    }
 }
