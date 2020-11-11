@@ -248,6 +248,7 @@ html, body, #root, .App {
     font-size: 1.5rem;
     width: 80%;
     margin-bottom: 25%;
+    margin-top: 40%;
     margin-left: 30%;
     z-index: 10;
 }

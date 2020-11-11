@@ -10,7 +10,7 @@ const Card = ({recipe}) => {
     return (
         <div className={`recipe-card sticky-${randomSticky()}`} key={recipe.href}>
             <a href={recipe.href}>
-            <img className="recipe-card-image" src={"https://img." + recipe.thumbnail.split(".").slice(1).join(".")}/>
+            <img className="recipe-card-image" src={recipe.thumbnail}/>
             <p className="recipe-card-title">{recipe.title}</p>
             </a>
         </div>

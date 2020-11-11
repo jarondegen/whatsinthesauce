@@ -61,9 +61,14 @@ def get_recipes():
     recipes = []
     items = data["items"]
     for item in items:
-        r =requests.get(f'http://www.recipepuppy.com/api/?i={item["name"]}&p=1')
+        r =requests.get(f'https://www.themealdb.com/api/json/v1/1/filter.php?i={item["name"]}')
         if r.status_code == 200:
             res = r.json()
-            for item in res["results"]:
-                recipes.append({"title":item["title"], "href":item["href"], "thumbnail":item["thumbnail"]})
+            if res["meals"] and len(res["meals"]) > 0:
+                for item in res["meals"]:
+                    j =requests.get(f'https://www.themealdb.com/api/json/v1/1/lookup.php?i={item["idMeal"]}')
+                    if j.status_code == 200:
+                        j_res = j.json()
+                        meal = j_res["meals"][0]
+                        recipes.append({"title":item["strMeal"], "href":meal["strYoutube"], "thumbnail":item["strMealThumb"]})
     return jsonify({"recipes": recipes})
