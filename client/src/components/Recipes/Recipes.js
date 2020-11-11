@@ -15,10 +15,11 @@ const Recipes = () => {
         dispatch(setLoading(true))
         getTheRecipes()
         dispatch(setRecipeItems(recipes))
-        setTimeout(() => {
-            dispatch(setLoading(false))
-        }, 5000)
-        
+        if (Fridge.length > 0) {
+            setTimeout(() => {
+                dispatch(setLoading(false))
+            }, 5000)
+        } 
     },[Fridge])
 
     const getTheRecipes = async () => {

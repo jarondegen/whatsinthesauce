@@ -47,6 +47,8 @@ const Dashboard = () => {
     useEffect(() => {
         if (!loading) {
             setRecipesLoading(false)
+        }else {
+            setRecipesLoading(true)
         }
     }, [loading])
 
