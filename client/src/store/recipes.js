@@ -19,6 +19,10 @@ export const setRecipes = (value) => {
 export const setRecipeItems = (recipes) => dispatch => {
     dispatch(setRecipes(recipes))
 }
+
+export const changeLoading = (val) => dispatch => {
+  dispatch(setLoading(val))
+}
     
 
 

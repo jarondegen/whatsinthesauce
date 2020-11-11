@@ -2,25 +2,27 @@ import React, { useEffect, useContext, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Card from './Card';
 import AuthContext from '../../auth';
-import { setRecipeItems, setLoading } from '../../store/recipes';
+import { setRecipeItems, changeLoading } from '../../store/recipes';
 import '../../style/recipes.css'
 
 const Recipes = () => {
     const dispatch = useDispatch()
     const { Fridge } = useSelector(store => store);
-    const [recipes, setRecipes] = useState([])
+    const { recipes, loading } = useSelector(store => store.Recipes)
     const { fetchWithCSRF } = useContext(AuthContext);
     
     useEffect(() => {
-        dispatch(setLoading(true))
+        dispatch(changeLoading(true))
         getTheRecipes()
-        dispatch(setRecipeItems(recipes))
-        if (Fridge.length > 0) {
-            setTimeout(() => {
-                dispatch(setLoading(false))
-            }, 5000)
-        } 
     },[Fridge])
+
+    useEffect(() => {
+        if (recipes.length > 0) {
+            if (loading) {
+                dispatch(changeLoading(false))
+            }
+        }
+    },[recipes])
 
     const getTheRecipes = async () => {
         const data = await fetchWithCSRF('api/fridges/recipes', {
@@ -35,7 +37,7 @@ const Recipes = () => {
           });
           if (data.ok) {
             const { recipes } = await data.json()
-            setRecipes(recipes)
+            dispatch(setRecipeItems(recipes))
           }
     }
 
