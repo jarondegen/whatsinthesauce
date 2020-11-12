@@ -158,6 +158,15 @@
         width: 80%;
         margin: auto;
         height: 100%;
+        margin-top: 10%;
+    }
+
+    .fridge-item-container-labels {
+        margin-bottom: 5%;
+    }
+
+    .fridge-item-name {
+        padding-left: 3%;
     }
 
     .mobile-dollars {

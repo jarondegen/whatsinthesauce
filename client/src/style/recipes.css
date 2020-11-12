@@ -61,3 +61,23 @@
 .sticky-purple {
     background-color: rgb(193,163,234);
 }
+
+
+@media screen and (max-width: 900px) {
+    .recipes-container {
+        width: 75%;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .recipe-card {
+        justify-self: center;
+        width: 200px;
+        height: 200px;
+        margin-bottom: 12%;
+    }
+
+    .recipe-card > a {
+        padding: 2%;
+    }
+}
