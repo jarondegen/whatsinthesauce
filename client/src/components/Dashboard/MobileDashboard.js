@@ -16,8 +16,9 @@ import whisk from '../../style/images/whisk.png';
 const MobileDashboard = ({dollars, setIsLoading, 
     setDollars, closeDoor, setHomeListId, handleArrowClick, 
     homeListId, showSignUp, setShowSignUp, recipesLoading}) => {
-
+    
     const { currentUserId } = useContext(AuthContext);
+    const { recipes } = useSelector(store => store.Recipes)
 
     return (
         <div className="mobile-dashboard-container">
@@ -55,9 +56,9 @@ const MobileDashboard = ({dollars, setIsLoading,
                 <div className="recipes-component-container">
                     {currentUserId && <Recipes />}
                 </div>
-                <div onClick={() => document.querySelector('.navbar-logo').scrollIntoView()} className="back-to-top-container">
+                {recipes && currentUserId && <div onClick={() => document.querySelector('.navbar-logo').scrollIntoView()} className="back-to-top-container">
                     scroll to top...
-                </div>
+                </div>}
         </div>
     );
 };

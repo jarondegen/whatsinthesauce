@@ -244,4 +244,8 @@
         justify-content: center;
     }
 
+    .back-to-top-container:hover {
+        cursor: pointer;
+    }
+
 }
