@@ -108,10 +108,23 @@
         margin-top: 10%;
     }
 
+    .mobile-homepage-drawings-div {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+    }
+
     #mobile-homepage-arrow {
         width: 30%;
         height: 30%;
         transform: rotate(15deg)
+    }
+
+    #mobile-homepage-pot {
+        height: 100px;
+        width: 100px;
+        margin-right: 10%;
+        transform: rotate(-10deg);
     }
 
     /* shopping lists */
@@ -194,11 +207,23 @@
         margin-top: 5%;
     }
 
+    .mobile-recipes-loaded-images-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mobile-whisk {
+        height: 75px;
+        width: 80px;
+        transform: rotate(10deg)
+    }
+
     .recipes-loading-arrow {
         margin: auto;
         margin-top: 15%;
-        width: 50%;
-        height: 50%;
+        width: 125px;
+        height: 140px;
     }
 
     .mobile-fridge-title {

@@ -10,6 +10,8 @@ import ListPage from '../ShoppingList/ListPage'
 import MobileDashFridge from './MobileDashFridge';
 import Recipes from '../Recipes/Recipes';
 import happyFace from '../../style/images/happy-face.gif';
+import sauceCooking from  '../../style/images/sauce-cooking.png';
+import whisk from '../../style/images/whisk.png';
 
 const MobileDashboard = ({dollars, setIsLoading, 
     setDollars, closeDoor, setHomeListId, handleArrowClick, 
@@ -27,7 +29,10 @@ const MobileDashboard = ({dollars, setIsLoading,
                 {currentUserId && !homeListId && (
                     <div onClick={handleArrowClick} className="no-list-container">
                         <div className="mobile-no-lists-loaded-div">Pick one of your lists...</div> 
-                        <img  id="mobile-homepage-arrow" src={arrow}/>
+                        <div className="mobile-homepage-drawings-div">
+                            <img id="mobile-homepage-arrow" src={arrow}/>
+                            <img id="mobile-homepage-pot" src={sauceCooking} />
+                        </div>
                     </div>
                 )}
                 {currentUserId && <ShoppingLists closeDoor={closeDoor} homeListId={homeListId} setHomeListId={setHomeListId}/>}
@@ -40,7 +45,10 @@ const MobileDashboard = ({dollars, setIsLoading,
                 {currentUserId && !recipesLoading && (
                     <div className="recipes-loading-container">
                         <div className="recipes-loading-text">check out the recipes we found for you..</div>
-                        <img onClick={() => document.querySelector('.recipes-component-container').scrollIntoView()} className="recipes-loading-arrow"src={arrow} />
+                        <div className="mobile-recipes-loaded-images-div" onClick={() => document.querySelector('.recipes-component-container').scrollIntoView()}>
+                            <img className="recipes-loading-arrow"src={arrow} />
+                            <img className="mobile-whisk" src={whisk} />
+                        </div>
                     </div>
                 
                 )}
