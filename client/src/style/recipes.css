@@ -6,7 +6,8 @@
 .recipes-container {
     width: 80%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
     font-family: 'Gochi Hand', cursive;
@@ -14,24 +15,49 @@
     margin-bottom: 50px;
 
 }
+/* https://mentormate.com/blog/css-postit-note/ */
 
 .recipe-card {
-    width: 200px;
-    height: 200px;
-    margin: 1%;
-    padding: 2%;
-    transition: all .2s ease-in-out;
-    font-family: 'Gochi Hand', cursive;
-    font-size: 1.3rem;
-    border: 3px solid black;
-    border-radius: 5px;
+  transition: all .2s ease-in-out;
+  font-family: 'Gochi Hand', cursive;
+  text-align:center;     
+  margin: 25px;    
+  width: 200px;    
+  min-height:200px;
+  max-height:200px;
+  position:relative;   
+  border-left: 1px solid rgb(206, 206, 206);
+  font-size:18px;      
+  border-bottom-right-radius: 60px 5px;
+  display:inline-block;    
+  background: -moz-linear-gradient(-45deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%); /* FF3.6+ */
 }
+
+.recipe-card:after {     
+    content: "";
+   position:absolute;
+   z-index:-1;
+   right:-0px; bottom:20px;
+   width:130px;
+   height: 25px;
+   background: rgba(0, 0, 0, 0.2);
+   box-shadow:2px 15px 5px rgba(0, 0, 0, 0.40);
+ -moz-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+  -webkit-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+       -o-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+      -ms-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+          transform: matrix(-1, -0.1, 0, 1, 0, 0);
+ }
 
 .recipe-card:hover {
     transform: scale(1.1); 
 }
 
 .recipe-card > a {
+    width: 200px;    
+    min-height:200px;
+    max-height:200px;
+    font-family: 'Gochi Hand', cursive;
     text-decoration: none;
     color: rgb(31, 30, 30);
     display: flex;
@@ -44,23 +70,23 @@
 .recipe-card-image {
     width: 50%;
     height: 50%;
-    border: 2px solid black;
+    border: 1px solid rgb(255, 255, 255);
     margin-top: 10%;
     margin-left: 5px;
-    border-radius: 5px;
 }
 
 .recipe-card-title {
     margin-bottom: 5%;
+    padding: 5%;
 }
 
 
 .sticky-blue {
-    background-color: rgb(117, 202, 238)
+    background: -webkit-linear-gradient(-45deg, #70d7e9 81%,#70d7e9 82%,#70d7e9 82%,#94e8f7 100%); 
 }
 
 .sticky-purple {
-    background-color: rgb(180, 138, 238);
+    background: -webkit-linear-gradient(-45deg, #9156f0 81%,#9156f0 82%,#9156f0 82%,#be84ee 100%);
 }
 
 
@@ -77,6 +103,11 @@
         height: 200px;
         margin-bottom: 12%;
         display: flex;
+        border-left: 1px solid rgb(102, 102, 102);
+    }
+
+    .sticky-blue {
+        border-left: 1px solid rgb(128, 128, 128);
     }
 
     .recipe-card > a {
