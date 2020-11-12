@@ -35,9 +35,10 @@
     text-decoration: none;
     color: rgb(31, 30, 30);
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-around;
-    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .recipe-card-image {
@@ -55,11 +56,11 @@
 
 
 .sticky-blue {
-    background-color: rgb(65,148,183)
+    background-color: rgb(117, 202, 238)
 }
 
 .sticky-purple {
-    background-color: rgb(193,163,234);
+    background-color: rgb(180, 138, 238);
 }
 
 
@@ -75,9 +76,14 @@
         width: 200px;
         height: 200px;
         margin-bottom: 12%;
+        display: flex;
     }
 
     .recipe-card > a {
         padding: 2%;
+    }
+
+    .recipe-card-title {
+        overflow-wrap: break-word;
     }
 }

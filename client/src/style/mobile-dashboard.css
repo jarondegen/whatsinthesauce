@@ -200,4 +200,11 @@
         width: 50%;
         height: 50%;
     }
+
+    .mobile-fridge-title {
+        font-size: 1.7rem;
+        text-align: center;
+        margin-bottom: 5%;
+    }
+
 }
