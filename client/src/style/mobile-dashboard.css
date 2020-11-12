@@ -112,6 +112,7 @@
         display: flex;
         flex-direction: row-reverse;
         justify-content: center;
+        margin-bottom: 8%;
     }
 
     #mobile-homepage-arrow {
@@ -230,6 +231,17 @@
         font-size: 1.7rem;
         text-align: center;
         margin-bottom: 5%;
+        text-decoration: underline;
+    }
+
+    .back-to-top-container {
+        font-family: 'Gochi Hand', cursive;
+        font-size: 1.3rem;
+        width: 80%;
+        margin:auto;
+        margin-top: 5%;
+        display: flex;
+        justify-content: center;
     }
 
 }

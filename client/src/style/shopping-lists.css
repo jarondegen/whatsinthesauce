@@ -4,7 +4,7 @@
 
 #NLFLabel {
     font-size: 1.5rem;
-    margin-top: 35%;
+    margin-top: 55%;
 }
 
 #NLFLabel:hover {
@@ -14,6 +14,15 @@
 .new-list-form-container {
     margin: 7%;
     font-family: 'Gochi Hand', cursive;
+    margin-top: 35%;
+}
+
+@media screen and (max-width: 900px) {
+    .new-list-form-container {
+        margin: 7%;
+        font-family: 'Gochi Hand', cursive;
+        /* margin-top: 35%; */
+    }
 }
 
 .new-list-input {
