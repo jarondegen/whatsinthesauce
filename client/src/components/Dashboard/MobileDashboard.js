@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import AuthContext from '../../auth';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import LoginForm from '../LoginForm';
 import SignUpForm from '../SignupForm';
 import '../../style/mobile-dashboard.css';

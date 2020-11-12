@@ -52,7 +52,3 @@ export default function reducer(state=intialState, action) {
 
    //  --API Info -- 
    // https://www.themealdb.com/api.php
-
-    // --Old API --
-   //http://www.recipepuppy.com/api/?i=onions,garlic&q=omelet&p=3
-   //http://www.recipepuppy.com/about/api/
