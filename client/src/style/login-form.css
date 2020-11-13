@@ -100,3 +100,27 @@
     cursor: pointer;
     transform: scale(1.1)
 }
+
+.login-errors {
+    width: 80%;
+    height: 10%;
+    margin-top: none;
+    margin-left: 40%;
+    text-align: center;
+}
+
+.login-errors > span {
+    margin: auto;
+    font-family: 'Gochi Hand', cursive;
+}
+
+@media screen and (max-width: 900px) {
+    .login-errors {
+        width: 80%;
+        height: 10%;
+        margin-top: none;
+        margin-left: 10%;
+        text-align: center;
+        margin-bottom: 5%;
+    }
+}

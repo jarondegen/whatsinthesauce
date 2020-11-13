@@ -47,7 +47,6 @@ function LoginForm({setShowSignUp}) {
             </div>
             <div className="div-wrapping-form">
                 <form className="login-form-form" onSubmit={submitForm}>
-                    {errors.length ? errors.map((err) => <li key={err} >{err}</li>) : ''}
                     <div className="inside-login-form-div">
                         <label className="login-form-username-label">Username: </label>
                         <div className="login-form-input-div">
@@ -63,7 +62,12 @@ function LoginForm({setShowSignUp}) {
                     </div>
                 </form>
             </div>
-            <div onClick={handleSignupClick} className="sign-up-link">
+            {errors.length ? errors.map((err) => 
+                <div className="login-errors">
+                    <span key={err} >{err}</span>
+                </div>
+                ): ''}
+                <div onClick={handleSignupClick} className="sign-up-link">
                 don't have an account yet?  <br /> signup here!
             </div>
         </div>

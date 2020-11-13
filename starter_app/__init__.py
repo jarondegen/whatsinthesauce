@@ -76,14 +76,15 @@ def login():
 
     if not username or not password:
         return {"errors": ["Missing required parameters"]}, 400
-
-    authenticated, user = User.authenticate(username, password)
-    print(authenticated)
-    print(user)
-    if authenticated:
-        login_user(user)
-        return {"current_user_id": current_user.id}
-
+    try:
+        authenticated, user = User.authenticate(username, password)
+        print(authenticated)
+        print(user)
+        if authenticated:
+            login_user(user)
+            return {"current_user_id": current_user.id}
+    except:
+        return {"errors": ["Invalid username or password"]}, 401
     return {"errors": ["Invalid username or password"]}, 401
 
 
