@@ -6,7 +6,7 @@
 * [Application Architecture & Technologies Used](#application-architecture) 
 * [Backend Overview](#backend-overview)
 * [Frontend Overview](#frontend-overview)
-* [Security and Authorization](#security-&-authorization)
+* [Security & Authorization](#security-&-authorization)
 * [Conclusion & Future Features](#conclusion-&-future-features)
 
 ## WhatsInTheSauce at a Glance
