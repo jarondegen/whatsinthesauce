@@ -48,20 +48,6 @@
       -ms-transform: matrix(-1, -0.1, 0, 1, 0, 0);
           transform: matrix(-1, -0.1, 0, 1, 0, 0);
 }
-/* 
-.recipe-card > a {
-    width: 200px;    
-    min-height:200px;
-    max-height:200px;
-    font-family: 'Gochi Hand', cursive;
-    text-decoration: none;
-    color: rgb(31, 30, 30);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-} */
 
 .recipe-card > div:hover {
     cursor: pointer;
@@ -82,11 +68,11 @@
 
 
 .sticky-blue {
-    background: -webkit-linear-gradient(-45deg, #70d7e9 81%,#70d7e9 82%,#70d7e9 82%,#94e8f7 100%); 
+    background: -webkit-linear-gradient(-45deg, #70d7e9 81%,#70d7e9 82%,#70d7e9 82%,#b4e5ee 100%); 
 }
 
 .sticky-purple {
-    background: -webkit-linear-gradient(-45deg, #9156f0 81%,#9156f0 82%,#9156f0 82%,#be84ee 100%);
+    background: -webkit-linear-gradient(-45deg, #aa7cf3 81%,#aa7cf3 82%,#aa7cf3 82%,#ccb4f3 100%);
 }
 
 
