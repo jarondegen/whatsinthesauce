@@ -4,7 +4,7 @@ import AuthContext from '../auth';
 import '../style/login-form.css';
 
 function LoginForm({setShowSignUp}) {
-    const [username, setUsername] = useState("Ian");
+    const [username, setUsername] = useState("Demo-User");
     const [password, setPassword] = useState("password");
     let history = useHistory();
     const [errors, setErrors] = useState([]);
