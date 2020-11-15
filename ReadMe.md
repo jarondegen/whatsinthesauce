@@ -180,12 +180,16 @@ Thanks for checking out [WhatsInTheSauce](https://whatsinthesauce.herokuapp.com/
 
 # MVP
 &check; shopping lists (add/delete/move items)
+
 &check; fridge inventory 
+
 &check; dashboard with prices and pictures and expiration dates
+
 &check; login/signup/auth
 
 # Stretch Goals
 &check; recipe recommendations
+
 &check; mobile view support
 
 &cross; share what’s in your fridge with other users
