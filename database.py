@@ -14,6 +14,7 @@ with app.app_context():
   angela = User(username = 'Angela', email = 'angela@aa.io', password = "password")
   soonmi = User(username = 'Soon-Mi', email = 'soonmi@aa.io', password = "password")
   alissa = User(username = 'Alissa', email = 'alissa@aa.io', password = "password")
+  demo_user = User(username = 'Demo-User', email = 'demo@aa.io', password = "password")
 
   fruit = Food_Group(name = 'Fruit') #        1
   veg = Food_Group(name = 'Vegetable') #      2
@@ -333,6 +334,7 @@ with app.app_context():
   db.session.add(angela)
   db.session.add(soonmi)
   db.session.add(alissa)
+  db.session.add(demo_user)
 
   db.session.add(milk)
   db.session.add(eggs)

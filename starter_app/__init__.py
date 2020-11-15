@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, session
+from flask import Flask, request, session
 from flask_cors import CORS
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_migrate import Migrate
@@ -35,7 +35,6 @@ with app.app_context():
 
 CSRFProtect(app)
 
-## Application Security
 CORS(app)
 
 @app.after_request
