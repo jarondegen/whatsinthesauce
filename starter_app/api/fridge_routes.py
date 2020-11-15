@@ -66,9 +66,16 @@ def get_recipes():
             res = r.json()
             if res["meals"] and len(res["meals"]) > 0:
                 for item in res["meals"]:
-                    j =requests.get(f'https://www.themealdb.com/api/json/v1/1/lookup.php?i={item["idMeal"]}')
-                    if j.status_code == 200:
-                        j_res = j.json()
-                        meal = j_res["meals"][0]
-                        recipes.append({"title":item["strMeal"], "href":meal["strYoutube"], "thumbnail":item["strMealThumb"]})
+                    recipes.append({"title":item["strMeal"], "thumbnail":item["strMealThumb"], "idMeal":item["idMeal"]})
     return jsonify({"recipes": recipes})
+
+
+@fridge_routes.route('/youtube/<idMeal>', methods=["GET"])
+def get_youtube(idMeal):
+    item = requests.get(f'https://www.themealdb.com/api/json/v1/1/lookup.php?i={idMeal}')
+    if item.status_code == 200:
+            res = item.json()
+            meal = res["meals"][0]
+            link = { "url":meal["strYoutube"]}
+            return jsonify(link)
+    return jsonify({ "url":""})

@@ -1,6 +1,28 @@
 # Whatsinthesauce
+*By Jaron Degen - [Visit WhatsInTheSauce](https://whatsinthesauce.herokuapp.com/)*
+- Grocery List and Fridge Tracker 
+**Table of Contents**
+* [WhatsInTheSauce at a Glance](#rappamappa-at-a-glance)
+* [Application Architecture & Technologies Used](#application-architecture) 
+* [Frontend Overview](#frontend-overview)
+* [Backend Overview](#backend-overview)
+* [Conclusion & Next Steps](#conclusion-and-next-steps)
 
- - Grocery List and Fridge Tracker
+## WhatsInTheSauce at a Glance
+WhatsInTheSauce is a fullstack app that allows users to create and actively use multiple grocery lists and then transfering ingredients from those lists into thier "fridge" just like irl. Users can then view what days those ingredients will expire and thier value along with suggested recipes based on what is in the fridge so users will always know what to make for thier next meal.
+
+##### RappaMappa at a glance
+![WhatsInTheSauce at a glance](./readme-resources/screenshot0.png)
+![WhatsInTheSauce at a glance](./readme-resources/screenshot1.png)
+
+
+WhatsInTheSauce uses [The Meal](https://www.themealdb.com/) DB API to allow users to get real time custom recipe recommendations based on ingredients they have put into their fridge
+
+![WhatsInTheSauce at a glance](./readme-resources/screenshot2.png)
+
+WhatsInTheSauce is also optimized for mobile using CSS media queries and conditional React components
+
+![WhatsInTheSauce at a glance](./readme-resources/screenshot3.png)
 
 
 # User Stories
