@@ -1,7 +1,9 @@
 # Whatsinthesauce
 *By Jaron Degen - [Check out WhatsInTheSauce](https://whatsinthesauce.herokuapp.com/)*
 - Grocery List and Fridge Tracker 
+
 **Table of Contents**
+
 * [WhatsInTheSauce at a Glance](#WhatsInTheSauce-at-a-glance)
 * [Application Architecture & Technologies Used](#application-architecture) 
 * [Backend Overview](#backend-overview)
