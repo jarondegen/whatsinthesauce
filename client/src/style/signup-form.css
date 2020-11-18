@@ -20,6 +20,7 @@
     grid-row: 1/2;
     height: 55%;
     width: 90%;
+    max-width: 435px;
     display: flex;
     flex-direction: column;
     justify-content: center;

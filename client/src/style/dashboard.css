@@ -30,6 +30,7 @@ html, body, #root, .App {
     grid-template-columns: 35% 45% 20%;
     grid-template-rows: 80% 20%;
     min-height: 970px;
+    max-height: 1175px;
 }
 
 .background-color-splash {
@@ -54,6 +55,7 @@ html, body, #root, .App {
     background-position: center;
     background-size: 100% 100%;
     height: 110%;
+    max-height: 1000px;
     width: 70%;
     max-width: 880px;
     display: grid;
@@ -93,8 +95,7 @@ html, body, #root, .App {
     align-items: center;
     background-color: rgb(230, 230, 230);
     border-radius: 5px;
-    margin-top: 12.5%;
-    /* margin-left: 1%; */
+    margin-top: 14.5%;
     transition: all .4s ease-in-out;
     display:none;
     font-family: 'Gochi Hand', cursive;
