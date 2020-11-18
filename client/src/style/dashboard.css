@@ -64,6 +64,7 @@ html, body, #root, .App {
     transition: all .4s ease-in-out;
     margin-left: 20%;
     margin-top: 5%;
+    min-width: 628px;
 }
 
 .freezer-door-container {
