@@ -170,9 +170,9 @@ const Dashboard = () => {
                             </div>
                         
                         )}
-                        <div onClick={handleAccountClick} className="my-account-div">
+                        {currentUserId && <div onClick={handleAccountClick} className="my-account-div">
                             <span>My Account</span>
-                        </div>
+                        </div>}
                         <div className="click-to-open-container">
                             <img className="click-to-open-sauce" src={sauceCooking} />
                             <div className="click-to-open-text">
