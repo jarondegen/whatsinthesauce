@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import UserForm from './components/UserForm';
+import MyAccount from './components/Dashboard/MyAccount';
 import { useDispatch } from 'react-redux';
 import { getIngredients } from './store/ingredients';
 import AuthContext from './auth';
@@ -75,6 +75,7 @@ function App() {
             </nav>
             <Switch>
                 <Route path="/about" exact={true} component={AboutPage}/>
+                <ProtectedRoute path="/account" exact={true} currentUserId={currentUserId} component={MyAccount}/>
                 <Route path="/home" exact={true} component={Dashboard} currentUserId={currentUserId} />
                 <Route path="/">
                     <Redirect to="/home"/>

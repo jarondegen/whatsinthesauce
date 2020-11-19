@@ -56,6 +56,12 @@ const NavBar = ({logoutUser}) => {
                             About
                         </div>
                     </NavLink>
+                    {currentUserId && (
+                    <NavLink onClick={handleBurgerClick} className="navbar-link-m" to="/account" activeclass="active">
+                        <div className="mobile-account-link mobile-nav-container">
+                            Account
+                        </div>
+                    </NavLink> )}
                 {currentUserId ? (
                     <a onClick={handleLogout} className="navbar-link-m" href="#" activeclass="active">
                         <div className="mobile-logout-link mobile-nav-container">

@@ -42,12 +42,15 @@ const MyAccount = () => {
 
     const handleAccountChange = async (e) => {
         if (password != confirmPassword) {
-            setErrors(["passwords must match"]);
+            setErrors([...errors, "passwords must match"]);
             return;
         }
         else if (email != confirmEmail) {
-            setErrors(["emails must match"]);
+            setErrors([...errors, "emails must match"]);
             return;
+        }
+        else if (password.length < 6) {
+            setErrors([...errors, "password must be 6 or more characters"]);
         }
         const change = e.target.id === 'changeEmail' ? 'email' : 'password';
         const data = await fetchWithCSRF('/api/users/edit', {

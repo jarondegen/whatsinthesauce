@@ -91,3 +91,10 @@
     font-family: 'Gochi Hand', cursive;
     font-size: 1.3rem;
 }
+
+@media screen and (max-width: 900px) {
+    .my-account-pref-container {
+        margin: auto;
+        margin-top: 10%;
+    }
+}
