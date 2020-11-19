@@ -45,6 +45,8 @@ def get_user(user_id):
 def edit_user():
   data = request.get_json()
   user = User.query.filter(User.id == data["user_id"]).one()
+  if user.username == 'Demo-User':
+    return jsonify('Please don\'t change "Demo-User" info')
   try:
     if data["change"] == 'email':
       user.email=data["new_email"]
