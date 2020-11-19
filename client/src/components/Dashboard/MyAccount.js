@@ -41,44 +41,59 @@ const MyAccount = () => {
     }
 
     const handleAccountChange = async (e) => {
-        if (password != confirmPassword) {
-            setErrors([...errors, "passwords must match"]);
-            return;
-        }
-        else if (email != confirmEmail) {
-            setErrors([...errors, "emails must match"]);
-            return;
-        }
-        else if (password.length < 6) {
-            setErrors([...errors, "password must be 6 or more characters"]);
-            return;
-        }
-        else if (email.length < 6) {
-            setErrors([...errors, "please enter a valid email"]);
-            return;
-        }
-        const change = e.target.id === 'changeEmail' ? 'email' : 'password';
-        const data = await fetchWithCSRF('/api/users/edit', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ new_password: password, new_email: email, user_id: currentUserId, change: change }),
-        })
-        if (data.ok) {
-            const res = await data.json();
-            if (res === 'success'){
-                setPassword('');
-                setConfirmPassword('');
-                setEmail('');
-                setConfirmEmail('');
-                setSuccess(true);
-                setTimeout(() => {
-                    setSuccess(false);
-                }, 4000);
-            } else {
-                setErrors([...errors, res])
+        if (validateInputs()){
+            const change = e.target.id === 'changeEmail' ? 'email' : 'password';
+            if (change === 'password' & password.length === 0) {
+                setErrors(['password must be 6 or more characters'])
+                return
             }
+            if (change === 'email' & email.length === 0) {
+                setErrors(['email must be 6 or more characters'])
+                return
+            }
+            const data = await fetchWithCSRF('/api/users/edit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ new_password: password, new_email: email, user_id: currentUserId, change: change }),
+            })
+            if (data.ok) {
+                const res = await data.json();
+                if (res === 'success'){
+                    setPassword('');
+                    setConfirmPassword('');
+                    setEmail('');
+                    setConfirmEmail('');
+                    setSuccess(true);
+                    setTimeout(() => {
+                        setSuccess(false);
+                    }, 4000);
+                } else {
+                    setErrors([...errors, res])
+                }
+            };
         };
     };
+
+    const validateInputs = () => {
+        setErrors([])
+        const errs = []
+        if (password != confirmPassword) {
+            errs.push("passwords must match");
+        }
+        if (email != confirmEmail) {
+            errs.push("emails must match");
+        }
+        if (password.length < 6 && password.length != 0) {
+            errs.push("password must be 6 or more characters");
+        }
+        if (email.length < 6 && email.length != 0) {
+            errs.push("please enter a valid email");
+        }
+        setErrors(errs)
+        if (errs.length > 0) {
+            return false
+        }else return true
+    }
 
     return (
         <div className="my-account-pref-container">
