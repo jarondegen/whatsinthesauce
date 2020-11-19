@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
-import openFridge from '../../style/images/real-fridge-open.png'
 import { useDispatch, useSelector } from 'react-redux';
 import AuthContext from '../../auth';
 import x from '../../style/images/x.png';
 import { getFridgeItems } from '../../store/fridge';
 import ShoppingLists from '../ShoppingList/ShoppingList';
+import MyAccount from './MyAccount';
+import '../../style/my-account.css';
 
-const DashFridge = ({ dollars, closeDoor, homeListId, setHomeListId }) => {
+const DashFridge = ({ myAccountClicked, openDoor, dollars, closeDoor, homeListId, setHomeListId }) => {
     const { Fridge } = useSelector(store => store);
     const dispatch = useDispatch();
     const { currentUserId, fetchWithCSRF } = useContext(AuthContext);
@@ -25,25 +26,6 @@ const DashFridge = ({ dollars, closeDoor, homeListId, setHomeListId }) => {
         }
     }
 
-    const openDoor = (e) => {
-        if (!currentUserId) {
-            return
-        }
-        const homeArrow = document.getElementById('homepage-arrow')
-        document.querySelector('.fridge-container').style.backgroundImage  = `url(${openFridge})`
-        setTimeout(() => {
-            document.querySelector('.freezer-door-container').style.display = 'flex';
-            document.querySelector('.inside-fridge-container').style.display = 'flex';
-            document.querySelector('.recipes-loading-container').style.zIndex = -10
-        }, 100)
-        if (homeArrow){
-            homeArrow.style.zIndex = -10;
-        }
-        document.querySelector('.lists-container').style.zIndex = -120
-        document.getElementById('open-button-4').style.display = '';
-        document.getElementById('open-button-3').style.display = '';
-    }
-
     return (
         <div className="fridge-container">
             <ShoppingLists closeDoor={closeDoor} homeListId={homeListId} setHomeListId={setHomeListId}/>
@@ -51,7 +33,7 @@ const DashFridge = ({ dollars, closeDoor, homeListId, setHomeListId }) => {
             <div id="open-button-4"onClick={closeDoor} className="bottom-left-holder" />
             <div id="open-button-1" onClick={openDoor} className="top-right-holder" />
             <div id="open-button-2" onClick={openDoor} className="bottom-right-holder" />
-            <div className="inside-fridge-container">
+            {!myAccountClicked && <div className="inside-fridge-container">
                 <div className="freezer-door-container">
                     <span>{`$${dollars} worth of food expiring soon`}</span>
                 </div>
@@ -69,8 +51,11 @@ const DashFridge = ({ dollars, closeDoor, homeListId, setHomeListId }) => {
                         <span className="fridge-item-delete"><img className="delete-fridge-item-x" src={x} onClick={handleRemoveItemFromFridge} id={item.id}/></span>
                     </div>
                 )}
-                
-            </div>
+            
+            </div>}
+            {myAccountClicked && (
+                <MyAccount />
+            )}
         </div>
     )
 }

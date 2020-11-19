@@ -19,7 +19,7 @@ function App() {
     const authContextValue = {
         fetchWithCSRF,
         currentUserId,
-        setCurrentUserId
+        setCurrentUserId,
     };
 
     useEffect(() => {
@@ -76,7 +76,6 @@ function App() {
             <Switch>
                 <Route path="/about" exact={true} component={AboutPage}/>
                 <Route path="/home" exact={true} component={Dashboard} currentUserId={currentUserId} />
-                <ProtectedRoute path="/users/:id/edit"  component={UserForm} currentUserId={currentUserId} />
                 <Route path="/">
                     <Redirect to="/home"/>
                 </Route>

@@ -33,3 +33,23 @@ def new_user():
       return jsonify({"errors":errors})
   else:
     return jsonify({"errors":errors})
+
+@user_routes.route('/get/<user_id>', methods=["GET"])
+def get_user(user_id):
+  user = User.query.filter(User.id == user_id).one()
+  info = user.to_dict()
+  return jsonify({"info": info})
+
+
+@user_routes.route('/edit', methods=["POST"])
+def edit_user():
+  data = request.get_json()
+  user = User.query.filter(User.id == data["user_id"]).one()
+  try:
+    if data["change"] == 'email':
+      user.email=data["new_email"]
+    else:
+      user.password=data["new_password"]
+  except: return jsonify('Something went wrong')
+  db.session.commit()
+  return jsonify('success')

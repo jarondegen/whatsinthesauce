@@ -7,6 +7,7 @@ import '../../style/dashboard.css';
 import DashFridge from './DashFridge';
 import LoginForm from '../LoginForm';
 import ListPage from '../ShoppingList/ListPage';
+import openFridge from '../../style/images/real-fridge-open.png'
 import arrow from '../../style/images/arrow.png';
 import crazyArrow from '../../style/images/crazy-arrow.png'
 import whisk from '../../style/images/whisk.png';
@@ -28,6 +29,7 @@ const Dashboard = () => {
     const [showSignUp, setShowSignUp] = useState(false)
     const [isDesktop, setDesktop] = useState(window.innerWidth > 900);
     const { loading } = useSelector(store => store.Recipes)
+    const [myAccountClicked, setMyAccountClicked] = useState(false)
 
     const updateMedia = () => {
         setDesktop(window.innerWidth > 900);
@@ -75,6 +77,16 @@ const Dashboard = () => {
         },250)
     }
 
+    const handleAccountClick = () => {
+        if (!myAccountClicked){
+            setMyAccountClicked(true)
+            openDoor()
+        }else {
+            setMyAccountClicked(false)
+            closeDoor()
+        }
+    }
+
     const handleCrazyArrowClick = () => {
         const zoomFridge = document.querySelector('.fridge-container')
         zoomFridge.style.transform = 'scale(1.1)';
@@ -83,13 +95,37 @@ const Dashboard = () => {
         },250)
     }
 
+    const openDoor = (e) => {
+        if (!currentUserId) {
+            return
+        }
+        const homeArrow = document.getElementById('homepage-arrow')
+        document.querySelector('.fridge-container').style.backgroundImage  = `url(${openFridge})`
+        setTimeout(() => {
+            if (!myAccountClicked && document.querySelector('.inside-fridge-container')) {
+                document.querySelector('.inside-fridge-container').style.display = 'flex';
+                document.querySelector('.freezer-door-container').style.display = 'flex';
+            }
+            document.querySelector('.recipes-loading-container').style.zIndex = -10
+        }, 100)
+        if (homeArrow){
+            homeArrow.style.zIndex = -10;
+        }
+        document.querySelector('.lists-container').style.zIndex = -120
+        document.getElementById('open-button-4').style.display = '';
+        document.getElementById('open-button-3').style.display = '';
+    }
+
     const closeDoor = (e) => {
         if (!isDesktop) return
+        if (myAccountClicked) { setMyAccountClicked(false) }
         const pickArrow = document.getElementById('homepage-arrow');
-        document.querySelector('.fridge-container').style.backgroundImage  = `url(${closedFridge})`
+        document.querySelector('.fridge-container').style.backgroundImage  = `url(${closedFridge})`;
         setTimeout(() => {
-            document.querySelector('.freezer-door-container').style.display = 'none';
-            document.querySelector('.inside-fridge-container').style.display = 'none';
+            if (!myAccountClicked) {
+                document.querySelector('.freezer-door-container').style.display = 'none';
+                document.querySelector('.inside-fridge-container').style.display = 'none';
+            }
             document.querySelector('.lists-container').style.zIndex = 10
             document.querySelector('.recipes-loading-container').style.zIndex = 10
             if (pickArrow) pickArrow.style.zIndex = 10 
@@ -99,6 +135,9 @@ const Dashboard = () => {
         document.getElementById('open-button-3').style.display = 'none';
         document.getElementById('open-button-4').style.display = 'none';
     }
+
+    useEffect(() => {
+    },[currentUserId]);
 
     return (
         <>
@@ -117,7 +156,7 @@ const Dashboard = () => {
                             </div>
                         )}
                         {currentUserId && homeListId && <ListPage setHomeListId={setHomeListId} listId={homeListId} />}
-                        <DashFridge closeDoor={closeDoor} homeListId={homeListId} setHomeListId={setHomeListId} dollars={dollars} />
+                        <DashFridge openDoor={openDoor} myAccountClicked={myAccountClicked} closeDoor={closeDoor} homeListId={homeListId} setHomeListId={setHomeListId} dollars={dollars} />
                         {currentUserId && recipesLoading && (
                             <div className="recipes-loading-container">
                                 <div className="recipes-loading-text">looking for recipes based on whats in your fridge...</div>
@@ -131,6 +170,9 @@ const Dashboard = () => {
                             </div>
                         
                         )}
+                        <div onClick={handleAccountClick} className="my-account-div">
+                            <span>My Account</span>
+                        </div>
                         <div className="click-to-open-container">
                             <img className="click-to-open-sauce" src={sauceCooking} />
                             <div className="click-to-open-text">

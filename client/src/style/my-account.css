@@ -1,0 +1,93 @@
+.my-account-pref-container {
+    grid-row: 1/3;
+    grid-column: 2/3;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(230,230,230);
+    width: 91.5%;
+    height: 77%;
+    margin-top: 14.5%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.my-account-details-div {
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-family: 'Gochi Hand', cursive;
+    font-size: 1.5rem;
+    width: 90%;
+    padding-bottom: 5%;
+    border-bottom: 2px solid black;
+
+}
+
+.my-account-details-div > span {
+    margin: 1%;
+}
+
+.change-password-div, .change-email-div {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: 'Gochi Hand', cursive;
+    font-size: 1.5rem;
+}
+
+.change-password-div > label, .change-email-div > label {
+    margin: 2%;
+}
+
+.change-password-div > input, .change-email-div > input {
+    margin: 2%;
+    border: 2px solid black;
+    font-family: 'Gochi Hand', cursive;
+    padding: 2%;
+    font-size: 1.3rem;
+    border-radius: 5px;
+}
+
+.change-password-div > input:focus, .change-email-div > input:focus {
+    outline: none
+}
+
+.change-password-div > button, .change-email-div > button {
+    border: 2px solid black;
+    background-color: white;
+    font-family: 'Gochi Hand', cursive;
+    border-radius: 5px;
+    padding: 2%;
+    font-size: 1.3rem;
+    transition: all .2s ease-in-out;
+}
+
+.change-password-div > button:hover, .change-email-div > button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.change-password-div > button:focus, .change-email-div > button:focus {
+    outline: none
+}
+
+.account-change-errors-div {
+    margin-top: 5%;
+    font-family: 'Gochi Hand', cursive;
+    color: darkred;
+}
+
+.account-change-success-div {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-family: 'Gochi Hand', cursive;
+    font-size: 1.3rem;
+}
