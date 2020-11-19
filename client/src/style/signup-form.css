@@ -1,11 +1,12 @@
 .signup-form-page {
+    margin-top: 30%;
     grid-column: 1/2;
     grid-row: 1/3;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     font-family: 'Gochi Hand', cursive;
 }
@@ -18,7 +19,7 @@
 .signup-form-container {
     grid-column: 1/2;
     grid-row: 1/2;
-    height: 55%;
+    height: 35%;
     width: 90%;
     max-width: 435px;
     display: flex;
