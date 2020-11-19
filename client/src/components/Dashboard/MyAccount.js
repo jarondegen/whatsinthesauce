@@ -51,6 +51,11 @@ const MyAccount = () => {
         }
         else if (password.length < 6) {
             setErrors([...errors, "password must be 6 or more characters"]);
+            return;
+        }
+        else if (email.length < 6) {
+            setErrors([...errors, "please enter a valid email"]);
+            return;
         }
         const change = e.target.id === 'changeEmail' ? 'email' : 'password';
         const data = await fetchWithCSRF('/api/users/edit', {
