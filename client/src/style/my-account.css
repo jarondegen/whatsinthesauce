@@ -98,7 +98,28 @@
 
 @media screen and (max-width: 900px) {
     .my-account-pref-container {
+        height: 650px;
+        width: 100%;
         margin: auto;
-        margin-top: 10%;
+        margin-top: 5%;
+        background-color: transparent;
+        background-image: url('./images/old-paper.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+    }
+
+    .my-account-details-div {
+        margin-bottom: 0;
+        border-bottom: none;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 17%;
+        padding-bottom: 2%;
+    }
+
+    .change-email-div {
+        margin-top: 0%;
     }
 }
+
