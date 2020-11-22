@@ -12,6 +12,7 @@ const ListPage = ({listId, setHomeListId}) => {
     const [itemToAdd, setItemToAdd] = useState(null)
     const { groups } = useSelector(store => store.Ingredients)
     const [itemsByGroup, setItemsByGroup] = useState([])
+    const [rdyToAdd, setRdyToAdd] = useState(false)
 
      useEffect(() => {
         getItems(listId)
@@ -31,7 +32,13 @@ const ListPage = ({listId, setHomeListId}) => {
         if (data.ok) {
             const items = await data.json()
             setItemsByGroup(items)
+            setRdyToAdd(false)
         }
+    }
+
+    const handleIngredientSelect = (e) => {
+        setItemToAdd(e.target.value)
+        setRdyToAdd(true)
     }
 
     const handleAddToList = async () => {
@@ -79,14 +86,14 @@ const ListPage = ({listId, setHomeListId}) => {
                         <option key={item.id} value={item.id}>{item.name}</option>
                     )}
                 </select>
-                <select className="list-items-select-input ingredient-select" onChange={(e) => setItemToAdd(e.target.value)}>
+                <select className="list-items-select-input ingredient-select ingredient-select" onChange={handleIngredientSelect}>
                     <option>Ingredient</option>
                     {itemsByGroup && itemsByGroup.map(item =>
                         <option key={item.id} value={item.id}>{item.name}</option>
                     )}
                 </select>
                 <br/>
-                <button className="list-item-select-button add-to-list-button" onClick={handleAddToList} >Add to list</button>
+                <button disabled={!rdyToAdd} className="list-item-select-button add-to-list-button" onClick={handleAddToList} >Add to list</button>
                 <button className="list-item-select-button close-list-button" onClick={handleCloseList} >Close List</button>
             </div>
         </div>
