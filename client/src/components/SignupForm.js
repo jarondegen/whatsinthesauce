@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import AuthContext from '../auth';
 import '../style/signup-form.css';
 
@@ -28,11 +28,11 @@ const SignUpForm = ({setShowSignUp}) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        if (password != confirmPassword && !errors.includes('passwords must match')) {
+        if (password !== confirmPassword && !errors.includes('passwords must match')) {
             setErrors([...errors, 'passwords must match'])
             return
         }
-        if (password != confirmPassword && errors.includes('passwords must match')) {
+        if (password !== confirmPassword && errors.includes('passwords must match')) {
             return
         }
         const data = await fetchWithCSRF('/api/users/new', {

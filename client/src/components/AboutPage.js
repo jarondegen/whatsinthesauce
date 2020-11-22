@@ -30,7 +30,7 @@ const AboutPage = () => {
                     <span>SQLAlchemy</span> 
                     <span>Docker</span>  
                 </div>
-                <a target="_blank" href="https://github.com/jarondegen/whatsinthesauce"><img src={github} /></a>
+                <a rel="noopener noreferrer" target="_blank" href="https://github.com/jarondegen/whatsinthesauce"><img alt="link to github" src={github} /></a>
             </div>
         </div>
     )

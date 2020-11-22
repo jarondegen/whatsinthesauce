@@ -1,26 +1,19 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { getIngredients } from '../../store/ingredients';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import AuthContext from '../../auth';
 import ListItem from './ListItem';
 import '../../style/lists-page.css';
 
 const ListPage = ({listId, setHomeListId}) => {
-    const dispatch = useDispatch()
     const { fetchWithCSRF } = useContext(AuthContext);
     const [listName, setListName] = useState('');
     const [listItems, setListItems] = useState([]);
     const [itemToAdd, setItemToAdd] = useState(null)
     const { groups } = useSelector(store => store.Ingredients)
     const [itemsByGroup, setItemsByGroup] = useState([])
-    
-    // useEffect(() => {
-    //     dispatch(getIngredients())
-    // }, [])
 
      useEffect(() => {
         getItems(listId)
-        // dispatch(getIngredients())
     }, [listId])
     
     const getItems = async (listId) => {

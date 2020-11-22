@@ -29,13 +29,12 @@ const MyAccount = () => {
 
     useEffect(() => {
         getAccountInfo()
-    }, []);
+    },[]);
 
     const getAccountInfo = async () => {
         const data = await fetch(`/api/users/get/${currentUserId}`);
         if (data.ok) {
             const { info } = await data.json()
-            console.log(info)
             setUserInfo(info)
         }
     }
@@ -77,16 +76,16 @@ const MyAccount = () => {
     const validateInputs = () => {
         setErrors([])
         const errs = []
-        if (password != confirmPassword) {
+        if (password !== confirmPassword) {
             errs.push("passwords must match");
         }
-        if (email != confirmEmail) {
+        if (email !== confirmEmail) {
             errs.push("emails must match");
         }
-        if (password.length < 6 && password.length != 0) {
+        if (password.length < 6 && password.length !== 0) {
             errs.push("password must be 6 or more characters");
         }
-        if (email.length < 6 && email.length != 0) {
+        if (email.length < 6 && email.length !== 0) {
             errs.push("please enter a valid email");
         }
         setErrors(errs)

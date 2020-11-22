@@ -31,8 +31,8 @@ const MobileDashboard = ({dollars, setIsLoading,
                     <div onClick={handleArrowClick} className="no-list-container">
                         <div className="mobile-no-lists-loaded-div">Pick one of your lists...</div> 
                         <div className="mobile-homepage-drawings-div">
-                            <img id="mobile-homepage-arrow" src={arrow}/>
-                            <img id="mobile-homepage-pot" src={sauceCooking} />
+                            <img alt="arrow pointing to lists" id="mobile-homepage-arrow" src={arrow}/>
+                            <img alt="decoritive sauce pot" id="mobile-homepage-pot" src={sauceCooking} />
                         </div>
                     </div>
                 )}
@@ -40,15 +40,15 @@ const MobileDashboard = ({dollars, setIsLoading,
                 {currentUserId && recipesLoading && (
                     <div className="recipes-loading-container">
                         <div className="recipes-loading-text">looking for recipes based on whats in your fridge...</div>
-                        <img className="recipes-loading-gif"src={happyFace} />
+                        <img alt="loading animation" className="recipes-loading-gif"src={happyFace} />
                     </div>
                 )}
                 {currentUserId && !recipesLoading && (
                     <div className="recipes-loading-container">
                         <div className="recipes-loading-text">check out the recipes we found for you..</div>
                         <div className="mobile-recipes-loaded-images-div" onClick={() => document.querySelector('.recipes-component-container').scrollIntoView()}>
-                            <img className="recipes-loading-arrow"src={arrow} />
-                            <img className="mobile-whisk" src={whisk} />
+                            <img alt="arrow pointing to recipes" className="recipes-loading-arrow"src={arrow} />
+                            <img alt="decoritve whisk" className="mobile-whisk" src={whisk} />
                         </div>
                     </div>
                 

@@ -48,6 +48,10 @@ body {
     color: black;
 }
 
+.navbar-link:hover {
+    cursor: pointer;
+}
+
 .mobile {
     display: none;
 }
@@ -147,6 +151,10 @@ body {
         display: block;
         text-decoration: none;
         color: black;
+    }
+
+    .navbar-link-m:hover {
+        cursor: pointer;
     }
 
 }

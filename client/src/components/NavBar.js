@@ -27,7 +27,7 @@ const NavBar = ({logoutUser}) => {
         <>
             <div className="navbar-container">
                 <div className="narbar-left">
-                    <img className="navbar-logo"src={logo}/>
+                    <img alt="WITS Logo" className="navbar-logo"src={logo}/>
                 </div>
                 <div className="narbar-middle">
 
@@ -36,11 +36,11 @@ const NavBar = ({logoutUser}) => {
                     <NavLink className="navbar-link" to="/home" activeclass="active">Home</NavLink>
                     <NavLink className="navbar-link" to="/about" activeclass="active">About</NavLink>
                     {currentUserId ? (
-                        <a className="navbar-link" onClick={logoutUser} href="#" activeclass="active">Logout</a> 
+                        <span id="desktop-logout-button" className="navbar-link" onClick={logoutUser} activeclass="active">Logout</span> 
                     ): <NavLink onClick={handleBurgerClick} className="navbar-link" to="/home" activeclass="active">Login</NavLink>
                     }
                     <div onClick={handleBurgerClick} className="hamburger-div mobile">
-                        <img id="burge" src={hamburger}/>
+                        <img alt="open menu" id="burge" src={hamburger}/>
                     </div>
                 </div>
             </div>
@@ -63,11 +63,11 @@ const NavBar = ({logoutUser}) => {
                         </div>
                     </NavLink> )}
                 {currentUserId ? (
-                    <a onClick={handleLogout} className="navbar-link-m" href="#" activeclass="active">
+                    <span onClick={handleLogout} className="navbar-link-m" activeclass="active">
                         <div className="mobile-logout-link mobile-nav-container">
                             Logout
                         </div>
-                    </a> 
+                    </span> 
                 ): (
                     <NavLink onClick={handleBurgerClick} className="navbar-link-m" to="/home" activeclass="active">
                         <div className="mobile-login-link mobile-nav-container">

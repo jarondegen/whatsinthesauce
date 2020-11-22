@@ -35,6 +35,13 @@ const Dashboard = () => {
         setDesktop(window.innerWidth > 900);
       };    
 
+    const logOutButton = document.getElementById('desktop-logout-button');
+    if (logOutButton) {
+        logOutButton.addEventListener('click', (e) => {
+          closeDoor()
+      })
+    }
+    
     useEffect(() => {
         window.addEventListener("resize", updateMedia);
         return () => window.removeEventListener("resize", updateMedia);
@@ -44,7 +51,7 @@ const Dashboard = () => {
         if (currentUserId) {
             dispatch(getFridgeItems(currentUserId));
         }
-    }, [currentUserId])
+    }, [currentUserId, dispatch])
 
     useEffect(() => {
         if (!loading) {
@@ -53,14 +60,10 @@ const Dashboard = () => {
             setRecipesLoading(true)
         }
     }, [loading])
-
-    useEffect(() => {
-        dispatch(getFridgeItems(currentUserId));
-    }, []);
     
     useEffect(() => {
         let y = 0
-        Fridge.map(item => {
+        Fridge.forEach(item => {
             if (item.expiring_soon && item.price) {
                 y = y + item.price
             };
@@ -127,7 +130,9 @@ const Dashboard = () => {
                 document.querySelector('.inside-fridge-container').style.display = 'none';
             }
             document.querySelector('.lists-container').style.zIndex = 10
-            document.querySelector('.recipes-loading-container').style.zIndex = 10
+            if (document.querySelector('.recipes-loading-container')) {
+                document.querySelector('.recipes-loading-container').style.zIndex = 10
+            }
             if (pickArrow) pickArrow.style.zIndex = 10 
         }, 100)
         document.getElementById('open-button-1').setAttribute('class', 'top-right-holder')
@@ -152,7 +157,7 @@ const Dashboard = () => {
                         {currentUserId && !homeListId && (
                             <div onClick={handleArrowClick} className="no-list-container">
                                 <div className="no-lists-loaded-div">Pick one of your lists...</div> 
-                                <img  id="homepage-arrow" src={arrow}/>
+                                <img alt="decorative" id="homepage-arrow" src={arrow}/>
                             </div>
                         )}
                         {currentUserId && homeListId && <ListPage setHomeListId={setHomeListId} listId={homeListId} />}
@@ -160,13 +165,13 @@ const Dashboard = () => {
                         {currentUserId && recipesLoading && (
                             <div className="recipes-loading-container">
                                 <div className="recipes-loading-text">looking for recipes based on whats in your fridge...</div>
-                                <img className="recipes-loading-gif"src={happyFace} />
+                                <img alt="decorative" className="recipes-loading-gif"src={happyFace} />
                             </div>
                         )}
                         {currentUserId && !recipesLoading && (
                             <div className="recipes-loading-container">
                                 <div className="recipes-loading-text">check out the recipes we found for you..</div>
-                                <img onClick={() => document.querySelector('.recipes-component-container').scrollIntoView()} className="recipes-loading-arrow"src={downArrow} />
+                                <img alt="decotative" onClick={() => document.querySelector('.recipes-component-container').scrollIntoView()} className="recipes-loading-arrow"src={downArrow} />
                             </div>
                         
                         )}
@@ -174,12 +179,12 @@ const Dashboard = () => {
                             <span>My Account</span>
                         </div>}
                         <div className="click-to-open-container">
-                            <img className="click-to-open-sauce" src={sauceCooking} />
+                            <img alt="decoratice" className="click-to-open-sauce" src={sauceCooking} />
                             <div className="click-to-open-text">
                                 click the door to open
                             </div>
-                            <img onClick={handleCrazyArrowClick} className="click-to-open-arrow" src={crazyArrow}/>
-                            <img className="click-to-open-whisk" src={whisk} />
+                            <img alt="decorative" onClick={handleCrazyArrowClick} className="click-to-open-arrow" src={crazyArrow}/>
+                            <img alt="decorative" className="click-to-open-whisk" src={whisk} />
                         </div>
                     </div>
                     <div className="recipes-component-container">

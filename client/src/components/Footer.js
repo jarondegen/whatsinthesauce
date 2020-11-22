@@ -15,10 +15,10 @@ const Footer = () => {
             created by Jaron Degen
             </div>
             <div className="footer-wfl-outter-div">
-                <a target="_blank" href="https://aawhatsforlunch.herokuapp.com/">
+                <a rel="noopener noreferrer" target="_blank" href="https://aawhatsforlunch.herokuapp.com/">
                     <div className="footer-wfl-inner-div">
                         <div className="need-inspiration">need some more inspiration? <br/> check this out >> </div>
-                        <img className="wfl" src={wfl}/>
+                        <img alt="WFL-Logo" className="wfl" src={wfl}/>
                     </div>
                 </a>
             </div>

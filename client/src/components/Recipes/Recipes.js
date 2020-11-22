@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Card from './Card';
 import AuthContext from '../../auth';
@@ -14,7 +14,7 @@ const Recipes = () => {
     useEffect(() => {
         dispatch(changeLoading(true))
         getTheRecipes()
-    },[Fridge])
+    },[Fridge, dispatch])
 
     useEffect(() => {
         if (recipes.length > 0) {
@@ -22,7 +22,7 @@ const Recipes = () => {
                 dispatch(changeLoading(false))
             }
         }
-    },[recipes])
+    },[recipes, dispatch])
 
     const getTheRecipes = async () => {
         const data = await fetchWithCSRF('api/fridges/recipes', {

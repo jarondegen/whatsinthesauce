@@ -24,7 +24,7 @@ function App() {
 
     useEffect(() => {
         dispatch(getIngredients())
-    }, [])
+    }, [dispatch])
 
     const logoutUser = async ()=> {
             const response = await fetchWithCSRF('/logout', {

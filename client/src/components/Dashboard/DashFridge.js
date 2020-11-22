@@ -46,9 +46,9 @@ const DashFridge = ({ myAccountClicked, openDoor, dollars, closeDoor, homeListId
                 {Fridge && Fridge.map((item, i) => 
                     <div key={i} className="fridge-item-container" >
                         <span className="fridge-item-name">{item.name}</span>
-                        <span className="fridge-item-expire" className={item.expiring_soon ? 'expiring_soon' : 'not_expiring_soon'} >{item.expires_on.split(" ").slice(0,3).join(" ")}</span>
+                        <span className={item.expiring_soon ? 'fridge-item-expire expiring_soon' : 'fridge-item-expire not_expiring_soon'} >{item.expires_on.split(" ").slice(0,3).join(" ")}</span>
                         <span className="fridge-item-price">{item.price === null || item.price === 0 ? 'None' : `$${item.price}`}</span>
-                        <span className="fridge-item-delete"><img className="delete-fridge-item-x" src={x} onClick={handleRemoveItemFromFridge} id={item.id}/></span>
+                        <span className="fridge-item-delete"><img alt="delete fridge item" className="delete-fridge-item-x" src={x} onClick={handleRemoveItemFromFridge} id={item.id}/></span>
                     </div>
                 )}
             

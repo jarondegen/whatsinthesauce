@@ -19,7 +19,6 @@ export const getFridgeItems = (userId) => async dispatch => {
 const intialState = [];
 
 export default function reducer(state=intialState, action) {
-    const newState = {...state};
     switch (action.type) {
         case SET_FRIDGE: 
         return action.items

@@ -15,11 +15,7 @@ const ShoppingLists = ({ setHomeListId, closeDoor }) => {
         if (currentUserId) {
             dispatch(getLists(currentUserId));
         }
-    }, [currentUserId])
-
-    useEffect(() => {
-        dispatch(getLists(currentUserId))
-    }, [])
+    }, [currentUserId, dispatch])
 
     const handleDelete = async (e) => {
         const data = await fetchWithCSRF(`/api/lists/delete/${parseInt(e.target.id)}`,{
@@ -45,7 +41,7 @@ const ShoppingLists = ({ setHomeListId, closeDoor }) => {
             {!currentUserId && (
                 <>
                     <div className="not-logged-in-lists" >log in to see your stuff!</div>
-                    <img className="smiley" src={smiley}/>    
+                    <img alt="recipes loading animation" className="smiley" src={smiley}/>    
                 </>
             )}
             {currentUserId && <NewShoppingList getLists={getLists}/>}
@@ -53,7 +49,7 @@ const ShoppingLists = ({ setHomeListId, closeDoor }) => {
                 <div className="lists-div" key={list.name}>
                     <span id={list.id} onClick={handleListClick} className="list-list-name-link" >{list.name}</span>
                     <span className="lists-list-date">{list.date.split(" ").slice(0,3).join(" ")}</span>
-                    <img className="remove-list-button" src={redX} id={list.id} onClick={handleDelete} />
+                    <img alt="remove list" className="remove-list-button" src={redX} id={list.id} onClick={handleDelete} />
                 </div>
             )}
         </div>

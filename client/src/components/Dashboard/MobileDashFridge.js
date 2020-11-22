@@ -27,18 +27,18 @@ const MobileDashFridge = ({dollars, setDollars, setIsLoading}) => {
         if (currentUserId) {
             dispatch(getFridgeItems(currentUserId));
         }
-    }, [currentUserId])
+    }, [currentUserId, dispatch])
 
     useEffect(() => {
         let y = 0
-        Fridge.map(item => {
+        Fridge.forEach(item => {
             if (item.expiring_soon && item.price) {
                 y = y + item.price
             };
         });
         setDollars(y);
         setIsLoading(false);
-    }, [Fridge]);
+    }, [Fridge, setDollars, setIsLoading]);
 
     return (
         <div className="mobile-inside-fridge-container">
@@ -57,9 +57,9 @@ const MobileDashFridge = ({dollars, setDollars, setIsLoading}) => {
             {Fridge && Fridge.map((item, i) => 
                 <div key={i} className="fridge-item-container" >
                     <span className="fridge-item-name">{item.name}</span>
-                    <span className="fridge-item-expire" className={item.expiring_soon ? 'expiring_soon' : 'not_expiring_soon'} >{item.expires_on.split(" ").slice(0,3).join(" ")}</span>
+                    <span className={item.expiring_soon ? 'fridge-item-expire expiring_soon' : 'fridge-item-expire not_expiring_soon'} >{item.expires_on.split(" ").slice(0,3).join(" ")}</span>
                     <span className="fridge-item-price">{item.price === null || item.price === 0 ? 'None' : `$${item.price}`}</span>
-                    <span className="fridge-item-delete"><img className="delete-fridge-item-x" src={x} onClick={handleRemoveItemFromFridge} id={item.id}/></span>
+                    <span className="fridge-item-delete"><img alt="delete fridge item" className="delete-fridge-item-x" src={x} onClick={handleRemoveItemFromFridge} id={item.id}/></span>
                 </div>
             )}
             

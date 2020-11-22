@@ -59,8 +59,8 @@ const ListItem = ({item, getItems, listId}) => {
         <div className="ingredient-list-item-container"key={item.id}> 
             <li className="ingredient-list-item-name">{item.name}</li>
             <input className="ingredient-list-item-price-input" value={price} onChange={(e) => setPrice(e.target.value)} type="number" placeholder="price"/>
-            <img src={check} className="ingredient-list-item-check-button"id={`${item.ingredient_id}-${item.id}`} onClick={handleAddToFridge} />
-            <img src={x} className="ingredient-list-item-delete-x" id={item.ingredient_id} onClick={handleRemoveItem} />
+            <img alt="add list item" src={check} className="ingredient-list-item-check-button"id={`${item.ingredient_id}-${item.id}`} onClick={handleAddToFridge} />
+            <img alt="delete list item" src={x} className="ingredient-list-item-delete-x" id={item.ingredient_id} onClick={handleRemoveItem} />
         </div>
     );
 };
