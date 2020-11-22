@@ -169,7 +169,7 @@ with app.app_context():
   oatmean = Ingredient(name = 'Oatmeal', expires_in = 400, food_group_id = 7)
   popcorn = Ingredient(name = 'Popcorn', expires_in = 10000000, food_group_id = 7)
   rice = Ingredient(name = 'Rice', expires_in = 100000000, food_group_id = 7)
-  tortilla = Ingredient(name = 'Torrilla', expires_in = 25, food_group_id = 7)
+  tortilla = Ingredient(name = 'Tortilla', expires_in = 25, food_group_id = 7)
 
   db.session.add(bread)
   db.session.add(bagel)

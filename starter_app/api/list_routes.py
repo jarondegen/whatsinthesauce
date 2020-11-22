@@ -85,6 +85,6 @@ def get_ingredients():
 
 @list_routes.route('/groups/<group_id>', methods=["GET"])
 def get_ingredients_by_group(group_id):
-    items = Ingredient.query.filter(Ingredient.food_group_id == group_id).all()
+    items = Ingredient.query.filter(Ingredient.food_group_id == group_id).order_by(Ingredient.name).all()
     items_list = [item.to_dict() for item in items]
     return jsonify(items_list)

@@ -26,7 +26,6 @@ const ShoppingLists = ({ setHomeListId, closeDoor }) => {
         });
         if (data.ok) {
             const response = data.json()
-            console.log(response)
             dispatch(getLists(currentUserId))
         }
     }

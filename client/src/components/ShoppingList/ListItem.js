@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux'
 const ListItem = ({item, getItems, listId}) => {
     const dispatch = useDispatch()
     const { fetchWithCSRF, currentUserId } = useContext(AuthContext);
-    const [price, setPrice] = useState(null)
+    const [price, setPrice] = useState()
 
     
     const handleRemoveItem = async (e) => {
@@ -25,7 +25,6 @@ const ListItem = ({item, getItems, listId}) => {
         });
         if (data.ok) {
             const response = data.json()
-            console.log(response)
             getItems(listId)
         }
     }
@@ -51,7 +50,7 @@ const ListItem = ({item, getItems, listId}) => {
         if (data.ok) {
             dispatch(getFridgeItems(currentUserId))
             getItems(listId)
-            setPrice(null)
+            setPrice()
         }
     }
 

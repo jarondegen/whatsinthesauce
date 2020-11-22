@@ -41,9 +41,7 @@ const SignUpForm = ({setShowSignUp}) => {
             body: JSON.stringify({ password: password, username: userName, email: email }),
         })
         if (data.ok) {
-            console.log("data ok")
             const response = await data.json();
-            console.log(response)
             if (response.errors.length === 0) {
                 setTimeout(loginUser, 500)
             }else {

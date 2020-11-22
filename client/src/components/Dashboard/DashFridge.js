@@ -22,7 +22,6 @@ const DashFridge = ({ myAccountClicked, openDoor, dollars, closeDoor, homeListId
         if (data.ok) {
             const response = await data.json();
             dispatch(getFridgeItems(currentUserId));
-            console.log(response)
         }
     }
 

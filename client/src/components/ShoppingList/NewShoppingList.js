@@ -36,7 +36,6 @@ const NewShoppingList = ({ getLists }) => {
         });
         if (data.ok) {
             const newList = await data.json();
-            console.log(newList);
         }
         dispatch(getLists(currentUserId));
         setListName('');

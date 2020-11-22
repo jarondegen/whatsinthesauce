@@ -61,7 +61,8 @@ def get_recipes():
     recipes = []
     items = data["items"]
     for item in items:
-        r =requests.get(f'https://www.themealdb.com/api/json/v1/1/filter.php?i={item["name"]}')
+        item_name = item["name"].lower().replace(" ", "_")
+        r =requests.get(f'https://www.themealdb.com/api/json/v1/1/filter.php?i={item_name}')
         if r.status_code == 200:
             res = r.json()
             if res["meals"] and len(res["meals"]) > 0:
