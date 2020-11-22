@@ -87,11 +87,11 @@ const Dashboard = () => {
         }
     }
 
-    const handleCrazyArrowClick = () => {
-        const zoomFridge = document.querySelector('.fridge-container')
-        zoomFridge.style.transform = 'scale(1.1)';
+    const handleCrazyArrowClick = (e) => {
+        const clickToOpenArrow = document.querySelector('.click-to-open-arrow')
+        clickToOpenArrow.style.transform = 'rotate(-55deg)'
         setTimeout(() => {
-            zoomFridge.style.transform = 'scale(1)'
+            clickToOpenArrow.style.transform = 'rotate(-75deg)'
         },250)
     }
 

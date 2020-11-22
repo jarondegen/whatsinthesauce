@@ -335,6 +335,7 @@ html, body, #root, .App {
     height: 200px;
     transform: rotate(-75deg);
     margin-right: 60%;
+    transition: all .4s ease-in-out;
 }
 
 .click-to-open-sauce {
