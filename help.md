@@ -7,7 +7,7 @@ This is the backend for the Flask React project.
 1. Clone this repository (only this branch)
 
 ```bash
-git clone https://github.com/appacademy-starters/react-project-starter.git --branch flask-project-starter --single-branch
+git clone https://github.com/jarondegen/whatsinthesauce
 ```
 
 2. Install dependencies

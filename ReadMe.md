@@ -15,6 +15,7 @@
 WhatsInTheSauce is a full-stack web app that allows users to create and actively use multiple grocery lists and then transfering ingredients from those lists into thier "fridge" just like irl. Users can then view what days those ingredients will expire and thier value along with suggested recipes based on what is in the fridge so users will always know what to make for thier next meal.
 
 ##### WhatsInTheSauce at a glance
+![WhatsInTheSauce at a glance](./readme-resources/w_demo.gif)
 ![WhatsInTheSauce at a glance](./readme-resources/screenshot0.png)
 ![WhatsInTheSauce at a glance](./readme-resources/screenshot1.png)
 
