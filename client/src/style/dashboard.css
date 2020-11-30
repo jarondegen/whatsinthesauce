@@ -275,8 +275,8 @@ html, body, #root, .App {
     align-self: flex-end;
     font-size: 1.5rem;
     width: 80%;
-    margin-bottom: 24%;
-    margin-top: 45%;
+    margin-bottom: 15%;
+    /* margin-top: 45%; */
     margin-left: 30%;
     z-index: -10;
 }
