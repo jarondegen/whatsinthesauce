@@ -103,7 +103,8 @@ const Dashboard = () => {
             return
         }
         const homeArrow = document.getElementById('homepage-arrow')
-        document.querySelector('.fridge-container').style.backgroundImage  = `url(${openFridge})`
+        document.querySelector('.fridge-container').style.backgroundImage  = `url(${openFridge})`;
+        document.querySelector('.fridge-container').style.zIndex = 10
         setTimeout(() => {
             if (!myAccountClicked && document.querySelector('.inside-fridge-container')) {
                 document.querySelector('.inside-fridge-container').style.display = 'flex';
@@ -124,6 +125,7 @@ const Dashboard = () => {
         if (myAccountClicked) { setMyAccountClicked(false) }
         const pickArrow = document.getElementById('homepage-arrow');
         document.querySelector('.fridge-container').style.backgroundImage  = `url(${closedFridge})`;
+        document.querySelector('.fridge-container').style.zIndex = -10
         setTimeout(() => {
             if (!myAccountClicked) {
                 document.querySelector('.freezer-door-container').style.display = 'none';

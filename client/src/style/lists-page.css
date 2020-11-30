@@ -157,7 +157,7 @@
 
 .add-to-list-button {
     transition: all .2s ease-in-out;
-    width: 20%
+    width: 20%;
 }
 
 .add-to-list-button:hover {
