@@ -37,8 +37,9 @@ const NavBar = ({logoutUser}) => {
                     <NavLink className="navbar-link" to="/about" activeclass="active">About</NavLink>
                     {currentUserId ? (
                         <span id="desktop-logout-button" className="navbar-link" onClick={logoutUser} activeclass="active">Logout</span> 
-                    ): <NavLink onClick={handleBurgerClick} className="navbar-link" to="/home" activeclass="active">Login</NavLink>
-                    }
+                    ):  (
+                        <NavLink onClick={handleBurgerClick} className="navbar-link" to="/home" activeclass="active">Login</NavLink>
+                    )}
                     <div onClick={handleBurgerClick} className="hamburger-div mobile">
                         <img alt="open menu" id="burge" src={hamburger}/>
                     </div>

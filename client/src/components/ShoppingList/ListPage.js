@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useSelector } from 'react-redux';
 import AuthContext from '../../auth';
 import ListItem from './ListItem';
-// import SearchBar from './SearchBar';
+import SearchBar from './SearchBar';
 import '../../style/lists-page.css';
 
 const ListPage = ({listId, setHomeListId}) => {
@@ -79,7 +79,7 @@ const ListPage = ({listId, setHomeListId}) => {
                 </ul>
             </div>
             <div className="list-items-select-form">
-                {/*<SearchBar getItems={getItems} listId={listId}/>*/}
+                <SearchBar getItems={getItems} listId={listId}/>
                 <select className="list-items-select-input food-group-select" onChange={handleGroupSelect}>
                     <option>Group</option>
                     {groups && groups.map(item =>

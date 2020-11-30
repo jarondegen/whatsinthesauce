@@ -61,6 +61,23 @@ def add_list_items():
         new_item = new_item.to_dict()
         return jsonify(new_item)
     return jsonify('already exists')
+
+
+@list_routes.route('/search_bar_add', methods=["POST"])
+def add_search_list_items():
+    data = request.get_json()
+    poss_ingredient = Ingredient.query.filter(Ingredient.name.ilike(data["itemToAdd"])).one()
+    try:
+        exists = Ing_Shop.query.filter(
+        Ing_Shop.ingredient_id == poss_ingredient.id).filter(
+        Ing_Shop.list_id == data["listId"]).one()
+    except:
+        new_item = Ing_Shop(list_id=data["listId"], ingredient_id=poss_ingredient.id)
+        db.session.add(new_item)
+        db.session.commit()
+        new_item = new_item.to_dict()
+        return jsonify(new_item)
+    return jsonify('already exists')
     
 
 @list_routes.route('/remove-item', methods=["POST"])
