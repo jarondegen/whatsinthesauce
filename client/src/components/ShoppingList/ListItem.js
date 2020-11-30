@@ -24,7 +24,6 @@ const ListItem = ({item, getItems, listId}) => {
             })
         });
         if (data.ok) {
-            const response = data.json()
             getItems(listId)
         }
     }

@@ -35,10 +35,9 @@ const NewShoppingList = ({ getLists }) => {
             })
         });
         if (data.ok) {
-            const newList = await data.json();
+            dispatch(getLists(currentUserId));
+            setListName('');
         }
-        dispatch(getLists(currentUserId));
-        setListName('');
     }
 
     const handleEnter = (e) => {
@@ -50,12 +49,12 @@ const NewShoppingList = ({ getLists }) => {
     return (
         <div className="new-list-form-container">
             <span id="NLFLabel" onClick={toggleForm}>+ New List</span>
-            <form id="NLF" className="new-list-form hidden">
+            <form onSubmit={(e)=>e.preventDefault()} id="NLF" className="new-list-form hidden">
                 <div >
                     <label >List Name</label>
                 </div>
                 <div>
-                    <input className="new-list-input" onChange={(e) => setListName(e.target.value)} value={listName} type="text" placeholder="ex. Whole Foods.."/>
+                    <input onKeyPress={handleEnter} className="new-list-input" onChange={(e) => setListName(e.target.value)} value={listName} type="text" placeholder="ex. Whole Foods.."/>
                     <br />
                     <div onClick={handleSubmit} className="new-list-add-div"><span>add list</span><img alt="add new list" className="new-list-check" src={check} onKeyDown={handleEnter}/></div>
                 </div>

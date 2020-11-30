@@ -17,7 +17,6 @@ const MobileDashFridge = ({dollars, setDollars, setIsLoading}) => {
             },
         });
         if (data.ok) {
-            const response = await data.json();
             dispatch(getFridgeItems(currentUserId));
         }
     }

@@ -25,7 +25,6 @@ const ShoppingLists = ({ setHomeListId, closeDoor }) => {
             }
         });
         if (data.ok) {
-            const response = data.json()
             dispatch(getLists(currentUserId))
         }
     }

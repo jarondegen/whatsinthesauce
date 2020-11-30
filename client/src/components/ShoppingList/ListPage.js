@@ -81,7 +81,7 @@ const ListPage = ({listId, setHomeListId}) => {
             <div className="list-items-select-form">
                 <SearchBar getItems={getItems} listId={listId}/>
                 <select className="list-items-select-input food-group-select" onChange={handleGroupSelect}>
-                    <option>Group</option>
+                    <option>Food Group</option>
                     {groups && groups.map(item =>
                         <option key={item.id} value={item.id}>{item.name}</option>
                     )}

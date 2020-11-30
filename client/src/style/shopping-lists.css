@@ -33,6 +33,10 @@
     background-color: transparent;
 }
 
+.new-list-input:focus {
+    outline: none;
+}
+
 .new-list-add-div {
     display: flex;
     justify-content: center;

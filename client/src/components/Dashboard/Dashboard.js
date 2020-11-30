@@ -64,7 +64,7 @@ const Dashboard = () => {
     useEffect(() => {
         let y = 0
         Fridge.forEach(item => {
-            if (item.expiring_soon && item.price) {
+            if (item.expires_on !== 'expired' && item.expiring_soon && item.price) {
                 y = y + item.price
             };
         });
