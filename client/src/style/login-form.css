@@ -21,6 +21,7 @@
     margin-left: 20%;
     transform: rotate(-10deg);
     text-align: center;
+    z-index: -101;
 }
 
 .div-wrapping-form {

@@ -276,7 +276,6 @@ html, body, #root, .App {
     font-size: 1.5rem;
     width: 80%;
     margin-bottom: 15%;
-    /* margin-top: 45%; */
     margin-left: 30%;
     z-index: -10;
 }

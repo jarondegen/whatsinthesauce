@@ -6,15 +6,19 @@ import hamburger from '../style/images/hamburger.png';
 import '../style/navbar.css';
 
 const NavBar = ({logoutUser}) => {
-    const [clicked, setClicked] = useState(false)
+    const [clicked, setClicked] = useState(true)
     const { currentUserId } = useContext(AuthContext);
     
     const handleBurgerClick = (e) => {
-        if (clicked) {
-            setClicked(false)
-        }
-        else {
-            setClicked(true)
+        // if (clicked) {
+        //     setClicked(false)
+        // }
+        // else {
+        //     setClicked(true)
+        // }
+        const mobileMenu = document.getElementById('mobile-nav-links');
+        if (mobileMenu) {
+            mobileMenu.classList.toggle('show')
         }
     }
 
@@ -46,7 +50,7 @@ const NavBar = ({logoutUser}) => {
                 </div>
             </div>
             {clicked && (
-            <div className="mobile-navbar-links-div mobile">
+            <div id="mobile-nav-links" className="mobile-navbar-links-div mobile">
                     <NavLink onClick={handleBurgerClick} className="navbar-link-m" to="/home" activeclass="active">
                         <div className="mobile-home-link mobile-nav-container">
                             Home
