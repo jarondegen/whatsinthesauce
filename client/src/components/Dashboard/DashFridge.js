@@ -7,7 +7,7 @@ import ShoppingLists from '../ShoppingList/ShoppingList';
 import MyAccount from './MyAccount';
 import '../../style/my-account.css';
 
-const DashFridge = ({ myAccountClicked, openDoor, dollars, closeDoor, homeListId, setHomeListId }) => {
+const DashFridge = ({ getProfilePic, myAccountClicked, openDoor, dollars, closeDoor, homeListId, setHomeListId }) => {
     const { Fridge } = useSelector(store => store);
     const dispatch = useDispatch();
     const { currentUserId, fetchWithCSRF } = useContext(AuthContext);
@@ -52,7 +52,7 @@ const DashFridge = ({ myAccountClicked, openDoor, dollars, closeDoor, homeListId
             
             </div>}
             {myAccountClicked && (
-                <MyAccount />
+                <MyAccount getProfilePic={getProfilePic}/>
             )}
         </div>
     )

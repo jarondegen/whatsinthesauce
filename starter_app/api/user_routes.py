@@ -55,3 +55,22 @@ def edit_user():
   except: return jsonify('Something went wrong')
   db.session.commit()
   return jsonify('success')
+
+@user_routes.route('/profile_pic', methods=["POST"])
+def change_pic_url():
+    try:
+        data = request.get_json()
+        user = User.query.filter(User.id == data["user_id"]).one()
+        user.pic_url = data["image_url"]
+        db.session.commit()
+        return jsonify('profile pic changed')
+    except:
+        return jsonify('something went wrong')
+
+@user_routes.route('/profile_pic/<user_id>', methods=["GET"])
+def get_pic_url(user_id):
+    try:
+        user = User.query.filter(User.id == user_id).one()
+        return jsonify(user.pic_url)
+    except:
+        return jsonify('something went wrong')

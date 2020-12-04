@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import AuthContext from '../../auth';
+import PhotoUpload from '../PhotoUpload/PhotoUpload';
 
-const MyAccount = () => {
+const MyAccount = ({getProfilePic}) => {
     const { currentUserId, fetchWithCSRF } = useContext(AuthContext);
     const [userInfo, setUserInfo] = useState({})
     const [password, setPassword] = useState('')
@@ -94,11 +95,24 @@ const MyAccount = () => {
         }else return true
     }
 
+    const handleUploadClick = () => {
+        const uploadModal = document.getElementById('profile-modal-container');
+        uploadModal.classList.toggle('hide')
+    }
+
     return (
         <div className="my-account-pref-container">
+            <div id="profile-modal-container" className="hide">
+                <div className="porfile-modal">
+                    <PhotoUpload getProfilePic={getProfilePic} handleUploadClick={handleUploadClick} type={"profile"}/>
+                </div>
+            </div>
             <div className="my-account-details-div">
                 <span>{`user name: ${userInfo.username}`}</span>
                 <span>{`email: ${userInfo.email}`}</span>
+            </div>
+            <div className="account-upload-button-container">
+                <button onClick={handleUploadClick} className="account-upload-button">Change Profile Picture</button>
             </div>
             <div className="account-change-success-div">
                 {success && <span>Change Successful!</span>}
@@ -121,7 +135,7 @@ const MyAccount = () => {
                 )}
             </div>
         </div> 
-    );
+    ); 
 };
 
 export default MyAccount;

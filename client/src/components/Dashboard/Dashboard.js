@@ -17,6 +17,7 @@ import downArrow from '../../style/images/down-arrow.png';
 import closedFridge from '../../style/images/real-fridge-closed.png';
 import SignUpForm from '../SignupForm';
 import MobileDashboard from './MobileDashboard';
+import chefPic from '../../style/images/chefs-hat.png';
 
 const Dashboard = () => {
     const dispatch = useDispatch();
@@ -30,7 +31,23 @@ const Dashboard = () => {
     const [isDesktop, setDesktop] = useState(window.innerWidth > 900);
     const { loading } = useSelector(store => store.Recipes)
     const [myAccountClicked, setMyAccountClicked] = useState(false)
+    const [profilePic, setProfilePic] = useState()
 
+    const getProfilePic = async () => {
+        if (currentUserId) {
+            const data =  await fetch(`/api/users/profile_pic/${currentUserId}`);
+            if (data.ok) {
+                const res = await data.json()
+                setProfilePic(res)
+            }
+        }
+    }
+
+    useEffect(() => {
+        getProfilePic()
+    },[currentUserId])
+
+    
     const updateMedia = () => {
         setDesktop(window.innerWidth > 900);
       };    
@@ -163,7 +180,7 @@ const Dashboard = () => {
                             </div>
                         )}
                         {currentUserId && homeListId && <ListPage setHomeListId={setHomeListId} listId={homeListId} />}
-                        <DashFridge openDoor={openDoor} myAccountClicked={myAccountClicked} closeDoor={closeDoor} homeListId={homeListId} setHomeListId={setHomeListId} dollars={dollars} />
+                        <DashFridge getProfilePic={getProfilePic} openDoor={openDoor} myAccountClicked={myAccountClicked} closeDoor={closeDoor} homeListId={homeListId} setHomeListId={setHomeListId} dollars={dollars} />
                         {currentUserId && recipesLoading && (
                             <div className="recipes-loading-container">
                                 <div className="recipes-loading-text">looking for recipes based on whats in your fridge...</div>
@@ -178,8 +195,9 @@ const Dashboard = () => {
                         
                         )}
                         {currentUserId && <div onClick={handleAccountClick} className="my-account-div">
-                            <span>My Account</span>
+                            <img className="profile-pic-img" src={profilePic? profilePic : chefPic}/>
                         </div>}
+                        <span className="my-account-span">My Account</span>
                         <div className="click-to-open-container">
                             <img alt="decoratice" className="click-to-open-sauce" src={sauceCooking} />
                             <div className="click-to-open-text">

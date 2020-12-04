@@ -13,6 +13,7 @@ class User(db.Model, UserMixin):
   username = db.Column(db.String(40), nullable = False, unique = True)
   email = db.Column(db.String(255), nullable = False, unique = True)
   hashed_password = db.Column(db.String(255), nullable=False)
+  pic_url = db.Column(db.String(200), nullable=True)
 
   shopping_lists = db.relationship("Shopping_List", back_populates="users")
   fridge_ingredients = db.relationship("Fridge_Ingredient", back_populates="users")
@@ -21,7 +22,8 @@ class User(db.Model, UserMixin):
     return {
       "id": self.id,
       "username": self.username,
-      "email": self.email
+      "email": self.email,
+      "pic_url": self.pic_url
     }
   
   @property

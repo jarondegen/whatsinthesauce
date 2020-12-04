@@ -32,18 +32,21 @@
     margin: 1%;
 }
 
+.change-password-div {
+    margin-top: 5%;
+}
+
 .change-password-div, .change-email-div {
     width: 90%;
     display: flex;
     flex-direction: column;
-    margin-top: 5%;
     align-items: center;
     justify-content: flex-start;
     font-family: 'Gochi Hand', cursive;
     font-size: 1.5rem;
 }
 
-.change-password-div > label, .change-email-div > label {
+.change-password-div > label {
     margin: 2%;
 }
 
@@ -96,6 +99,22 @@
     font-size: 1.3rem;
 }
 
+.account-upload-button {
+    border: 2px solid black;
+    background-color: white;
+    font-family: 'Gochi Hand', cursive;
+    border-radius: 5px;
+    font-size: 1.3rem;
+    transition: all .2s ease-in-out;
+    justify-self: center;
+    margin-top: 5%;
+}
+
+.account-upload-button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
 @media screen and (max-width: 900px) {
     .my-account-pref-container {
         min-height: 700px;
@@ -121,6 +140,10 @@
 
     .change-email-div {
         margin-top: 0%;
+    }
+
+    .account-upload-button {
+        display: none;
     }
 }
 
