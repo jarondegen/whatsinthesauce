@@ -78,7 +78,6 @@ html, body, #root, .App {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    background-color: rgb(230, 230, 230);
     border-radius: 5px;
     transition: all .4s ease-in-out;
     display:none;
@@ -96,7 +95,6 @@ html, body, #root, .App {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    background-color: rgb(230, 230, 230);
     border-radius: 5px;
     margin-top: 14.5%;
     transition: all .4s ease-in-out;
@@ -104,6 +102,7 @@ html, body, #root, .App {
     font-family: 'Gochi Hand', cursive;
     overflow: scroll;
     overflow-x: hidden;
+    border: none;
 }
 
 .my-account-div {

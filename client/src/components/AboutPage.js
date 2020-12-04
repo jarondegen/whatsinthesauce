@@ -7,7 +7,7 @@ const AboutPage = () => {
         <div className="about-page-page-container">
             <div className="how-to-container">
                 <h2>Whats it all about?</h2>
-                <p>WhatsInTheSauce is an app that allows you to keep your grocery lists and refridgerator organized.  You'll always know when food is expiring and we will even keep track of the price so you can see the value of whats in your fridge and what you should cook for your next meal. </p>
+                <p>WhatsInTheSauce is an app that allows you to keep your grocery lists and refridgerator organized while reducing food waste.  You'll always know when food is expiring and we will even keep track of the price so you can see the value of whats in your fridge and what you should cook for your next meal. </p>
                 <h2>What else?</h2>
                 <p>Thats not enough? We got you...You will get customized recipe suggestions based on what is in your fridge at any given time!</p>
                 <h2>How do I use it?</h2>

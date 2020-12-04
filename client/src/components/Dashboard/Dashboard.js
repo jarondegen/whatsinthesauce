@@ -132,7 +132,7 @@ const Dashboard = () => {
         if (homeArrow){
             homeArrow.style.zIndex = -10;
         }
-        document.querySelector('.lists-container').style.zIndex = -120
+        document.querySelector('.lists-container').style.display = "none";
         document.getElementById('open-button-4').style.display = '';
         document.getElementById('open-button-3').style.display = '';
     }
@@ -148,6 +148,7 @@ const Dashboard = () => {
                 document.querySelector('.freezer-door-container').style.display = 'none';
                 document.querySelector('.inside-fridge-container').style.display = 'none';
             }
+            document.querySelector('.lists-container').style.display = "flex";
             document.querySelector('.lists-container').style.zIndex = 10
             if (document.querySelector('.recipes-loading-container')) {
                 document.querySelector('.recipes-loading-container').style.zIndex = 10
@@ -197,7 +198,7 @@ const Dashboard = () => {
                         {currentUserId && <div onClick={handleAccountClick} className="my-account-div">
                             <img className="profile-pic-img" src={profilePic? profilePic : chefPic}/>
                         </div>}
-                        <span className="my-account-span">My Account</span>
+                        {currentUserId && <span className="my-account-span">My Account</span>}
                         <div className="click-to-open-container">
                             <img alt="decoratice" className="click-to-open-sauce" src={sauceCooking} />
                             <div className="click-to-open-text">
