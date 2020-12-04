@@ -1,3 +1,12 @@
+.recipes-page-cotianer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100%;
+}
+
 .suggest-recipes-title {
     font-family: 'Gochi Hand', cursive;
     font-size: 2rem;
@@ -11,11 +20,14 @@
     flex-direction: row;
     flex-wrap: wrap;
     font-family: 'Gochi Hand', cursive;
-    margin-left: 5%;
+    /* margin-left: 5%; */
     margin-bottom: 50px;
+    background-color: rgb(232, 232, 232);
+    box-shadow: 5px 10px 5px #d9d9d9;
+    border-radius: 5px;
+    padding: 5%;
 
 }
-/* https://mentormate.com/blog/css-postit-note/ */
 
 .recipe-card {
   transition: all .2s ease-in-out;
@@ -31,23 +43,13 @@
   border-bottom-right-radius: 60px 5px;
   display:inline-block;    
   background: -moz-linear-gradient(-45deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%); /* FF3.6+ */
+  -moz-box-shadow:3px 6px 6px rgba(33,33,33,1);
+  /* Safari+Chrome */
+  -webkit-box-shadow: 3px 6px 6px rgba(33,33,33,.7);
+  /* Opera */
+  box-shadow: 3px 6px 6px rgba(33,33,33,.7);
 }
 
-.recipe-card:after {     
-    content: "";
-   position:absolute;
-   z-index:-1;
-   right:-0px; bottom:20px;
-   width:130px;
-   height: 25px;
-   background: rgba(0, 0, 0, 0.2);
-   box-shadow:2px 15px 5px rgba(0, 0, 0, 0.40);
- -moz-transform: matrix(-1, -0.1, 0, 1, 0, 0);
-  -webkit-transform: matrix(-1, -0.1, 0, 1, 0, 0);
-       -o-transform: matrix(-1, -0.1, 0, 1, 0, 0);
-      -ms-transform: matrix(-1, -0.1, 0, 1, 0, 0);
-          transform: matrix(-1, -0.1, 0, 1, 0, 0);
-}
 
 .recipe-card > div:hover {
     cursor: pointer;
@@ -82,9 +84,10 @@
 
 @media screen and (max-width: 900px) {
     .recipes-container {
-        width: 75%;
-        margin-left:auto;
-        margin-right:auto;
+        background-color: transparent;
+        box-shadow: none;
+        width: 100%;
+        padding: 1%;
     }
 
     .recipe-card {
@@ -114,4 +117,65 @@
     .recipe-card-title {
         overflow-wrap: break-word;
     }
+
+    .scroll-to-top-desktop {
+        display: none
+    }
+}
+
+.angle-1 {
+    transform: rotate(2deg)
+}
+
+.angle-2 {
+    transform: rotate(4deg)
+}
+
+.angle-3 {
+    transform: rotate(6deg)
+}
+
+.angle-4 {
+    transform: rotate(8deg)
+}
+
+.angle-5 {
+    transform: rotate(0deg)
+}
+
+.angle-6 {
+    transform: rotate(0deg)
+}
+
+.angle-7 {
+    transform: rotate(-2deg)
+}
+
+.angle-8 {
+    transform: rotate(-4deg)
+}
+
+.angle-9 {
+    transform: rotate(-6deg)
+}
+
+.angle-10 {
+    transform: rotate(-8deg)
+}
+
+.angle-11 {
+    transform: rotate(0deg)
+}
+
+.angle-12 {
+    transform: rotate(0deg)
+}
+
+.scroll-to-top-desktop {
+    font-family: 'Gochi Hand', cursive;
+    font-size: 1.5rem;
+}
+
+.scroll-to-top-desktop:hover {
+    cursor: pointer;
 }

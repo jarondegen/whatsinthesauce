@@ -118,8 +118,6 @@ html, body, #root, .App {
     font-family: 'Gochi Hand', cursive;
     font-size: 1.3rem;
     border: 2.5px solid black;
-    /* width: 45%;
-    min-width: 105px; */
     border-radius: 50%;
     transition: all .2s ease-in-out;
     background-color: white;

@@ -17,7 +17,7 @@ const Card = ({recipe}) => {
     }
 
     return (
-        <div className={`recipe-card sticky-${randomSticky()}`} key={recipe.href}>
+        <div className={`recipe-card sticky-${randomSticky()} angle-${Math.floor(Math.random() * 10)}`} key={recipe.href}>
             <div id={recipe.idMeal} onClick={handleClick}>
                 <img alt="recipe-dish" id={recipe.idMeal} onClick={handleClick} className="recipe-card-image" src={recipe.thumbnail}/>
                 <p onClick={handleClick} id={recipe.idMeal} className="recipe-card-title">{recipe.title}</p>
