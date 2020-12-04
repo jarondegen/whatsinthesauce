@@ -26,7 +26,6 @@
     box-shadow: 5px 10px 5px #d9d9d9;
     border-radius: 5px;
     padding: 5%;
-
 }
 
 .recipe-card {
@@ -47,9 +46,8 @@
   /* Safari+Chrome */
   -webkit-box-shadow: 3px 6px 6px rgba(33,33,33,.7);
   /* Opera */
-  box-shadow: 3px 6px 6px rgba(33,33,33,.7);
+  box-shadow: 2px 4px 7px rgba(0,0,0,0.3);
 }
-
 
 .recipe-card > div:hover {
     cursor: pointer;

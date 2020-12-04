@@ -57,7 +57,7 @@ const MobileDashboard = ({dollars, setIsLoading,
                     {currentUserId && <Recipes />}
                 </div>
                 {recipes && currentUserId && <div onClick={() => document.querySelector('.navbar-logo').scrollIntoView()} className="back-to-top-container">
-                    scroll to top...
+                    scroll to top
                 </div>}
         </div>
     );
