@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import AuthContext from '../auth';
 import { NavLink } from 'react-router-dom';
 import logo from '../style/images/logo.png';

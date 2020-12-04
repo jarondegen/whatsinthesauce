@@ -30,6 +30,7 @@ const MyAccount = ({getProfilePic}) => {
 
     useEffect(() => {
         getAccountInfo()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
     const getAccountInfo = async () => {

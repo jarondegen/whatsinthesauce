@@ -14,6 +14,7 @@ const Recipes = () => {
     useEffect(() => {
         dispatch(changeLoading(true))
         getTheRecipes()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[Fridge, dispatch])
 
     useEffect(() => {
@@ -22,6 +23,7 @@ const Recipes = () => {
                 dispatch(changeLoading(false))
             }
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[recipes, dispatch])
 
     const getTheRecipes = async () => {

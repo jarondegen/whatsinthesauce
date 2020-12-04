@@ -45,6 +45,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         getProfilePic()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[currentUserId])
 
     
@@ -196,7 +197,7 @@ const Dashboard = () => {
                         
                         )}
                         {currentUserId && <div onClick={handleAccountClick} className="my-account-div">
-                            <img className="profile-pic-img" src={profilePic? profilePic : chefPic}/>
+                            <img alt="profile" className="profile-pic-img" src={profilePic? profilePic : chefPic}/>
                         </div>}
                         {currentUserId && <span className="my-account-span">My Account</span>}
                         <div className="click-to-open-container">
