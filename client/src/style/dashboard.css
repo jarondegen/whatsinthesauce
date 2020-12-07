@@ -64,7 +64,7 @@ html, body, #root, .App {
     grid-template-columns: 48% 52%;
     grid-template-rows: 33% 67%;
     transition: all .4s ease-in-out;
-    margin-left: 20%;
+    margin-left: 25%;
     margin-top: 5%;
     min-width: 628px;
 }

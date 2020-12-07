@@ -12,9 +12,9 @@
 }
 
 .new-list-form-container {
-    margin: 7%;
+    /* margin: 7%; */
     font-family: 'Gochi Hand', cursive;
-    margin-top: 30%;
+    margin-top: 15%;
     margin-bottom: none;
 }
 
@@ -73,10 +73,10 @@
     grid-column: 1/3;
     grid-row: 1/3;
     background-image: url('./images/torn-paper.png');
+    background-size:cover;
     background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    height: 55%;
+    background-size: 100% 100%;
+    height: 50%;
     width: 40%;
     display: flex;
     flex-direction: column;
@@ -100,7 +100,7 @@
     width: 100%;
     margin-left: 14%;
     margin-bottom: 1%;
-    height: 55%;
+    height: 84%;
 }
 
 .lists-div {
@@ -125,7 +125,7 @@
     text-decoration: none;
     color: black;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     padding-left: 20%;
     word-wrap: break-word
 }
