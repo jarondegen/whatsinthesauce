@@ -18,12 +18,18 @@ const NewShoppingList = ({ getLists }) => {
             formLabel.innerHTML = '+ New List';
         }else {
             form.setAttribute('class', 'new-list-form');
-            formLabel.innerHTML = '- New List';
+            formLabel.innerHTML = '';
+            document.getElementById('new-list-input').focus();
         }
     }
     
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (listName === '') {
+            toggleForm();
+            return;
+        }
+        toggleForm()
         const data = await fetchWithCSRF('/api/lists/new', {
             method: 'POST',
             headers: {
@@ -51,12 +57,11 @@ const NewShoppingList = ({ getLists }) => {
             <span id="NLFLabel" onClick={toggleForm}>+ New List</span>
             <form onSubmit={(e)=>e.preventDefault()} id="NLF" className="new-list-form hidden">
                 <div >
-                    <label >List Name</label>
+                    <label onClick={toggleForm} className="new-list-label">List Name</label>
                 </div>
-                <div>
-                    <input onKeyPress={handleEnter} className="new-list-input" onChange={(e) => setListName(e.target.value)} value={listName} type="text" placeholder="ex. Whole Foods.."/>
-                    <br />
-                    <div onClick={handleSubmit} className="new-list-add-div"><span>add list</span><img alt="add new list" className="new-list-check" src={check} onKeyDown={handleEnter}/></div>
+                <div className="new-list-input-div">
+                    <input id="new-list-input" onKeyPress={handleEnter} className="new-list-input" onChange={(e) => setListName(e.target.value)} value={listName} type="text" placeholder="ex. Whole Foods.."/>
+                    <div onClick={handleSubmit} className="new-list-add-div"><img alt="add new list" className="new-list-check" src={check} onKeyDown={handleEnter}/></div>
                 </div>
                 <div>
                 </div>

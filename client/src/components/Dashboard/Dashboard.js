@@ -196,10 +196,12 @@ const Dashboard = () => {
                             </div>
                         
                         )}
-                        {currentUserId && <div onClick={handleAccountClick} className="my-account-div">
-                            <img alt="profile" className="profile-pic-img" src={profilePic? profilePic : chefPic}/>
-                        </div>}
-                        {currentUserId && <span className="my-account-span">My Account</span>}
+                        <div className="my-account-button-div">
+                            {currentUserId && <div onClick={handleAccountClick} className="my-account-div">
+                                <img alt="profile" className="profile-pic-img" src={profilePic? profilePic : chefPic}/>
+                            </div>}
+                            {currentUserId && <span className="my-account-span">My Account</span>}
+                        </div>
                         <div className="click-to-open-container">
                             <img alt="decoratice" className="click-to-open-sauce" src={sauceCooking} />
                             <div className="click-to-open-text">
