@@ -13,7 +13,7 @@ function LoginForm({setShowSignUp}) {
         e.preventDefault();
 
         async function loginUser() {
-            const response = await fetchWithCSRF(`/login`, {
+            const response = await fetchWithCSRF(`/api/login`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json",
