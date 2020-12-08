@@ -98,20 +98,22 @@
     overflow: scroll;
     overflow-x: hidden;
     width: 100%;
-    margin-left: 14%;
+    margin-left: 12%;
     margin-bottom: 1%;
     height: 84%;
 }
 
 .lists-div {
     display: grid;
-    grid-template-columns: 40% 40% 20%;
+    grid-template-columns: 50% 30% 20%;
     width: 100%;
     height: 10px;
     font-family: 'Gochi Hand', cursive;
     padding: 10px;
     -ms-overflow-style: none;
     scrollbar-width: none; /* Firefox */
+    margin-top: 8%;
+    margin-bottom: 8%;
 }
 
 .shopping-lists-map-container::-webkit-scrollbar {
@@ -127,7 +129,8 @@
     font-weight: bold;
     font-size: 1.35rem;
     padding-left: 20%;
-    word-wrap: break-word
+    word-wrap: break-word;
+    padding-right: 20px;
 }
 
 .list-list-name-link:hover {
