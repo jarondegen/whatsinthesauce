@@ -45,8 +45,10 @@ const Recipes = () => {
 
     return (
         <>
-        <div className="recipes-page-cotianer">
-            {recipes.length > 0? <h4 className="suggest-recipes-title">Suggested Recipes</h4> : null}
+        {recipes.length > 0 && (
+        <>    
+         <div className="recipes-page-cotianer">
+            <h4 className="suggest-recipes-title">Suggested Recipes</h4> 
             <div className="recipes-container">
                 {recipes.map((recipe, i) => 
                         recipe.thumbnail ? (
@@ -56,6 +58,8 @@ const Recipes = () => {
             </div>
         </div>
         <p className="scroll-to-top-desktop" onClick={() => document.querySelector('.recipes-page-cotianer').scrollIntoView()}>scroll to top</p>
+        </>
+        )}
         </>
     );
 };
