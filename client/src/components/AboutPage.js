@@ -15,10 +15,10 @@ const AboutPage = () => {
                 <ul>
                     <li>make an account</li>
                     <li>make a grocery list</li>
-                    <li>add ingredients to your new list</li>
-                    <li>when you get back home, add it to your fridge just like irl</li>
-                    <li>we will keep track of it from there.  don't forget to remove it from your fridge after you eat it</li>
-                    <li>profit... well maybe not, but definitely save money!</li>
+                    <li>add ingredients that you need to your new list</li>
+                    <li>when you get home from grocery shopping, add the items to your fridge just like irl</li>
+                    <li>we will keep track of everything from there.  don't forget to remove it from your fridge after you eat it</li>
+                    <li>profit... well maybe not, but definitely do you part in reducing food waste, eat well and, save money!</li>
                 </ul>
             </div>
             <div className="about-about-container">
