@@ -177,3 +177,8 @@
 .scroll-to-top-desktop:hover {
     cursor: pointer;
 }
+
+.angle-1:hover, .angle-2:hover, .angle-3:hover, .angle-4:hover, .angle-5:hover, .angle-6:hover, .angle-7:hover, .angle-8:hover,
+.angle-9:hover, .angle-10:hover, .angle-11:hover, .angle-12:hover {
+    transform: none;
+}

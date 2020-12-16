@@ -23,30 +23,30 @@ const Dashboard = () => {
     const dispatch = useDispatch();
     const { currentUserId } = useContext(AuthContext);
     const { Fridge } = useSelector(store => store);
-    const [dollars, setDollars] = useState(0)
-    const [isLoading, setIsLoading] = useState(true)
-    const [homeListId, setHomeListId] = useState()
-    const [recipesLoading, setRecipesLoading] = useState(true)
-    const [showSignUp, setShowSignUp] = useState(false)
+    const [dollars, setDollars] = useState(0);
+    const [isLoading, setIsLoading] = useState(true);
+    const [homeListId, setHomeListId] = useState();
+    const [recipesLoading, setRecipesLoading] = useState(true);
+    const [showSignUp, setShowSignUp] = useState(false);
     const [isDesktop, setDesktop] = useState(window.innerWidth > 900);
-    const { loading } = useSelector(store => store.Recipes)
-    const [myAccountClicked, setMyAccountClicked] = useState(false)
-    const [profilePic, setProfilePic] = useState()
+    const { loading } = useSelector(store => store.Recipes);
+    const [myAccountClicked, setMyAccountClicked] = useState(false);
+    const [profilePic, setProfilePic] = useState();
 
     const getProfilePic = async () => {
         if (currentUserId) {
             const data =  await fetch(`/api/users/profile_pic/${currentUserId}`);
             if (data.ok) {
-                const res = await data.json()
-                setProfilePic(res)
+                const res = await data.json();
+                setProfilePic(res);
             }
         }
     }
 
     useEffect(() => {
-        getProfilePic()
+        getProfilePic();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[currentUserId])
+    },[currentUserId]);
 
     
     const updateMedia = () => {
@@ -56,7 +56,7 @@ const Dashboard = () => {
     const logOutButton = document.getElementById('desktop-logout-button');
     if (logOutButton) {
         logOutButton.addEventListener('click', (e) => {
-          closeDoor()
+          closeDoor();
       })
     }
     
@@ -69,15 +69,15 @@ const Dashboard = () => {
         if (currentUserId) {
             dispatch(getFridgeItems(currentUserId));
         }
-    }, [currentUserId, dispatch])
+    }, [currentUserId, dispatch]);
 
     useEffect(() => {
         if (!loading) {
-            setRecipesLoading(false)
+            setRecipesLoading(false);
         }else {
-            setRecipesLoading(true)
+            setRecipesLoading(true);
         }
-    }, [loading])
+    }, [loading]);
     
     useEffect(() => {
         let y = 0
@@ -100,35 +100,35 @@ const Dashboard = () => {
 
     const handleAccountClick = () => {
         if (!myAccountClicked){
-            setMyAccountClicked(true)
+            setMyAccountClicked(true);
             openDoor()
         }else {
-            setMyAccountClicked(false)
-            closeDoor()
+            setMyAccountClicked(false);
+            closeDoor();
         }
     }
 
     const handleCrazyArrowClick = (e) => {
-        const clickToOpenArrow = document.querySelector('.click-to-open-arrow')
-        clickToOpenArrow.style.transform = 'rotate(-55deg)'
+        const clickToOpenArrow = document.querySelector('.click-to-open-arrow');
+        clickToOpenArrow.style.transform = 'rotate(-55deg)';
         setTimeout(() => {
-            clickToOpenArrow.style.transform = 'rotate(-75deg)'
-        },250)
+            clickToOpenArrow.style.transform = 'rotate(-75deg)';
+        },250);
     }
 
     const openDoor = (e) => {
         if (!currentUserId) {
-            return
+            return;
         }
-        const homeArrow = document.getElementById('homepage-arrow')
+        const homeArrow = document.getElementById('homepage-arrow');
         document.querySelector('.fridge-container').style.backgroundImage  = `url(${openFridge})`;
-        document.querySelector('.fridge-container').style.zIndex = 10
+        document.querySelector('.fridge-container').style.zIndex = 10;
         setTimeout(() => {
             if (!myAccountClicked && document.querySelector('.inside-fridge-container')) {
                 document.querySelector('.inside-fridge-container').style.display = 'flex';
                 document.querySelector('.freezer-door-container').style.display = 'flex';
             }
-            document.querySelector('.recipes-loading-container').style.zIndex = -10
+            document.querySelector('.recipes-loading-container').style.zIndex = -10;
         }, 100)
         if (homeArrow){
             homeArrow.style.zIndex = -10;
@@ -140,24 +140,24 @@ const Dashboard = () => {
 
     const closeDoor = (e) => {
         if (!isDesktop) return
-        if (myAccountClicked) { setMyAccountClicked(false) }
+        if (myAccountClicked) { setMyAccountClicked(false) };
         const pickArrow = document.getElementById('homepage-arrow');
         document.querySelector('.fridge-container').style.backgroundImage  = `url(${closedFridge})`;
-        document.querySelector('.fridge-container').style.zIndex = -10
+        document.querySelector('.fridge-container').style.zIndex = -10;
         setTimeout(() => {
             if (!myAccountClicked) {
                 document.querySelector('.freezer-door-container').style.display = 'none';
                 document.querySelector('.inside-fridge-container').style.display = 'none';
             }
             document.querySelector('.lists-container').style.display = "flex";
-            document.querySelector('.lists-container').style.zIndex = 10
+            document.querySelector('.lists-container').style.zIndex = 10;
             if (document.querySelector('.recipes-loading-container')) {
-                document.querySelector('.recipes-loading-container').style.zIndex = 10
+                document.querySelector('.recipes-loading-container').style.zIndex = 10;
             }
-            if (pickArrow) pickArrow.style.zIndex = 10 
-        }, 100)
-        document.getElementById('open-button-1').setAttribute('class', 'top-right-holder')
-        document.getElementById('open-button-2').setAttribute('class', 'bottom-right-holder')
+            if (pickArrow) pickArrow.style.zIndex = 10;
+        }, 100);
+        document.getElementById('open-button-1').setAttribute('class', 'top-right-holder');
+        document.getElementById('open-button-2').setAttribute('class', 'bottom-right-holder');
         document.getElementById('open-button-3').style.display = 'none';
         document.getElementById('open-button-4').style.display = 'none';
     }
@@ -220,6 +220,6 @@ const Dashboard = () => {
             )}
         </>
     );
-}
+};
 
-export default Dashboard
+export default Dashboard;
