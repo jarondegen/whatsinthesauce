@@ -21,8 +21,8 @@ const DashFridge = ({ getProfilePic, myAccountClicked, openDoor, dollars, closeD
         });
         if (data.ok) {
             dispatch(getFridgeItems(currentUserId));
-        }
-    }
+        };
+    };
 
     return (
         <div className="fridge-container">
@@ -55,7 +55,7 @@ const DashFridge = ({ getProfilePic, myAccountClicked, openDoor, dollars, closeD
                 <MyAccount getProfilePic={getProfilePic}/>
             )}
         </div>
-    )
-}
+    );
+};
 
 export default DashFridge;
