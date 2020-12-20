@@ -18,7 +18,7 @@ const MobileDashboard = ({dollars, setIsLoading,
     homeListId, showSignUp, setShowSignUp, recipesLoading}) => {
     
     const { currentUserId } = useContext(AuthContext);
-    const { recipes } = useSelector(store => store.Recipes)
+    const { recipes } = useSelector(store => store.Recipes);
 
     return (
         <div className="mobile-dashboard-container">

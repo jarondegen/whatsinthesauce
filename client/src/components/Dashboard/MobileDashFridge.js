@@ -5,7 +5,7 @@ import x from '../../style/images/x.png';
 import { getFridgeItems } from '../../store/fridge';
 
 const MobileDashFridge = ({dollars, setDollars, setIsLoading}) => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const { Fridge } = useSelector(store => store);
     const { currentUserId, fetchWithCSRF } = useContext(AuthContext);
 
@@ -25,13 +25,13 @@ const MobileDashFridge = ({dollars, setDollars, setIsLoading}) => {
         if (currentUserId) {
             dispatch(getFridgeItems(currentUserId));
         }
-    }, [currentUserId, dispatch])
+    }, [currentUserId, dispatch]);
 
     useEffect(() => {
         let y = 0
         Fridge.forEach(item => {
             if (item.expiring_soon && item.price) {
-                y = y + item.price
+                y = y + item.price;
             };
         });
         setDollars(y);
