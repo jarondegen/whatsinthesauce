@@ -4,40 +4,40 @@ import PhotoUpload from '../PhotoUpload/PhotoUpload';
 
 const MyAccount = ({getProfilePic}) => {
     const { currentUserId, fetchWithCSRF } = useContext(AuthContext);
-    const [userInfo, setUserInfo] = useState({})
-    const [password, setPassword] = useState('')
-    const [confirmPassword, setConfirmPassword] = useState('')
-    const [email, setEmail] = useState('')
-    const [confirmEmail, setConfirmEmail] = useState('')
-    const [errors, setErrors] = useState([])
-    const [success, setSuccess] = useState(false)
+    const [userInfo, setUserInfo] = useState({});
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const [confirmEmail, setConfirmEmail] = useState('');
+    const [errors, setErrors] = useState([]);
+    const [success, setSuccess] = useState(false);
 
     const handleEmail = (e) => {
-        setEmail(e.target.value)
+        setEmail(e.target.value);
     }
 
     const handleConfirmEmail = (e) => {
-        setConfirmEmail(e.target.value)
+        setConfirmEmail(e.target.value);
     }
 
     const handlePassword = (e) => {
-        setPassword(e.target.value)
+        setPassword(e.target.value);
     }
 
     const handleConfirmPassword = (e) => {
-        setConfirmPassword(e.target.value)
+        setConfirmPassword(e.target.value);
     }
 
     useEffect(() => {
-        getAccountInfo()
+        getAccountInfo();
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
     const getAccountInfo = async () => {
         const data = await fetch(`/api/users/get/${currentUserId}`);
         if (data.ok) {
-            const { info } = await data.json()
-            setUserInfo(info)
+            const { info } = await data.json();
+            setUserInfo(info);
         }
     }
 
@@ -45,12 +45,12 @@ const MyAccount = ({getProfilePic}) => {
         if (validateInputs()){
             const change = e.target.id === 'changeEmail' ? 'email' : 'password';
             if (change === 'password' & password.length === 0) {
-                setErrors(['password must be 6 or more characters'])
-                return
+                setErrors(['password must be 6 or more characters']);
+                return;
             }
             if (change === 'email' & email.length === 0) {
-                setErrors(['email must be 6 or more characters'])
-                return
+                setErrors(['email must be 6 or more characters']);
+                return;
             }
             const data = await fetchWithCSRF('/api/users/edit', {
                 method: 'POST',
@@ -69,15 +69,15 @@ const MyAccount = ({getProfilePic}) => {
                         setSuccess(false);
                     }, 4000);
                 } else {
-                    setErrors([...errors, res])
-                }
+                    setErrors([...errors, res]);
+                };
             };
         };
     };
 
     const validateInputs = () => {
-        setErrors([])
-        const errs = []
+        setErrors([]);
+        const errs = [];
         if (password !== confirmPassword) {
             errs.push("passwords must match");
         }
@@ -92,13 +92,13 @@ const MyAccount = ({getProfilePic}) => {
         }
         setErrors(errs)
         if (errs.length > 0) {
-            return false
-        }else return true
+            return false;
+        }else return true;
     }
 
     const handleUploadClick = () => {
         const uploadModal = document.getElementById('profile-modal-container');
-        uploadModal.classList.toggle('hide')
+        uploadModal.classList.toggle('hide');
     }
 
     return (
