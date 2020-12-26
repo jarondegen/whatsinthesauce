@@ -3,9 +3,9 @@ import { uploadFile } from 'react-s3';
 import  { configuration } from '../../config/index.js'
 import '../../style/photo-upload.css';
 import ReactCrop from 'react-image-crop'
-import 'react-image-crop/dist/ReactCrop.css'
-import AuthContext from '../../auth'
-import wheel from '../../style/images/happy-face.gif'
+import 'react-image-crop/dist/ReactCrop.css';
+import AuthContext from '../../auth';
+import wheel from '../../style/images/happy-face.gif';
 import profileIcon from '../../style/images/edit-user-grey.png';
 
 const config = {
@@ -14,22 +14,22 @@ const config = {
     region: 'us-east-2',
     accessKeyId: configuration.aws.accessKey,
     secretAccessKey: configuration.aws.secretKey,
-}
+};
 
 const PhotoUpload = ({handleUploadClick, getProfilePic}) => {
-    const [ready, setReady] = useState(false)
-    const [selectedFile, setSelectedFile] = useState()
-    const [crop, setCrop] = useState({unit: "%", width: 50, height: 50, x: 25, y: 25, aspect: 1 / 1})
-    const [imageRef, setImageRef] = useState()
-    const [croppedImage, setCroppedImage] = useState()
-    const [src, setSrc] = useState()
+    const [ready, setReady] = useState(false);
+    const [selectedFile, setSelectedFile] = useState();
+    const [crop, setCrop] = useState({unit: "%", width: 50, height: 50, x: 25, y: 25, aspect: 1 / 1});
+    const [imageRef, setImageRef] = useState();
+    const [croppedImage, setCroppedImage] = useState();
+    const [src, setSrc] = useState();
     const { fetchWithCSRF, currentUserId } = useContext(AuthContext);
 
     
     const onImageLoaded = image => {
         setCrop(crop);
-        setImageRef(image)
-        getCroppedImg(image, crop)
+        setImageRef(image);
+        getCroppedImg(image, crop);
     }
 
     const onCropChange = (crop) => {
@@ -38,9 +38,9 @@ const PhotoUpload = ({handleUploadClick, getProfilePic}) => {
 
     const onCropComplete = crop => {
         if (imageRef && crop.width && crop.height) {
-            getCroppedImg(imageRef, crop)
-        }
-    }
+            getCroppedImg(imageRef, crop);
+        };
+    };
 
     const getCroppedImg = (image, crop) => {
         const canvas = document.createElement("canvas");
@@ -83,9 +83,9 @@ const PhotoUpload = ({handleUploadClick, getProfilePic}) => {
             reader.readAsDataURL(blob)
             reader.onloadend = () => {
             dataURLtoFile(reader.result, getRandomString(20))
-            }
+            };
         })
-    }
+    };
 
     const dataURLtoFile = (dataurl, filename) => {
         let arr = dataurl.split(','),
@@ -98,7 +98,7 @@ const PhotoUpload = ({handleUploadClick, getProfilePic}) => {
             u8arr[n] = bstr.charCodeAt(n);
         }
         setCroppedImage(new File([u8arr], filename, {type:mime}))
-    }
+    };
 
     useEffect(() => {
         if (!selectedFile) {
@@ -115,7 +115,7 @@ const PhotoUpload = ({handleUploadClick, getProfilePic}) => {
             result += randomChars.charAt(Math.floor(Math.random() * randomChars.length));
         }
         return result;
-    }
+    };
 
     const upload = async() => {
         const wheelDiv = document.getElementById('wheel')
