@@ -132,24 +132,24 @@ const PhotoUpload = ({handleUploadClick, getProfilePic}) => {
                 wheelDiv.setAttribute("class", "loading-wheel-container hidden");
                 handleUploadClick()
                 getProfilePic()
-            }  
-        }
-    }
+            };  
+        };
+    };
 
     const onSelectFile = (e) => {
         if (!e.target.files || e.target.files.length === 0) {
-            setSelectedFile(undefined)
-            return
-        }
+            setSelectedFile(undefined);
+            return;
+        };
         setReady(true)
         setSelectedFile(e.target.files[0])
         const fileReader = new FileReader()
         fileReader.onloadend = () => {
             setSrc(fileReader.result)
-        }   
-        fileReader.readAsDataURL(e.target.files[0])
-        return
-    }
+        };   
+        fileReader.readAsDataURL(e.target.files[0]);
+        return;
+    };
 
     return (
         <>

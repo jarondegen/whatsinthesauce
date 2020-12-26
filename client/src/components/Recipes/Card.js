@@ -3,18 +3,18 @@ import React from 'react';
 const Card = ({recipe}) => {
 
     const randomSticky = () => {
-        const colors = ["blue", "purple"]
-        return colors[Math.floor(Math.random() * 2)]
+        const colors = ["blue", "purple"];
+        return colors[Math.floor(Math.random() * 2)];
     }
 
     const handleClick = async (e) => {
-        const idMeal = e.target.id
-        const data = await fetch(`/api/fridges/youtube/${parseInt(idMeal)}`)
+        const idMeal = e.target.id;
+        const data = await fetch(`/api/fridges/youtube/${parseInt(idMeal)}`);
         if (data.ok) {
             const { url } = await data.json();
-            window.open(url)
-        }
-    }
+            window.open(url);
+        };
+    };
 
     return (
         <div className={`recipe-card sticky-${randomSticky()} angle-${Math.floor(Math.random() * 10)}`} key={recipe.href}>
