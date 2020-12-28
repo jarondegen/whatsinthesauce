@@ -3,12 +3,12 @@ import AuthContext from '../../auth';
 import check from '../../style/images/check.png';
 import x from '../../style/images/x.png';
 import { getFridgeItems } from '../../store/fridge';
-import { useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux';
 
 const ListItem = ({item, getItems, listId}) => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const { fetchWithCSRF, currentUserId } = useContext(AuthContext);
-    const [price, setPrice] = useState()
+    const [price, setPrice] = useState();
 
     
     const handleRemoveItem = async (e) => {
@@ -24,13 +24,13 @@ const ListItem = ({item, getItems, listId}) => {
             })
         });
         if (data.ok) {
-            getItems(listId)
-        }
-    }
+            getItems(listId);
+        };
+    };
 
     const handleAddToFridge = async (e) => {
         if (price === null) {
-            setPrice(0)
+            setPrice(0);
         }
         const data = await fetchWithCSRF('/api/fridges/add', {
             method: 'POST',
@@ -47,11 +47,11 @@ const ListItem = ({item, getItems, listId}) => {
             })
         });
         if (data.ok) {
-            dispatch(getFridgeItems(currentUserId))
-            getItems(listId)
-            setPrice()
-        }
-    }
+            dispatch(getFridgeItems(currentUserId));
+            getItems(listId);
+            setPrice();
+        };
+    };
 
     return (
         <div className="ingredient-list-item-container"key={item.id}> 

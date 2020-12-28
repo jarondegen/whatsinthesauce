@@ -6,25 +6,25 @@ import { setRecipeItems, changeLoading } from '../../store/recipes';
 import '../../style/recipes.css'
 
 const Recipes = () => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const { Fridge } = useSelector(store => store);
-    const { recipes, loading } = useSelector(store => store.Recipes)
+    const { recipes, loading } = useSelector(store => store.Recipes);
     const { fetchWithCSRF } = useContext(AuthContext);
     
     useEffect(() => {
-        dispatch(changeLoading(true))
-        getTheRecipes()
+        dispatch(changeLoading(true));
+        getTheRecipes();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[Fridge, dispatch])
+    },[Fridge, dispatch]);
 
     useEffect(() => {
         if (recipes.length > 0) {
             if (loading) {
-                dispatch(changeLoading(false))
-            }
-        }
+                dispatch(changeLoading(false));
+            };
+        };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[recipes, dispatch])
+    },[recipes, dispatch]);
 
     const getTheRecipes = async () => {
         const data = await fetchWithCSRF('api/fridges/recipes', {
@@ -38,10 +38,10 @@ const Recipes = () => {
             })
           });
           if (data.ok) {
-            const { recipes } = await data.json()
-            dispatch(setRecipeItems(recipes))
-          }
-    }
+            const { recipes } = await data.json();
+            dispatch(setRecipeItems(recipes));
+          };
+    };
 
     return (
         <>
@@ -64,4 +64,4 @@ const Recipes = () => {
     );
 };
 
-export default Recipes
+export default Recipes;
