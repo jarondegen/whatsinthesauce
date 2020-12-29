@@ -9,37 +9,37 @@ const ListPage = ({listId, setHomeListId}) => {
     const { fetchWithCSRF } = useContext(AuthContext);
     const [listName, setListName] = useState('');
     const [listItems, setListItems] = useState([]);
-    const [itemToAdd, setItemToAdd] = useState(null)
-    const { groups } = useSelector(store => store.Ingredients)
-    const [itemsByGroup, setItemsByGroup] = useState([])
-    const [rdyToAdd, setRdyToAdd] = useState(false)
+    const [itemToAdd, setItemToAdd] = useState(null);
+    const { groups } = useSelector(store => store.Ingredients);
+    const [itemsByGroup, setItemsByGroup] = useState([]);
+    const [rdyToAdd, setRdyToAdd] = useState(false);
 
      useEffect(() => {
         getItems(listId)
-    }, [listId])
+    }, [listId]);
     
     const getItems = async (listId) => {
         const data = await fetch(`/api/lists/items/${listId}`);
         if (data.ok) {
             const { items, user_list } = await data.json();
-            setListItems(items)
-            setListName(user_list.name)
-        }
-    }
+            setListItems(items);
+            setListName(user_list.name);
+        };
+    };
 
     const handleGroupSelect = async (e) => {
-        const data = await fetch(`/api/lists/groups/${e.target.value}`)
+        const data = await fetch(`/api/lists/groups/${e.target.value}`);
         if (data.ok) {
-            const items = await data.json()
-            setItemsByGroup(items)
-            setRdyToAdd(false)
-        }
-    }
+            const items = await data.json();
+            setItemsByGroup(items);
+            setRdyToAdd(false);
+        };
+    };
 
     const handleIngredientSelect = (e) => {
-        setItemToAdd(e.target.value)
-        setRdyToAdd(true)
-    }
+        setItemToAdd(e.target.value);
+        setRdyToAdd(true);
+    };
 
     const handleAddToList = async () => {
         const data = await fetchWithCSRF('/api/lists/add', {
@@ -52,15 +52,15 @@ const ListPage = ({listId, setHomeListId}) => {
                 listId,
                 itemToAdd
             })
-        })
+        });
         if (data.ok) {
-             getItems(listId)
-        }
-    }
+             getItems(listId);
+        };
+    };
 
     const handleCloseList = () => {
-        setHomeListId(null)
-    }
+        setHomeListId(null);
+    };
 
     return (
         <div className="list-page-container">
@@ -98,6 +98,6 @@ const ListPage = ({listId, setHomeListId}) => {
             </div>
         </div>
     );
-}
+};
 
-export default ListPage
+export default ListPage;

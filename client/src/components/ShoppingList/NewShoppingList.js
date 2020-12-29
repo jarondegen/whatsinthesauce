@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { useDispatch } from 'react-redux';
 import '../../style/shopping-lists.css';
 import AuthContext from '../../auth';
-import check from '../../style/images/check.png'
+import check from '../../style/images/check.png';
 
 const NewShoppingList = ({ getLists }) => {
     const dispatch = useDispatch();
@@ -20,8 +20,8 @@ const NewShoppingList = ({ getLists }) => {
             form.setAttribute('class', 'new-list-form');
             formLabel.innerHTML = '';
             document.getElementById('new-list-input').focus();
-        }
-    }
+        };
+    };
     
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -29,7 +29,7 @@ const NewShoppingList = ({ getLists }) => {
             toggleForm();
             return;
         }
-        toggleForm()
+        toggleForm();
         const data = await fetchWithCSRF('/api/lists/new', {
             method: 'POST',
             headers: {
@@ -48,9 +48,9 @@ const NewShoppingList = ({ getLists }) => {
 
     const handleEnter = (e) => {
         if (e.key === 'Enter') {
-            handleSubmit(e)
-          }
-    }
+            handleSubmit(e);
+          };
+    };
 
     return (
         <div className="new-list-form-container">

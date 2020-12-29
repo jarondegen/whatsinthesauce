@@ -6,17 +6,17 @@ import AuthContext from '../../auth';
 const SearchBar = ({listId, getItems}) => {
     const { fetchWithCSRF } = useContext(AuthContext);
     const { ingredients } = useSelector(store => store.Ingredients);
-    const [text, setText] =  useState('')
-    const [options, setOptions] =  useState([])
-    const [buttonDisabled, setButtonDisabled] = useState(true)
+    const [text, setText] =  useState('');
+    const [options, setOptions] =  useState([]);
+    const [buttonDisabled, setButtonDisabled] = useState(true);
 
     useEffect(() => {
-        const ingredientStrings = []
+        const ingredientStrings = [];
         ingredients.forEach(food => {
-            ingredientStrings.push(food.name.toLowerCase())
-        })
-        setOptions(ingredientStrings)
-    }, [ingredients])
+            ingredientStrings.push(food.name.toLowerCase());
+        });
+        setOptions(ingredientStrings);
+    }, [ingredients]);
 
     const handleSearchClick = async () => {
         const data = await fetchWithCSRF('/api/lists/search_bar_add', {
@@ -29,27 +29,27 @@ const SearchBar = ({listId, getItems}) => {
                 listId,
                 itemToAdd:text
             })
-        })
+        });
         if (data.ok) {
-            setText('')
-            getItems(listId)
-        }
-    }
+            setText('');
+            getItems(listId);
+        };
+    };
 
     const handleChange = (e) => {
-        setText(e.target.value)
+        setText(e.target.value);
         if (options.includes(e.target.value.toLowerCase())) {
-            setButtonDisabled(false)
+            setButtonDisabled(false);
         }else {
-             setButtonDisabled(true)
-        }
-    }
+             setButtonDisabled(true);
+        };
+    };
 
     const handleKeyPress = (e) => {
         if (e.key === 'Enter' && !buttonDisabled){
-            handleSearchClick()
-        }
-      }
+            handleSearchClick();
+        };
+      };
 
     return (
         <div className="search-bar-div">
