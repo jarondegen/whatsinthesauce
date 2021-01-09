@@ -1,5 +1,5 @@
 import React from 'react';
-import github from '../style/images/github.png'
+import github from '../style/images/github.png';
 import '../style/about-page.css';
 
 const AboutPage = () => {
@@ -33,7 +33,7 @@ const AboutPage = () => {
                 <a rel="noopener noreferrer" target="_blank" href="https://github.com/jarondegen/whatsinthesauce"><img alt="link to github" src={github} /></a>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default AboutPage
+export default AboutPage;

@@ -15,7 +15,7 @@ const ShoppingLists = ({ setHomeListId, closeDoor }) => {
         if (currentUserId) {
             dispatch(getLists(currentUserId));
         }
-    }, [currentUserId, dispatch])
+    }, [currentUserId, dispatch]);
 
     const handleDelete = async (e) => {
         const data = await fetchWithCSRF(`/api/lists/delete/${parseInt(e.target.id)}`,{
@@ -25,14 +25,14 @@ const ShoppingLists = ({ setHomeListId, closeDoor }) => {
             }
         });
         if (data.ok) {
-            dispatch(getLists(currentUserId))
-        }
-    }
+            dispatch(getLists(currentUserId));
+        };
+    };
 
     const handleListClick = (e) => {
-        setHomeListId(e.target.id)
-        closeDoor()
-    }
+        setHomeListId(e.target.id);
+        closeDoor();
+    };
 
     return (
         <div className="lists-container">
@@ -54,6 +54,6 @@ const ShoppingLists = ({ setHomeListId, closeDoor }) => {
             </div>
         </div>
     );
-}
+};
 
-export default ShoppingLists
+export default ShoppingLists;
