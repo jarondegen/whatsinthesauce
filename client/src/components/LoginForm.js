@@ -29,16 +29,16 @@ function LoginForm({setShowSignUp}) {
             if (!response.ok) {
                 setErrors(responseData.errors);
             } else {
-                setCurrentUserId(responseData.current_user_id)
-                history.push('/home')
+                setCurrentUserId(responseData.current_user_id);
+                history.push('/home');
             }
         }
         loginUser();
-    }
+    };
 
     const handleSignupClick = () => {
-        setShowSignUp(true)
-    }
+        setShowSignUp(true);
+    };
 
     return (
         <div className="login-form-container">
@@ -72,5 +72,5 @@ function LoginForm({setShowSignUp}) {
             </div>
         </div>
     );
-}
+};
 export default LoginForm; 
