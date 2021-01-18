@@ -11,14 +11,14 @@ const NavBar = ({logoutUser}) => {
     const handleBurgerClick = (e) => {
         const mobileMenu = document.getElementById('mobile-nav-links');
         if (mobileMenu) {
-            mobileMenu.classList.toggle('show')
-        }
-    }
+            mobileMenu.classList.toggle('show');
+        };
+    };
 
     const handleLogout = () => {
-        handleBurgerClick()
-        logoutUser()
-    }
+        handleBurgerClick();
+        logoutUser();
+    };
 
     return (
         <>
@@ -74,6 +74,6 @@ const NavBar = ({logoutUser}) => {
             </div>
         </>
     );
-}
+};
 
-export default NavBar
+export default NavBar;
