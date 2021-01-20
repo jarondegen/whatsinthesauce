@@ -52,14 +52,14 @@ const Dashboard = () => {
     const updateMedia = () => {
         setDesktop(window.innerWidth > 900);
       };    
-
+    //called if user logs out while fridge is open
     const logOutButton = document.getElementById('desktop-logout-button');
     if (logOutButton) {
         logOutButton.addEventListener('click', (e) => {
           closeDoor();
       })
     }
-    
+    //will go into mobile view if window width is collapsed under 900px
     useEffect(() => {
         window.addEventListener("resize", updateMedia);
         return () => window.removeEventListener("resize", updateMedia);
@@ -79,6 +79,7 @@ const Dashboard = () => {
         }
     }, [loading]);
     
+    //adding price totals of items expiring soon
     useEffect(() => {
         let y = 0
         Fridge.forEach(item => {
@@ -90,6 +91,7 @@ const Dashboard = () => {
         setIsLoading(false);
     }, [Fridge]);
 
+    //animation on user click if no list is open
     const handleArrowClick = () => {
         const listPaper = document.querySelector('.lists-container')
         listPaper.style.transform = 'scale(1.25)';
@@ -98,6 +100,7 @@ const Dashboard = () => {
         },250)
     }
 
+    //change inside fridge view to account info / close fridge door
     const handleAccountClick = () => {
         if (!myAccountClicked){
             setMyAccountClicked(true);
@@ -108,6 +111,7 @@ const Dashboard = () => {
         }
     }
 
+    //animation for right side arrow on click
     const handleCrazyArrowClick = (e) => {
         const clickToOpenArrow = document.querySelector('.click-to-open-arrow');
         clickToOpenArrow.style.transform = 'rotate(-55deg)';

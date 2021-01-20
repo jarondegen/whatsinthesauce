@@ -7,6 +7,7 @@ const Card = ({recipe}) => {
         return colors[Math.floor(Math.random() * 2)];
     }
 
+    // grabbing youtube link from api and then open video in new tab
     const handleClick = async (e) => {
         const idMeal = e.target.id;
         const data = await fetch(`/api/fridges/youtube/${parseInt(idMeal)}`);

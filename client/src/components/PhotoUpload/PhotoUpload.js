@@ -108,6 +108,7 @@ const PhotoUpload = ({handleUploadClick, getProfilePic}) => {
         return () => URL.revokeObjectURL(objectUrl)
     }, [selectedFile])
 
+    //random file name for AWS S3
     const getRandomString = (length) => {
         var randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         var result = '';
@@ -117,6 +118,7 @@ const PhotoUpload = ({handleUploadClick, getProfilePic}) => {
         return result;
     };
 
+    //uploading photo to AWS and sending recieved url to database
     const upload = async() => {
         const wheelDiv = document.getElementById('wheel')
         wheelDiv.setAttribute("class", "loading-wheel-container")
