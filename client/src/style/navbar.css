@@ -84,6 +84,10 @@ nav {
 
 
 @media screen and (max-width: 900px) {
+    nav {
+        position: fixed;
+    }
+
     .navbar-link {
         display: none; 
     }
